@@ -5,14 +5,27 @@
 
 {% block content %}
 
-<h1>Welcome to Scipertise</h1>
-{% if user.is_authenticated %}
-<p>Hi {{ user.username }}
-<p><a href="{% url 'logout' %}">Log out</a></p>
-{% else %}
-<p><a href="{% url 'signup' %}">Sign Up</a></p>
-<p><a href="{% url 'login' %}">Log In </a></p>
-{% endif %}
-
+           
+    <div class="row pt-5" id ="first_section_row">
+        <div class="container" id="site_container">
+    
+            <div class="container" id="vision">
+            <div class ="container" id="vision_text">
+                <h1 class="value_prop">Solve your research problems faster</h1>
+                <p class="vision_blurb">Connect with a researcher who has the expertise you need.<br>Sign up for Scipertise and do better research, faster.</p>
+                <p class="advice_blurb">Get insights on: <br> experimental models  |  software  |  lab techniques  |  equipment  |   data analysis</p>
+            </div>
+            
+    
+            </div>
+            <div class = "container" id="call_to_action">
+                <form>
+                    <button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button>
+                </form>
+            </div>
+        
+        </div>
+        
+        </div> 
 
 {% endblock %}

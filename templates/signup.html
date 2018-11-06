@@ -6,13 +6,24 @@
 {% block content %}
 
 
-<div class="container">
-    <h2>Sign up</h2>
-    <form method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <button type="submit">Sign up</button>
-    </form>
+<div class="container" id="signup">
+    <div class="signup_bgrd">
+            <h4>Sign up to find expertise</h4>
+         <form class="signup_form" action="" method="POST">
+             {% csrf_token %}
+                <p class="form_text" label="First Name">First Name:</p>
+                 {{ form.first_name }}
+                <p class="form_text" label="Last Name">Last Name:</p>
+                 {{ form.last_name }}
+                <p class="form_text" label="Email">Email:</p>
+                 {{ form.email  }}
+                <p class="form_text" label="Password">Password:</p>
+                 {{ form.password }}
+                 <br>    
+      <button type="submit" class="btn btn-primary">Sign up</button>
+               </form>
+    </div>
+
 
 </div>
 

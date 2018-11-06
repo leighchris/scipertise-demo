@@ -1,0 +1,245 @@
+/** Navbar **/
+
+button.btn.btn-primary {
+    padding: 8px 10px 8px 10px;
+    margin-right: 10px;
+    background-color: #363095;
+    border: none;
+    border-radius: 10px;
+
+}
+
+button.btn.btn-primary:hover {
+    background-color: #13acee;
+    border-radius: 10px;
+
+}
+
+/** Main layout and home page styles **/
+
+
+body {
+    height: 100%;
+    background-image: url(scipertise_background_dark.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div#site_container.container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+div#vision.container {
+    
+   
+    display: flex;
+    flex-direction: column;
+    width: 240%;
+    padding-bottom: 40px;
+    text-align: center;
+    
+}
+
+div#first_section_row.row.pt-5 {
+    
+    height:100%;
+    padding-bottom: 50px;
+}
+
+img.logo {
+ 
+    height:58px;
+    padding: 10px 12px 14px 50px;
+    max-width:100%;
+}
+
+
+h1.value_prop {
+    padding-top: 30px;
+    color: white;
+    font-size: 34pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    clear: right;
+}
+
+p.vision_blurb {
+    padding: 20px 0px 20px 0px;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14pt;
+}
+
+p.advice_blurb {
+    color:white;
+    font-size: 14pt;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+h4.form_title {
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+p.form_text {
+    padding-top: 20px;
+    font-family: 'PT Sans', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+input#id_username {
+    width: 280px;
+    padding-top: 5px;
+}
+
+input#id_first_name {
+    width: 280px;
+    padding-top: 5px;
+}
+
+input#id_last_name {
+    width: 280px;
+    padding-top: 10px;
+}
+
+input#id_email {
+    width: 280px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+input#id_password {
+    width: 280px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+input.button {
+    width: 280px;
+    background-color: #363095;
+    color: white;
+    padding: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 200;
+}
+
+input.button:hover {
+    width: 280px;
+    background-color: #13acee;
+    color: white;
+    padding: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 200;
+}
+
+div#form.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+
+div#call_to_action.container {
+    display: flex;
+    justify-content: center;
+  
+}
+
+button#call_to_action.btn.btn-primary {
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 100px 10px 100px;
+    background-color: #13acee;
+    font-size: 14pt;
+}
+
+button#call_to_action.btn.btn-primary:hover {
+    background-color: #dbfe87;
+    color: #363095;
+    border-radius: 10px;
+}
+
+
+/** Sign-Up Page Styles **/
+
+div#signup.container {
+
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+div.signup_bgrd {
+    background-color: white;
+    padding: 40px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+/** Login Page Styles **/
+
+div#login.container {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+div.login_bgrd {
+    background-color: white;
+    padding: 50px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+
+
+
+
+/** Media Queries **/
+
+@media screen and (max-width: 1000px) {
+ div#site_container.container {
+    flex-direction: column;
+  }
+
+
+@media screen and (max-width: 1000px) {
+ div#vision.container {
+     text-align: center;
+     width: 100%;
+  }
+    
+    
+@media screen and (max-width: 600px) {
+ div#vision.container {
+     text-align: center;
+  }
+    
+@media screen and (max-width: 1000px) {
+ p.vision_blurb {
+     font-size: 11pt;
+  }
+    
+@media screen and (max-width: 1000px) {
+ p.advice_blurb {
+     font-size: 11pt;
+  }
+    
+@media screen and (max-width: 1000px) {
+ h1.value_prop {
+     font-size: 28pt;
+  }
+    
+
+    
+
+
+
