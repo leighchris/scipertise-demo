@@ -37,14 +37,14 @@ class ProfileView(TemplateView):
 #    return render(request, 'edit_profile.html', {'form': form})
 
 def EditProfileView(request):
-    profile_form = EditProfile()
+    form = EditProfile()
     if request.method == 'POST':
-        profile_form = EditProfile(request.POST, instance =request.user)
-        if profile_form.is_valid():
-            profile_form.save()
+        form = EditProfile(request.POST, instance =request.user)
+        if form.is_valid():
+            form.save()
         return HttpResponseRedirect(reverse('profile'))
     else:
-        profile_form = EditProfile(instance = request.user)
+        form = EditProfile(instance = request.user)
         return render(request, 'edit_profile.html', {'form': form})
     
 
