@@ -200,7 +200,20 @@ div.login_bgrd {
     border-radius: 10px;
 }
 
+/** Profile Page Styles **/
 
+div#profile.container {
+    background-color: white;
+    border-radius: 10px;
+    padding:30px;
+    margin-top: 30px;
+}
+
+
+div#edit_profile_button.container {
+   
+    margin-top: 30px;
+}
 
 
 /** Media Queries **/
