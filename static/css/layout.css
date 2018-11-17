@@ -216,6 +216,43 @@ div#edit_profile_button.container {
 }
 
 
+/** Search Page Styles **/
+
+div#search_form.container {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    margin-top: 20px;
+    
+}
+
+div#search_results.container {
+    background-color: #cfd1e2;
+    padding: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+div#search_hit.container {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    
+    
+}
+
+
+
+
 /** Media Queries **/
 
 @media screen and (max-width: 1000px) {

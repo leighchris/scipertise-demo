@@ -20,7 +20,11 @@
             </div>
             <div class = "container" id="call_to_action">
                 <form>
-                    <button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
+                    {% else %}
+                    <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign Up for a Free Account</button></a>
+                    {% endif %}
                 </form>
             </div>
         

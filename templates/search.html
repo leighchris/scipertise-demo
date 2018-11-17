@@ -4,34 +4,44 @@
 {% block title %}Search{% endblock %}
 
 {% block content %}
-<h1>Search Page</h1>
 
-<br/>
-<form action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
-Search <input type="text" name="q" value="{{request.GET.q}}" placeholder="Search for experts"/>
-<input type="submit" name="submit" value="Search"/>
-</form>
+<div class="container">
+    <div class="container" id="search_form">
+            <form class="form-inline my-2 my-lg-0" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
+            <h3>Search for an Expert by Skill:&nbsp&nbsp</h3>
+                <input class="form-control form-control-lg" type="text" name="q" value="{{request.GET.q}}" placeholder="Find experts"/>
+                <input type="submit" name="submit" value="Search"/>
+            </form>
+        </div>
+
+        {% if submitbutton == 'Search' and request.GET.q != '' %}
+        {% if results %}
+        <h2>Researchers Matching "<b>{{ request.GET.q }}</b>"</h2>
+        <br/><br/>
+        
+        <div class="container" id="search_results">
+
+        {% for result in results %}
+
+        <div class="container" id="search_hit">
+        <h3>{{result.first_name}}&nbsp{{result.last_name}}</h3><br>
+        {{result.position}}<br><br>
+        <p>Bio:</p>{{result.bio}}<br><br>
+        <p>Skills:</p>{{result.skills.all|join:", "}}
+        <br/>
+
+        <br/>
+        </div>
 
 
-{% if submitbutton == 'Search' and request.GET.q != '' %}
-{% if results %}
-<h1>Results for <b>{{ request.GET.q }}</b></h1>
-<br/><br/>
 
-{% for result in results %}
+        {% endfor %}
+        {% else %}
+        No search results for this query
+        {% endif %}
+        {% endif %}
 
-{{result.first_name}}{{result.last_name}}<br>
-{{result.position}}<br>
-{{result.bio}}
-<br/>
-
-{{result.content}}
-<br/>
-
-{% endfor %}
-{% else %}
-No search results for this query
-{% endif %}
-{% endif %}
-
-{% endblock %}
+        {% endblock %}
+    </div>
+    
+</div>
