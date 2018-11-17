@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser
+from .models import CustomUser, Skill
+from taggit.forms import *
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -15,10 +16,11 @@ class EditProfile(forms.ModelForm):
     last_name = forms.CharField()
     position =forms.CharField()
     bio = forms.CharField(widget=forms.Textarea)
+    skills = TagField()
 
     class Meta:
         model = CustomUser
-        fields =('first_name', 'last_name', 'position', 'bio',)
+        fields =('first_name', 'last_name', 'position', 'bio', 'skills')
 
     def clean(self):
         cleaned_data = super().clean()
@@ -26,17 +28,18 @@ class EditProfile(forms.ModelForm):
         last_name = cleaned_data.get('last_name')
         position = cleaned_data.get('position')
         bio = cleaned_data.get('bio')
+        skills = cleaned_data.get('skills')
         
 #class SkillForm(forms.ModelForm):
-#    skill_name = forms.CharField()
+#    name = forms.CharField()
 #    
 #    class Meta:
 #        model = Skill
-#        fields =('skill_name' ,)
+#        fields =('name' ,)
 #        
 #    def clean(self):
 #        cleaned_data = super().clean()
-#        skill_name = cleaned_data.get('skill_name')
+#        name = cleaned_data.get('name')
 
             
     

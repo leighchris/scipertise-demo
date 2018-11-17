@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'pages',
     'users',
     'search',
-#    'taggit',
+    'taggit',
   
 ]
 
@@ -133,7 +133,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-#TAGGIT_CASE_INSENSITIVE = True
+TAGGIT_CASE_INSENSITIVE = True
 
 
 

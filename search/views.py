@@ -9,8 +9,9 @@ def search_users(request):
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
         if query is not None:
-            lookups= Q(first_name__icontains=query) | Q(last_name__icontains=query) | Q(position__icontains=query) | Q(bio__icontains=query)
-            results= CustomUser.objects.filter(lookups).distinct()
+            lookups= Q(skills__name__iexact=query)
+            #results= CustomUser.skill.filter(lookups).distinct()
+            results = CustomUser.objects.filter(lookups).distinct()
             context={'results': results,
                      'submitbutton': submitbutton}
             return render(request, 'search.html', context)
@@ -18,3 +19,7 @@ def search_users(request):
             return render(request, 'search.html')
     else:
         return render(request, 'search.html')
+    
+    
+    #users_taggedskill_items
+ 

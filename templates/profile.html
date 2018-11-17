@@ -8,7 +8,9 @@
 <div class="container" id = "profile">
     <p>Profile Page:</p>{{ user.first_name }}&nbsp{{ user.last_name }}<br><br>
     <p>Position:</p>{{ user.position }}<br><br>
-    <p>Bio:</p>{{ user.bio }}
+    <p>Bio:</p>{{ user.bio }}<br><br>
+    <p>Skills:</p>{{user.skills.all|join:", "}}
+  
 </div>
 <div class ="container" id="edit_profile_button">
     <a href="{% url 'edit_profile' %}"><button type="submit" class="btn btn-primary">Edit Profile</button></a>
