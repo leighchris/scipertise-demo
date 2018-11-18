@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
     position = models.CharField(max_length =50, null=True, default='')
     bio = models.CharField(max_length=300, null=True, default='')
     skills = TaggableManager(help_text="A comma-separated list of tags.")
-
+    image = models.ImageField(upload_to="profile_image", blank=True)
 
 class TaggedSkill(TaggedItemBase):
     content_object = models.ForeignKey('Skill', on_delete=models.DO_NOTHING)  
