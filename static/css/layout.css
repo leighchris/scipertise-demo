@@ -202,6 +202,13 @@ div.login_bgrd {
 
 /** Profile Page Styles **/
 
+div#edit_profile.container {
+    background-color: white;
+    padding: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
 div#profile_container.container {
     display: flex;
     flex-direction: column;
@@ -224,7 +231,21 @@ div#profile_content.container {
 }
 
 p.profile_name {
+    display: inline-block;
+    padding-top: 30px;
+    font-size: 28pt;
+    font-family: 'Montserrat', sans-serif;
   
+}
+
+p.profile_text {
+    font-size: 14pt;
+    font-family: 'PT Sans', sans-serif;
+  
+}
+
+h4 {
+     font-family: 'Montserrat', sans-serif;
 }
 
 div#edit_profile_button.container {
@@ -235,6 +256,7 @@ div#edit_profile_button.container {
 .profile_image {
    border-radius: 20px;
    padding: 20px;
+    float: left;
 }
 
 

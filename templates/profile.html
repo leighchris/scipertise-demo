@@ -10,18 +10,19 @@
         {% if user.image %}
          <img class="profile_image" src="{{ user.image.url }}" width="180"/>
         {% endif %}
-        <p class="profile_name">Expert Profile:&nbsp{{ user.first_name }}&nbsp{{ user.last_name }}</p>
+        <p class="profile_name">Researcher Profile:&nbsp{{ user.first_name }}&nbsp{{ user.last_name }}</p>
+        <p class="profile_text">{{user.position}}</p>
+        <p class="profile_text">Skills:<br>{{user.skills.all|join:", "}}</p>
         
     </div>
      <div class="container" id="profile_content">
-        <p>Bio:</p>{{ user.bio }}<br><br>
-        <p>Skills:</p>{{user.skills.all|join:", "}}
+         <h4>My expertise:</h4><br><p class="profile_text">{{ user.bio }}</p><br><br>
+       
     </div>
-
-</div>
-
+{% if user.is_authenticated %}
 <div class ="container" id="edit_profile_button">
     <a href="{% url 'edit_profile' %}"><button type="submit" class="btn btn-primary">Edit Profile</button></a>
 </div>
+{% endif %}
 
 {% endblock %}
