@@ -244,8 +244,9 @@ p.profile_text {
   
 }
 
-h4 {
-     font-family: 'Montserrat', sans-serif;
+h4.bio_title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 div#edit_profile_button.container {

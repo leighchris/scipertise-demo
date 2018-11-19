@@ -25,7 +25,7 @@
         {% for result in results %}
 
         <div class="container" id="search_hit">
-        <h3>{{result.first_name}}&nbsp{{result.last_name}}</h3><br>
+         <h3><a href="{% url 'profile_with_pk' pk=result.pk %}">{{result.first_name}}&nbsp{{result.last_name}}</a></h3><br>
         {{result.position}}<br><br>
         <p>Bio:</p>{{result.bio}}<br><br>
         <p>Skills:</p>{{result.skills.all|join:", "}}

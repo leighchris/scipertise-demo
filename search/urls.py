@@ -21,6 +21,7 @@ app_name = 'search'
 
 urlpatterns = [
     path('', search_users, name='search_users'),
+    path('users/', include('users.urls')),
    
  
 ]

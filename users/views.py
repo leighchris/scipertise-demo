@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from django.http import HttpResponseRedirect
 
 from .forms import CustomUserCreationForm, EditProfile
+from .models import CustomUser
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
@@ -12,9 +13,16 @@ class SignUp(generic.CreateView):
     template_name = 'signup.html'
     
     
-class ProfileView(TemplateView):
-    template_name = "profile.html"
+#class ProfileView(TemplateView):
+#    template_name = "profile.html"
 
+def view_profile(request, pk=None):
+    if pk:
+        user = CustomUser.objects.get(pk=pk)
+    else:
+        user = request.user
+    args = {'user': user}
+    return render(request, 'profile.html', args)
 
 def EditProfileView(request):
     form = EditProfile()

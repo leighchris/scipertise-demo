@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Q
 from users.models import CustomUser
+from django.views.generic import TemplateView, DetailView, ListView
+from users.models import CustomUser
 
 # Create your views here.
 
@@ -19,7 +21,6 @@ def search_users(request):
             return render(request, 'search.html')
     else:
         return render(request, 'search.html')
-    
-    
-    #users_taggedskill_items
+
+
  
