@@ -263,6 +263,11 @@ div#edit_profile_button.container {
 
 /** Search Page Styles **/
 
+h3#search_call_to_action {
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
 div#search_form.container {
     background-color: white;
     border-radius: 10px;
@@ -294,8 +299,80 @@ div#search_hit.container {
     
     
 }
+/** Calendar Booking Styles **/
 
+.left {
+  float: left;
+}
 
+.right {
+  float: right;
+}
+
+.btn {
+  outline: none;
+  color: black;
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+}
+
+.clearfix {
+  margin: 15px;
+}
+
+div#calendar.container {
+    margin: 10px auto;
+}
+
+.calendar {
+  width: 98%;
+  margin: 0 auto;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+}
+
+tbody {
+    border-radius: 10px;
+}
+
+th {
+    background-color: #EBFFA2;
+}
+
+ .calendar td {
+  border: 1px solid #6e75a8;
+  border-radius: 10px;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+ul {
+  height: 100%;
+  padding: 0px 5px 0px 20px;
+}
+
+a {
+  color: #17a2b8;
+}
 
 
 /** Media Queries **/
