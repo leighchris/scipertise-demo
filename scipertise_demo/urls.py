@@ -26,7 +26,7 @@ urlpatterns = [
     path('search/', include('search.urls', namespace='search')),
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
-    path('booking/', include('booking.urls', namespace='booking')),
+    path('', include('booking.urls', namespace='booking')),
 
   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

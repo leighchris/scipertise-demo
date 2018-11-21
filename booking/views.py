@@ -14,6 +14,7 @@ from users.forms import CustomUserCreationForm, EditProfile
 from users.models import CustomUser
 from booking.utils import Calendar
 from booking.models import Booking
+from booking.forms import BookingForm
 
 class CalendarView(generic.ListView):
     model = Booking
@@ -58,6 +59,19 @@ def next_month(d):
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
 
+
+def booking_view(request, booking_id=None):
+    instance = Booking()
+    if booking_id:
+        instance = get_object_or_404(Booking, pk=booking_id)
+    else:
+        instance = Booking()
+    
+    form = BookingForm(request.POST or None, instance=instance)
+    if request.POST and form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('booking:user_calendar'))
+    return render(request, 'booking.html', {'form': form})
 
 
     

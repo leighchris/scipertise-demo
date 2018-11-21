@@ -1,3 +1,6 @@
+
+
+
 /** Navbar **/
 
 button.btn.btn-primary {
@@ -300,6 +303,38 @@ div#search_hit.container {
     
 }
 /** Calendar Booking Styles **/
+
+div#booking_form_text.container {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-bottom: 20px;
+   
+}
+
+div#booking_form.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+form.booking_form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+
+}
+    
+
+div#booking_call_to_action.container {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 20px;
+   
+}
 
 .left {
   float: left;

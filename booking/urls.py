@@ -20,8 +20,13 @@ from . import views
 app_name = 'booking'
 
 urlpatterns = [
-    path('', views.CalendarView.as_view(), name='calendar'),
+#    path('', views.CalendarView.as_view(), name='calendar'),
+#    path('new/', views.booking_view, name='booking_new'),
+#    #path('edit/<int:booking_id>/', views.booking_view, name='booking_edit'),
     path('users/', include('users.urls')),
+    path('users/profile/booking/', views.CalendarView.as_view(), name='calendar'),
+    path('users/profile/booking/new/', views.booking_view, name='user_booking_new'),
+    path('users/profile/booking/new/<int:pk>/', views.booking_view, name='user_booking_with_pk'),
    
  
 ]

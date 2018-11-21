@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 #app_name = 'users'
 
 urlpatterns = [
+    #path('', include('booking.urls')),
     path('signup/', views.SignUp.as_view(), name='signup'),
     #path('profile/', views.ProfileView.as_view(), name='profile'),
     path('profile/', views.view_profile, name='profile'),

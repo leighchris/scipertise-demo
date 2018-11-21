@@ -18,7 +18,7 @@ class Calendar(HTMLCalendar):
 		bookings_per_day = bookings.filter(start_time__day=day)
 		d = ''
 		for bookings in bookings_per_day:
-			d += f'<li> {bookings.title} </li>'
+			d += f'<li>{bookings.title}</li>'
 
 		if day != 0:
 			return f"<td><span class='date'>{day}</span><ul> {d} </ul></td>"

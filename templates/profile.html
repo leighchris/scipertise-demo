@@ -13,6 +13,7 @@
         <p class="profile_name">Researcher Profile:&nbsp{{ user.first_name }}&nbsp{{ user.last_name }}</p>
         <p class="profile_text">{{user.position}}</p>
         <p class="profile_text">Skills:<br>{{user.skills.all|join:", "}}</p>
+        <div><a href="{% url 'booking:calendar' %}"><button type="submit" class="btn btn-primary">Book a Chat</button></a></div>
         
     </div>
      <div class="container" id="profile_content">
@@ -24,9 +25,5 @@
     <a href="{% url 'edit_profile' %}"><button type="submit" class="btn btn-primary">Edit Profile</button></a>
 </div>
 {% endif %}
-<!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/leigh-christopher2" style="min-width:320px;height:580px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
-<!-- Calendly inline widget end -->
 
 {% endblock %}
