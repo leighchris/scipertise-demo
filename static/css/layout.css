@@ -184,6 +184,7 @@ div.signup_bgrd {
     padding: 40px;
     margin-top: 5px;
     border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /** Login Page Styles **/
@@ -201,6 +202,7 @@ div.login_bgrd {
     padding: 50px;
     margin-top: 50px;
     border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /** Profile Page Styles **/

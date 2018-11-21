@@ -35,20 +35,4 @@ def EditProfileView(request):
         form = EditProfile(instance = request.user)
         return render(request, 'edit_profile.html', {'form': form})
     
-#def EditSkillView(request):
-#    skill_form = SkillForm()
-#    if request.method == 'POST':
-#        skill_form = SkillForm(request.POST)
-#        if skill_form.is_valid():
-#            obj = skill_form.save(commit=False)
-#            obj.save()
-#        # Without this next line the tags won't be saved.
-#            skill_form.save_m2m()
-#        return HttpResponseRedirect(reverse('profile'))
-#    else:
-#        skill_form = SkillForm()
-#        return render(request, 'edit_skills.html', {'skill_form': skill_form})
-#    
-#
-#    
 

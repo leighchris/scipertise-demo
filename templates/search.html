@@ -9,9 +9,9 @@
     <div class="container" id="search_form">
             <form class="form-inline my-2 my-lg-0" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
             <h3 id="search_call_to_action">Search for a Researcher by Skill:&nbsp&nbsp</h3>
-                <input class="form-control form-control-lg" type="text" name="q" value="{{request.GET.q}}" placeholder="Find expertise"/>
+                <input class="form-control form-control-md" type="text" name="q" value="{{request.GET.q}}" placeholder="Find expertise"/>
 <!--                <input type="submit" name="submit" value="Search"/>-->
-                <button class="btn btn-primary btn-lg" type="submit" name="submit" value="Search">Search</button>
+                <button class="btn btn-primary btn-md" type="submit" name="submit" value="Search">Search</button>
             </form>
         </div>
 
