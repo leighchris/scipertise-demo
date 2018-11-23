@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.views.generic import TemplateView, DetailView, ListView
@@ -18,8 +18,6 @@ from booking.forms import BookingForm
 
 class CalendarView(generic.ListView):
     model = Booking
-    #form_class = CustomUserCreationForm
-    #success_url = reverse_lazy('login')
     template_name = 'calendar.html'
     
     def get_context_data(self, **kwargs):
@@ -60,18 +58,48 @@ def next_month(d):
     return month
 
 
-def booking_view(request, booking_id=None):
+def booking_view(request, booking_pk=None, user_pk=None):
     instance = Booking()
-    if booking_id:
-        instance = get_object_or_404(Booking, pk=booking_id)
+    if booking_pk:
+        instance = get_object_or_404(Booking, user_id = user_pk, pk=booking_pk)
     else:
         instance = Booking()
     
-    form = BookingForm(request.POST or None, instance=instance)
+    form = BookingForm(request.POST or None)
     if request.POST and form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('booking:user_calendar'))
+        return HttpResponseRedirect(reverse('booking:calendar'))
     return render(request, 'booking.html', {'form': form})
+#
+#def view_profile(request, pk=None):
+#    if pk:
+#        user = CustomUser.objects.get(pk=pk)
+#    else:
+#        user = request.user
+#    args = {'user': user}
+#    return render(request, 'profile.html', args)
+#
+#def EditProfileView(request):
+#    form = EditProfile()
+#    if request.method == 'POST':
+#        form = EditProfile(request.POST, instance =request.user)
+#        if form.is_valid():
+#            form.save()
+#        return HttpResponseRedirect(reverse('profile'))
+#    else:
+#        form = EditProfile(instance = request.user)
+#        return render(request, 'edit_profile.html', {'form': form})
+
+class BookingListView(ListView):
+    model = Booking
+    context_object_name = 'bookings'
+    template = 'templates/booking_list.html'
+    
+class BookingDetailView(DetailView):
+    model = Booking
+    template = 'templates/booking_detail.html'
+    
+    
 
 
     

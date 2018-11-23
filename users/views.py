@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, DetailView, FormView
 from django.http import HttpResponseRedirect
 
 from .forms import CustomUserCreationForm, EditProfile
@@ -12,9 +12,10 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
     
-    
-#class ProfileView(TemplateView):
-#    template_name = "profile.html"
+#    
+#class LoginView(FormView):
+#    form_class = LoginForm
+#    template_name = "login.html"
 
 def view_profile(request, pk=None):
     if pk:

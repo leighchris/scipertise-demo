@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'search',
     'taggit',
     'booking',
+    'widget_tweaks',
    
   
 ]

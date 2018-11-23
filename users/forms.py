@@ -22,7 +22,7 @@ class CustomUserCreationForm(UserCreationForm):
 class EditProfile(forms.ModelForm):
     first_name = forms.CharField()
     last_name = forms.CharField()
-    position =forms.CharField(help_text="Please enter your job title and Institution/ Company you work for")
+    position =forms.CharField(help_text="Please enter your job title and Institution or Company you work for")
     bio = forms.CharField(widget=forms.Textarea())
     skills = TagField(help_text="Please enter a comma separated list of skills")
 
@@ -47,8 +47,18 @@ class EditProfile(forms.ModelForm):
         skills = cleaned_data.get('skills')
         
 class LoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    password =forms.CharField(widget =forms.PasswordInput(attrs={'class':'form-control'}))
+    username = forms.CharField()
+    password =forms.CharField()
+    
+    class Meta:
+        model = CustomUser
+        fields =('username', 'password',)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['class'] = 'form-control'
+        self.fields['password'].widget.attrs['class'] = 'form-control'
+        
+        
     
 
     
