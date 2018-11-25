@@ -7,8 +7,8 @@ from users.models import CustomUser
 # Create your models here.
 
 class Booking(models.Model):
-    user = models.OneToOneField(CustomUser, null=True, default='', on_delete=models.CASCADE)
-    expert = models.OneToOneField(CustomUser, null=True, default='', on_delete=models.CASCADE, related_name='bookings')
+    user = models.ForeignKey(CustomUser, null=True, default='', on_delete=models.CASCADE)
+    expert = models.ForeignKey(CustomUser, null=True, default='',on_delete=models.CASCADE, related_name='bookings')
     title = models.CharField(max_length=200, default='Video call with ..', null=True)
     start_time = models.DateTimeField('Start time')
     end_time = models.DateTimeField('End time')
@@ -17,6 +17,9 @@ class Booking(models.Model):
     class Meta:
         verbose_name = 'Booking'
         verbose_name_plural = 'Bookings'
+        
+    def get_absolute_url(self):
+        return reverse('booking:booking_list')
         
 
         

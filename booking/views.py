@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from django.views.generic import TemplateView, DetailView, ListView
+from django.views.generic import CreateView, TemplateView, DetailView, ListView
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.http import HttpResponse
@@ -36,6 +36,8 @@ class CalendarView(generic.ListView):
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
         return context
+#    def get_queryset(self):
+#        return Booking.objects.filter(user=self.request.user)
     
 def get_date(req_day):
     if req_day:
@@ -58,37 +60,23 @@ def next_month(d):
     return month
 
 
-def booking_view(request, booking_pk=None, user_pk=None):
-    instance = Booking()
-    if booking_pk:
-        instance = get_object_or_404(Booking, user_id = user_pk, pk=booking_pk)
-    else:
-        instance = Booking()
-    
-    form = BookingForm(request.POST or None)
-    if request.POST and form.is_valid():
-        form.save()
-        return HttpResponseRedirect(reverse('booking:calendar'))
-    return render(request, 'booking.html', {'form': form})
-#
-#def view_profile(request, pk=None):
-#    if pk:
-#        user = CustomUser.objects.get(pk=pk)
+#def booking_view(request, booking_pk=None, user_pk=None):
+#    instance = Booking()
+#    if booking_pk:
+#        instance = get_object_or_404(Booking, user_id = user_pk, pk=booking_pk)
 #    else:
-#        user = request.user
-#    args = {'user': user}
-#    return render(request, 'profile.html', args)
-#
-#def EditProfileView(request):
-#    form = EditProfile()
-#    if request.method == 'POST':
-#        form = EditProfile(request.POST, instance =request.user)
-#        if form.is_valid():
-#            form.save()
-#        return HttpResponseRedirect(reverse('profile'))
-#    else:
-#        form = EditProfile(instance = request.user)
-#        return render(request, 'edit_profile.html', {'form': form})
+#        instance = Booking()
+#    
+#    form = BookingForm(request.POST or None)
+#    if request.POST and form.is_valid():
+#        form.save()
+#        return HttpResponseRedirect(reverse('booking:calendar'))
+#    return render(request, 'booking.html', {'form': form})
+
+class BookingView(CreateView):
+    model = Booking
+    form_class = BookingForm
+    #fields= ("user", "expert", "title", "start_time", "end_time", "notes")
 
 class BookingListView(ListView):
     model = Booking
