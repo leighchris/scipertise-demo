@@ -6,14 +6,12 @@
 {% block content %}
 
 {% for booking in user.booking_set.all %}
+
 <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
-<!--
-<p>{{ booking.start_time }}</p>
-<p>User: {{ booking.user }}</p>
--->
-<!--<p>Expert: {{ booking.expert }}</p>-->
+
 
 {% endfor %}
+
 
 
 {% endblock %}

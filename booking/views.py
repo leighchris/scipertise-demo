@@ -82,6 +82,7 @@ class BookingListView(ListView):
     model = Booking
     context_object_name = 'bookings'
     template = 'templates/booking_list.html'
+
     
 class BookingDetailView(DetailView):
     model = Booking
