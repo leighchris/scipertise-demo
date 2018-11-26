@@ -5,7 +5,7 @@
 
 {% block content %}
 
-{% for booking in bookings %}
+{% for booking in user.booking_set.all %}
 <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
 <!--
 <p>{{ booking.start_time }}</p>

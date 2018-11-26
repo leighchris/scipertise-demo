@@ -21,7 +21,7 @@ class CalendarView(generic.ListView):
     template_name = 'calendar.html'
     
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super().get_context_data()
 
         # use today's date for the calendar
         d = get_date(self.request.GET.get('day', None))
