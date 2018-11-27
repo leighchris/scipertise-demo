@@ -5,31 +5,64 @@
 
 {% block content %}
 
-           
-    <div class="row pt-5" id ="first_section_row">
-        <div class="container" id="site_container">
-    
-            <div class="container" id="vision">
-            <div class ="container" id="vision_text">
-                <h1 class="value_prop">Solve your research problems faster</h1>
-                <p class="vision_blurb">Connect with a researcher who has the expertise you need.<br>Sign up for Scipertise and do better research, faster.</p>
-                <p class="advice_blurb">Get insights on: <br> experimental models  |  software  |  lab techniques  |  equipment  |   data analysis</p>
-            </div>
-            
-    
-            </div>
-            <div class = "container" id="call_to_action">
-                <form>
-                    {% if user.is_authenticated %}
-                    <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
-                    {% else %}
-                    <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign Up for a Free Account</button></a>
-                    {% endif %}
-                </form>
-            </div>
         
-        </div>
-        
-        </div> 
+        <div class="row pt-5" id ="first_section_row">
+
+                <div class="container" id="vision">
+                <div class ="container" id="vision_text">
+                    <h1 class="value_prop">Solve your research problems faster</h1>
+                    <p class="vision_blurb">Connect with a researcher who has the expertise you need.<br>Sign up for Scipertise and do better research, faster.</p>
+                    <p class="advice_blurb">Get insights on: <br> experimental models  |  software  |  lab techniques  |  equipment  |   data analysis</p>
+                </div>
+
+
+                </div>
+                <div class = "container" id="call_to_action">
+                    <form>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
+                        {% else %}
+                        <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign Up for a Free Account</button></a>
+                        {% endif %}
+                    </form>
+                </div>
+
+            </div>
+            <div class="row pt-5" id ="second_section_row">
+                <div class=divtitle>
+                    <h1>How it works</h1>
+                </div>
+               
+                <div class="howitworks" id="step1" >
+                    <div class="smallbox">
+                    <h4 class ="icon_title">Find a Scientist</h4>
+                     <img class="icon1" src="/static/css/scipertise_icons.png">
+                        <p class="icontext1">Browse researcher profiles or search for an expert by skill. Message someone to see if they're the right fit.</p>
+                    </div>
+                      
+                </div>
+                
+                <div class="howitworks" id="step2" >
+                    <div class="smallbox">
+                        <h4 class ="icon_title">Book a Call</h4>
+                     <img class="icon2" src="/static/css/scipertise_icons_2.png">
+                        <p class="icontext2">Schedule a video call with an expert of your choice for quick advice, troubleshooting, or a tutorial.</p>
+                    </div>
+                     
+                </div>
+                
+                <div class="howitworks" id="step3" >
+                    <div class="smallbox">
+                    <h4 class ="icon_title">Learn and Solve Problems</h4>
+                       <img class="icon3" src="/static/css/scipertise_icons_3.png">
+                        <p class="icontext3">Solve problems and move forward with your research.Pay safely for chats you authorize.</p>
+                    </div>
+                    
+                    
+                </div>
+
+            </div>
+
+   
 
 {% endblock %}

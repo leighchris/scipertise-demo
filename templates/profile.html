@@ -13,6 +13,7 @@
         <p class="profile_name">Researcher Profile:&nbsp{{ user.first_name }}&nbsp{{ user.last_name }}</p>
         <p class="profile_text">{{user.position}}</p>
         <p class="profile_text">Skills:<br>{{user.skills.all|join:", "}}</p>
+
         <div><a href="{% url 'booking:calendar_with_pk' pk=user.pk %}"><button type="submit" class="btn btn-primary">Book a Chat</button></a></div>
         
     </div>

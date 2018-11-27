@@ -20,8 +20,15 @@ class CalendarView(generic.ListView):
     model = Booking
     template_name = 'calendar.html'
     
+#    def get_queryset(self):
+#        # original qs
+#        qs = super().get_queryset() 
+#        # filter by a variable captured from url, for example
+#        return qs.filter(user=self.request.user)
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
+
 
         # use today's date for the calendar
         d = get_date(self.request.GET.get('day', None))
@@ -35,9 +42,8 @@ class CalendarView(generic.ListView):
         d = get_date(self.request.GET.get('month', None))
         context['prev_month'] = prev_month(d)
         context['next_month'] = next_month(d)
+      
         return context
-#    def get_queryset(self):
-#        return Booking.objects.filter(user=self.request.user)
     
 def get_date(req_day):
     if req_day:
@@ -87,8 +93,4 @@ class BookingListView(ListView):
 class BookingDetailView(DetailView):
     model = Booking
     template = 'templates/booking_detail.html'
-    
-    
-
-
     
