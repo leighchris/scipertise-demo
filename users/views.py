@@ -22,7 +22,10 @@ def view_profile(request, pk=None):
         user = CustomUser.objects.get(pk=pk)
     else:
         user = request.user
-    args = {'user': user}
+    bookings = user.bookings.all()
+    args = {'user': user,
+            'bookings': bookings
+           }
     return render(request, 'profile.html', args)
 
 def EditProfileView(request):
@@ -36,4 +39,5 @@ def EditProfileView(request):
         form = EditProfile(instance = request.user)
         return render(request, 'edit_profile.html', {'form': form})
     
+
 

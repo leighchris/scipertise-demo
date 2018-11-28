@@ -5,17 +5,14 @@
 
 {% block content %}
 
-{% for booking in user.booking_set.all %}
+
+
+{% for booking in booking_list %}
 
 
 <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
-
-{% endfor %}
-
-{% for booking in user.bookings.all %}
-
-<a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
-
 
 {% endfor %}
 {% endblock %}
+
+

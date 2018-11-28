@@ -86,8 +86,25 @@ class BookingView(CreateView):
 
 class BookingListView(ListView):
     model = Booking
-    context_object_name = 'bookings'
+    context_object_name = 'booking_list'
     template = 'templates/booking_list.html'
+    
+    def get_queryset(self, pk=None):
+        if pk:
+            user = CustomUser.objects.get(pk=pk)
+        else:
+            user = self.request.user
+        bookings = Booking.objects.filter(expert=user)
+        return bookings
+
+#    
+#    def get_queryset(self, pk=None):
+#        if pk:
+#            user = CustomUser.objects.get(pk=pk)
+#        else:
+#            user = self.request.user
+#        qs = Booking.objects.filter(expert=user)
+#        return qs
 
     
 class BookingDetailView(DetailView):

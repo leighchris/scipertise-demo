@@ -19,7 +19,7 @@ class Booking(models.Model):
         verbose_name_plural = 'Bookings'
         
     def get_absolute_url(self):
-        return reverse('booking:booking_list')
+        return reverse('home')
         
 
         

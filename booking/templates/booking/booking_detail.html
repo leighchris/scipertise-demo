@@ -6,7 +6,7 @@
 {% block content %}
 
 
-<a href="{% url 'booking:booking_list' %}"><p>{{ booking.title }}</p></a>
+<a href="{% url 'profile_with_pk' pk=user.pk %}"><p>{{ booking.title }}</p></a>
 <p>{{ booking.start_time }}</p>
 <p>User: {{ booking.user }}</p>
 <p>Expert: {{ booking.expert }}</p>
