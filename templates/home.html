@@ -22,7 +22,7 @@
                         {% if user.is_authenticated %}
                         <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
                         {% else %}
-                        <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign Up for a Free Account</button></a>
+                        <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Signup for beta</button></a>
                         {% endif %}
                     </form>
                 </div>
@@ -66,26 +66,13 @@
 
             </div>
         <div class="row pt-5" id ="third_section_row">
-            <div class="call_to_action"> 
-                <h3 class="call_to_action">Sign up for a free account today and advance your research</h3>
-            
+            <div class="container" id="section3_signup" > 
+                <h4>Scipertise is making it easier to find the expertise you need to improve your research. Join the movement and unlock your research potential.</h4>
+            <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Signup for free beta access</button></a>
+           
             </div>
 
-           <div class="container" id="form">
-            <form class="home_form" action="" method="POST">
-                <h4 class="form_title">Request beta access</h4>
-                <p class="form_text" label="First Name">First Name:</p>
-                 {{ form.first_name }}
-                <p class="form_text" label="Last Name">Last Name:</p>
-                 {{ form.last_name }}
-                <p class="form_text" label="Email">Email:</p>
-                 {{ form.email  }}
-                {% csrf_token %}
-                 <br>
-                <input type="submit" class="button" value="Sign Up">
-               </form>
-            
-            </div>  
+          
 </div>
 
    

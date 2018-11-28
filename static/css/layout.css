@@ -257,7 +257,16 @@ p.icontext {
    font-family: 'PT Sans', sans-serif; 
     text-align: center;
 }
+/** Home page: Section 3 styles **/
 
+div#section3_signup.container {
+    background-color: #f0f1f6;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 30px;
+}
 
 /** Sign-Up Page Styles **/
 
@@ -268,7 +277,7 @@ p.icontext {
 h3.call_to_action {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    color: white;
+    color: black;
     padding-bottom: 20px;
     
 }

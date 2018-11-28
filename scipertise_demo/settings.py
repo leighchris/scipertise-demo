@@ -44,10 +44,12 @@ INSTALLED_APPS = [
     'search',
     'taggit',
     'booking',
-    'widget_tweaks',
+ 
    
   
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 SITE_ID = 1
 
