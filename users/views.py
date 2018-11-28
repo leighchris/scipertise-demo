@@ -3,6 +3,7 @@ from django.urls import reverse_lazy, reverse
 from django.views import generic
 from django.views.generic import TemplateView, DetailView, FormView
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from .forms import CustomUserCreationForm, EditProfile
 from .models import CustomUser
@@ -28,6 +29,7 @@ def view_profile(request, pk=None):
            }
     return render(request, 'profile.html', args)
 
+@login_required
 def EditProfileView(request):
     form = EditProfile()
     if request.method == 'POST':
