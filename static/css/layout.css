@@ -1,6 +1,5 @@
 
 
-
 /** Navbar **/
 
 button.btn.btn-primary {
@@ -26,6 +25,7 @@ body {
     background-image: url(scipertise_background_dark.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+   
 }
 
 div#site_container.container {
@@ -162,10 +162,10 @@ div#call_to_action.container {
 }
 
 button#call_to_action.btn.btn-primary {
-    border-radius: 10px;
+    border-radius: 15px;
     text-align: center;
     margin: 0 auto;
-    padding: 10px 100px 10px 100px;
+    padding: 20px 60px 20px 60px;
     background-color: #13acee;
     font-size: 14pt;
 }
@@ -173,77 +173,83 @@ button#call_to_action.btn.btn-primary {
 button#call_to_action.btn.btn-primary:hover {
     background-color: #dbfe87;
     color: #363095;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 
 /** Home page: How it works styles **/
 
-div#second_section_row.row.pt-5 {
+div#howitworks_wrapper.container-fluid {
     
     background-color: white;
-    width:100%;
-    padding: 100px 10px 100px 10px;
+    width:100%; 
+    margin: 0 auto;
+    padding: 100px 0px 100px 0px;
+
+}
+
+div#howitworks.container-fluid {
+    
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-left: 0px; 
-    margin-right: 15px;
-  
-   
+    
 }
 
 .divtitle {
     width: 100%;
-    display:flex;
-    justify-content: center;
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 30px;
     font-weight: 500;
 }
 
-div#step1.howitworks {
-    display:flex;
-    width: 30%;
-    padding: 0px 10px 0px 10px;
+div#step1.container {
+
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column; 
+    
+
+}
+div#step2.container {
+    
+     padding: 0px 15px;
+     display: flex;
+     flex-direction: column; 
+ 
     
 }
-div#step2.howitworks {
-    display:flex;
-    width: 30%;
-    padding: 0px 15px 0px 15px;
+div#step3.container {
     
-}
-div#step3.howitworks {
-    display:flex;
-    width: 30%;
-    padding: 0px 15px 0px 15px;
+     padding: 0px 15px;
+     display: flex;
+     flex-direction: column; 
+ 
     
 }
 
 .icon1 {
-    width: 20%;
+    width: 150px;
+    height: 140px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
 }
 .icon2 {
-    width: 25%;
+   width: 150px;
+    height: 140px;
     display: block;
     margin: 0 auto;
-    padding: 10px 0px 16px 0px;
+    padding: 10px 0px 10px 0px;
 }
 .icon3 {
-    width: 18%;
+   width: 150px;
+    height: 140px;
     display: block;
     margin: 0 auto;
-    padding: 10px 0px 12px 0px;
-}
-.smallbox {
-    display: block;
-    margin: 0 auto;
-    height: 280px;
+    padding: 10px 0px 10px 0px;
 }
 
 h4.icon_title {
@@ -260,12 +266,16 @@ p.icontext {
 /** Home page: Section 3 styles **/
 
 div#section3_signup.container {
-    background-color: #f0f1f6;
     color: black;
     font-family: 'Montserrat', sans-serif;
     border-radius: 20px;
     padding: 50px;
     margin-top: 30px;
+}
+
+h2.section3_text {
+    color: white;
+    padding-bottom: 20px;
 }
 
 /** Sign-Up Page Styles **/
@@ -535,6 +545,14 @@ a {
 /** Media Queries **/
 
 @media screen and (max-width: 1000px) {
+    
+div#howitworks.container-fluid {
+    
+    flex-direction: column;
+    
+}
+
+@media screen and (max-width: 1000px) {
  div#site_container.container {
     flex-direction: column;
   }
@@ -566,6 +584,12 @@ a {
  h1.value_prop {
      font-size: 28pt;
   }
+    
+    
+
+
+
+    
     
 
     

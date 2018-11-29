@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import search_users
 
+
 app_name = 'search'
 
 urlpatterns = [
     path('', search_users, name='search_users'),
     path('users/', include('users.urls')),
+
    
  
-]
+] 
