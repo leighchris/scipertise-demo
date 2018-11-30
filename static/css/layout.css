@@ -18,13 +18,14 @@ button.btn.btn-primary:hover {
 }
 
 /** Main layout and home page styles **/
-
+/*    background-size: cover;*/
+/*    background-repeat: no-repeat;*/
 
 body {
-    height: 100%;
+
     background-image: url(scipertise_background_dark.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat:no-repeat;
    
 }
 
@@ -45,10 +46,10 @@ div#vision.container {
     
 }
 
-div#first_section_row.row.pt-5 {
+div#first_section_row.container-fluid {
     
     height:100%;
-    padding-bottom: 100px;
+    padding: 60px 0px;
 }
 
 img.logo {
@@ -179,7 +180,7 @@ button#call_to_action.btn.btn-primary:hover {
 
 /** Home page: How it works styles **/
 
-div#howitworks_wrapper.container-fluid {
+div#second_section_row.container-fluid {
     
     background-color: white;
     width:100%; 
@@ -311,10 +312,10 @@ div.signup_bgrd {
 
 }
 
-div#third_section_row.row.pt-5 {
+div#third_section_row.container-fluid {
+    padding: 60px 0px;
     
-    height:100%;
-    padding-bottom: 100px;
+
 }
 
 /** Login Page Styles **/
@@ -483,9 +484,6 @@ div#booking_call_to_action.container {
   box-shadow: 0 0 0 0;
 }
 
-.clearfix {
-  margin: 15px;
-}
 
 div#calendar.container {
     margin: 10px auto;

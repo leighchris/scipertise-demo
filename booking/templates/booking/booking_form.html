@@ -1,14 +1,18 @@
+
+
 {% extends 'layout.html' %}
 {% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }} 
 
 {% block title %}
 Event
 {% endblock %}
 
 {% block content %}
-<div class="clearfix">
-  <a class="btn btn-info left" href="{% url 'booking:calendar' %}"> Calendar </a>
-</div>
+
 
 <div class="container" id="booking_form">
 <div class="container" id="booking_form_text"><h4>Book a Time to Chat and I Will Get Back to You</h4></div>
@@ -16,6 +20,7 @@ Event
   {% csrf_token %}
 
     {{ form.as_p }}
+
 <button type="submit" class="btn btn-info left"> Book </button>
 
 </form>

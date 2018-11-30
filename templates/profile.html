@@ -14,7 +14,7 @@
         <p class="profile_text">{{user.position}}</p>
         <p class="profile_text">Skills:<br>{{user.skills.all|join:", "}}</p>
 
-        <div><a href="{% url 'booking:calendar' %}"><button type="submit" class="btn btn-primary">Book a Chat</button></a></div>
+        <div><a href="{% url 'booking:user_booking_new' %}"><button type="submit" class="btn btn-primary">Request to Book</button></a></div>
         
     </div>
      <div class="container" id="profile_content">

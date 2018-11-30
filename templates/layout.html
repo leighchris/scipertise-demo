@@ -1,4 +1,11 @@
 {% load static %}
+{% load bootstrap4 %}       {# imports bootstrap3 #}
+{% bootstrap_css %}         {# Embeds Bootstrap CSS #}
+{% bootstrap_javascript %}
+{% bootstrap_javascript jquery='full' %} {# Embeds Bootstrap JS #}
+{% block extrahead %} 
+ {{ form.media }}          {# Embeds Extra Resources #}
+{% endblock %}              {# Ends Extra Resources #}
 
 <!doctype html>
 <html>

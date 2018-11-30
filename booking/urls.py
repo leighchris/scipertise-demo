@@ -22,7 +22,8 @@ app_name = 'booking'
 urlpatterns = [
 
     path('users/', include('users.urls')),
-    path('users/profile/booking/', views.CalendarView.as_view(), name='calendar'),
+    #path('users/profile/booking/', views.CalendarView.as_view(), name='calendar'),
+    #path('booking/calendar/', views.calendar, name='new_calendar'),
     path('users/profile/booking/new/', views.BookingView.as_view(), name='user_booking_new'),
     path('booking/', views.BookingListView.as_view(), name="booking_list"),
     path('booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),

@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block content %}
+<!--
+<div class="clearfix">
+	<a class="btn btn-info left" href="{% url 'booking:calendar' %}?{'{ prev_month }}"> Previous Month </a>
+	<a class="btn btn-info right" href="{% url 'booking:calendar' %}?{'{ next_month }}"> Next Month </a>
+</div>
+-->
+
+<div class="container" id="calendar">
+<div class="container" id= "booking_call_to_action">
+    <h4>View My Availability. <br>When You're Ready, Book a Chat</h4><a href="{% url 'booking:user_booking_new' %}"><button type="submit" class="btn btn-primary">Book a Chat</button></a>
+    
+</div>
+{{ calendar }}
+
+</div>
+
+      {% endblock %}
+

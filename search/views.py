@@ -10,15 +10,11 @@ from functools import reduce
 
 def search_users(request):
     if request.method == 'GET':
-        query= request.GET.get('q').split()
+        query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
         if query is not None:
-            for word in query:
-                lookups = Q(skills__name__icontains=word)
+            lookups = Q(skills__name__icontains=query)
             results = CustomUser.objects.filter(lookups).distinct()
-                #lookups= (Q(skills__name__iexact=query) | Q(skills__name__icontains=query))
-                #results= CustomUser.skill.filter(lookups).distinct()
-                #results = CustomUser.objects.filter(lookups).distinct()
             context={'results': results, 'submitbutton': submitbutton}
             return render(request, 'search.html', context)
         else:

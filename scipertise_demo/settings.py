@@ -44,12 +44,17 @@ INSTALLED_APPS = [
     'search',
     'taggit',
     'booking',
+    'bootstrap4',
+    'bootstrap_datepicker_plus',
  
    
   
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 SITE_ID = 1
 

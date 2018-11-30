@@ -8,15 +8,11 @@ Event
 {% endblock %}
 
 {% block content %}
-<div class="clearfix">
-  <a class="btn btn-info left" href="{% url 'booking:user_calendar' %}"> Calendar </a>
-</div>
-
 <div class="container" id="booking_form">
 <div class="container" id="booking_form_text"><h4>Book a Time to Chat and I Will Get Back to You</h4></div>
 <form method="post" class="booking_form">
-  {% csrf_token %}
- {{ form.as_p }}
+{% csrf_token %}
+{{ form.as_p }}
 {% endfor %}
 <button type="submit" class="btn btn-info left"> Book </button>
 
