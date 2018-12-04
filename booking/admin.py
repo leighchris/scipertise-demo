@@ -15,3 +15,5 @@ class BookingAdmin(admin.ModelAdmin):
     list_display = ['title', 'start_time', 'end_time', 'notes']
     
 admin.site.register(Booking, BookingAdmin)
+
+

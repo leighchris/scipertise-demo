@@ -5,13 +5,12 @@
 
 {% block content %}
 
-<div class="container">
+<div class="container-fluid search">
     <div class="container" id="search_form">
-            <form class="form-inline my-2 my-lg-0" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
-            <h3 id="search_call_to_action">Search for a Researcher by Skill:&nbsp&nbsp</h3>
-                <input class="form-control form-control-md" type="text" name="q" value="{{request.GET.q}}" placeholder="Find expertise"/>
-<!--                <input type="submit" name="submit" value="Search"/>-->
-                <button class="btn btn-primary btn-md" type="submit" name="submit" value="Search">Search</button>
+            <form class="form-group" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
+            <h3 id="search_call_to_action">Search for a Researcher by Skill:</h3><br>
+                <input class="form-control form-control-lg" type="text" name="q" value="{{request.GET.q}}" placeholder="Find expertise"/>
+                <button class="availability_button" type="submit" name="submit" value="Search">Search</button>
             </form>
         </div>
 
@@ -27,8 +26,13 @@
         <div class="container" id="search_hit">
          <h3><a href="{% url 'profile_with_pk' pk=result.pk %}">{{result.first_name}}&nbsp{{result.last_name}}</a></h3><br>
         {{result.position}}<br><br>
-        <p>Bio:</p>{{result.bio}}<br><br>
-        <p>Skills:</p>{{result.skills.all|join:", "}}
+        <p>Expertise:</p>{{result.bio}}<br><br>
+<!--        <p>Skills:</p>{{result.skills.all|join:", "}}-->
+           <div class="container skills">
+                {% for skill in result.skills.all %}
+                <div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div>
+                {% endfor %}
+                </div>
         <br/>
 
         <br/>

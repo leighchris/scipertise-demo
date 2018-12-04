@@ -26,6 +26,7 @@ body {
     background-image: url(scipertise_background_dark.jpg);
     background-size: cover;
     background-repeat:no-repeat;
+ 
    
 }
 
@@ -345,32 +346,103 @@ div#edit_profile.container {
     border-radius: 10px;
 }
 
-div#profile_container.container {
+div#profile_container.container-fluid {
+
+   
+    padding:30px;
+    background-color: #E1E5EE;
     display: flex;
     flex-direction: column;
 }
 
 div#profile_intro.container {
-
+   
     background-color: white;
-    border-radius: 10px;
-    padding:30px;
-    margin-top: 30px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    padding: 10px;
+  
 }
 
+div#expert.container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+div#availability.container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14pt;
+    margin:30px 60px 30px 60px;
+    
+    color: #363095;
+    padding: 10px;
+    border-radius: 10px;
+
+
+}
 div#profile_content.container {
 
+    padding-top: 30px;
     background-color: white;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+   
+}
+div#tutorials.container {
+
+    padding-top: 30px;
+    background-color: white;
+    margin: 10px auto;
     border-radius: 10px;
-    padding:30px;
-    margin-top: 30px;
+    padding: 10px;
+    display:flex;
+    flex-direction: row;
+    align-content: space-between;
+   
+}
+.card {
+    display: flex;
+    padding: 20px;
+    height:100px;
+    width: 100px;
+ 
+}
+
+button.availability_button {
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 40px 10px 40px;
+    margin-top: 10px;
+    background-color: #13acee;
+    font-size: 14pt;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button.availability_button:hover {
+       background-color: #dbfe87;
+    color: #363095;
+
 }
 
 p.profile_name {
     display: inline-block;
-    padding-top: 30px;
+    padding-top: 15px;
     font-size: 28pt;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
   
 }
 
@@ -383,6 +455,8 @@ p.profile_text {
 h4.bio_title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    font-size:20pt;
+    padding: 10px;
 }
 
 div#edit_profile_button.container {
@@ -392,12 +466,44 @@ div#edit_profile_button.container {
 
 .profile_image {
    border-radius: 20px;
-   padding: 20px;
-    float: left;
+   margin: 20px;
+}
+
+.bookme {
+    float: right;
+}
+
+div.container.skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  
+}
+
+div.skill_bubble {
+    border-radius: 20px;
+    background-color: #dbfe87;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    margin: 10px;
+    display:flex;
+   
+}
+p.skill_bubble {
+    padding: 0;
+    margin: 0;
 }
 
 
 /** Search Page Styles **/
+
+div.container-fluid.search {
+    background-color: #E1E5EE;
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
+
+}
 
 h3#search_call_to_action {
     font-family: 'Montserrat', sans-serif;
@@ -405,19 +511,15 @@ h3#search_call_to_action {
 }
 
 div#search_form.container {
-    background-color: white;
+
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px;
-    margin: 20px 0px 20px 0px;
-    
+    padding: 50px;   
 }
 
+
+
 div#search_results.container {
-    background-color: #cfd1e2;
+    background-color: white;
     padding: 50px;
     border-radius: 10px;
     display: flex;
@@ -432,6 +534,7 @@ div#search_hit.container {
     background-color: white;
     border-radius: 10px;
     margin-bottom: 20px;
+    border: 1px solid gray;
     
     
 }
@@ -442,6 +545,7 @@ div#booking_form_text.container {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding-bottom: 20px;
+    padding-top: 20px;
    
 }
 
@@ -451,15 +555,15 @@ div#booking_form.container {
     align-items: center;
     justify-content: center;
   
+  
 }
 
-form.booking_form {
+div.form-group.booking_form {
     background-color: white;
+    padding: 40px;
     border-radius: 10px;
-    padding: 30px;
-
 }
-    
+  
 
 div#booking_call_to_action.container {
     color: white;
@@ -528,11 +632,6 @@ th {
 
 .date {
   font-size: 16px;
-}
-
-ul {
-  height: 100%;
-  padding: 0px 5px 0px 20px;
 }
 
 a {

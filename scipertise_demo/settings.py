@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-   
+
     'pages',
     'users',
     'search',
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'booking',
     'bootstrap4',
     'bootstrap_datepicker_plus',
+    'widget_tweaks',
+  
  
    
   
@@ -66,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'scipertise_demo.urls'

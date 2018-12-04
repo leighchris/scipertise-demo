@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Login{% endblock %}
 
@@ -7,7 +8,7 @@
 
 <div class = "container" id="login">
 <div class="login_bgrd">
-    <h2>Login to your account</h2>
+    <h2>Welcome back! <br>Login to you account below</h2>
 
 
 {% if form.errors %}
@@ -20,19 +21,25 @@
     please login with an account that has access.</p>
     {% else %}
     <p>Please login to see this page.</p>
-    {% endif %}
 {% endif %}
-
-<form method="post" action="{% url 'login' %}">
+{% endif %}
+    
+    
+    
+<div class="form-group">
+    <form method="post" action="{% url 'login' %}" >
 {% csrf_token %}
 Username:
-{{ form.username }} <br>
+{{ form.username | add_class:"form-control" }} <br>
 Password:
-{{ form.password }}
+{{ form.password | add_class:"form-control"}}
 
 <button type="submit" class="btn btn-primary">Login</button>
 <input type="hidden" name="next" value="{{ next }}">
 </form>
+    </div>
+
+
 
 <!--
 {# Assumes you setup the password_reset view in your URLconf #}

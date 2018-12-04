@@ -6,6 +6,7 @@
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
 {{ form.media }} 
+{% load widget_tweaks %}
 
 {% block title %}
 Event
@@ -13,17 +14,43 @@ Event
 
 {% block content %}
 
+<div class="container-fluid">
+    <div class="container" id="booking_form">
+    <div class="container" id="booking_form_text"><h3>Request a Time to Chat Based on My Availability</h3></div>
+        
+    <form method="post">
+      {% csrf_token %}
 
-<div class="container" id="booking_form">
-<div class="container" id="booking_form_text"><h4>Book a Time to Chat and I Will Get Back to You</h4></div>
-<form method="post" class="booking_form">
-  {% csrf_token %}
-
-    {{ form.as_p }}
-
-<button type="submit" class="btn btn-info left"> Book </button>
-
+    <div class="form-group booking_form">
+     {% for field in form.visible_fields %}
+      {{ field.label_tag }}
+      {% render_field field class="form-control" %}
+      {% if field.help_text %}
+    <small class="form-text text-muted">{{ field.help_text |safe }}</small>
+      {% endif %}
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  
 </form>
+        
+        
+        
+        
+        
+<!--
+        
+    <form method="post" class="booking_form">
+      {% csrf_token %}
+
+        {{ form.as_p }}
+
+    <button type="submit" class="availability_button"> Request to Book </button>
+
+    </form>
+-->
+    </div>
 </div>
+
 
 {% endblock %}

@@ -2,6 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.urls import reverse
 from users.models import CustomUser
+
  
 
 # Create your models here.
@@ -13,6 +14,7 @@ class Booking(models.Model):
     start_time = models.DateTimeField('Start time', null=True)
     end_time = models.DateTimeField('End time', null=True)
     notes = models.TextField('Notes', help_text='Please provide some detail on what you would like to learn or discuss', blank=True, null=True)
+    
  
     class Meta:
         verbose_name = 'Booking'
@@ -20,6 +22,8 @@ class Booking(models.Model):
         
     def get_absolute_url(self):
         return reverse('home')
+    
+
         
 
         
