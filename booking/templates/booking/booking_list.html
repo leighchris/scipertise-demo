@@ -14,6 +14,10 @@
     
     <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
 {% endfor %}
+{% for booking in user.booking_set.all %}
+    
+    <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
+{% endfor %}
     
 </div>
 

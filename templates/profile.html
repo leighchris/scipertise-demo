@@ -61,9 +61,10 @@
     </div>
 
     
-{% if user.bookings %}
+
     
-<div class="container" id="profile_content">   
+<div class="container" id="profile_content">  
+{% if user.bookings %}
 <h4 class="bio_title">{{user.first_name}}'s Scheduled Tutorials</h4>
 {% for booking in user.bookings.all %}
 <div class="container" id="tutorials">
@@ -72,9 +73,9 @@
         <p class="card-text">Description of the tutorial to join</p>
     </div>
 </div>
-
-
 {% endfor %}
+{% else %}
+<h2 id="title">This user is not hosting any tutorials</h2>
 </div>
     
 {% endif %}
