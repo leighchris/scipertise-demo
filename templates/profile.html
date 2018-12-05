@@ -33,8 +33,8 @@
         <div class="container" id="availability">
             <p>Availability: Tuesday and Wednesday evenings</p>
             <p>Rate: $60/ hour</p>
-            <a href="{% url 'booking:user_booking_new' %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
-            <p>or <a href=#>See My Available Tutorials</a></p>
+            <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
+            <p>or <a href="#">See My Available Tutorials</a></p>
         </div>
         
     </div>

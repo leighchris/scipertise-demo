@@ -21,7 +21,7 @@ class Booking(models.Model):
         verbose_name_plural = 'Bookings'
         
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('booking:booking_detail', kwargs={"pk": self.pk})
     
 
         

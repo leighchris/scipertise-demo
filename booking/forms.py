@@ -19,7 +19,7 @@ from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTime
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
-        fields = ['expert','title','start_time','end_time','notes']
+        fields = ['title','start_time','end_time','notes']
         # datetime-local is a HTML5 input type, format to make date time show on fields
         widgets = {
           'title': forms.TextInput(attrs={'class': 'form-control'}),

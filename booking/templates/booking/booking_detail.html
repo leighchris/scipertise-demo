@@ -5,13 +5,15 @@
 
 {% block content %}
 
-
-<a href="{% url 'profile_with_pk' pk=user.pk %}"><p>{{ booking.title }}</p></a>
-<p>{{ booking.start_time }}</p>
-<p>User: {{ booking.user }}</p>
-<p>Expert: {{ booking.expert }}</p>
-
-
+<div class="container" id="profile_content">
+    <a href="{% url 'profile_with_pk' pk=user.pk %}"><p>{{ booking.title }}</p></a>
+    <p>{{ booking.start_time }}</p>
+    <p>User: {{ booking.user }}</p>
+    <p>Expert: {{ booking.expert }}</p>
+    
+<a href="{% url 'booking:booking_update' pk=booking.pk %}"><button type='submit' class='btn btn-primary'>Edit Booking</button></a><br>
+<a href="{% url 'booking:booking_delete' pk=booking.pk %}"><button type='submit' class='btn btn-primary'>Delete Booking</button></a>
+</div>
 
 
 

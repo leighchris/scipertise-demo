@@ -1,4 +1,7 @@
-
+h2#title {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 10px;
+}
 
 /** Navbar **/
 
@@ -388,6 +391,18 @@ div#availability.container {
 
 }
 div#profile_content.container {
+
+    padding-top: 30px;
+    background-color: white;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+div#tutorial_content.container {
 
     padding-top: 30px;
     background-color: white;

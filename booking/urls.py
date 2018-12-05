@@ -21,10 +21,19 @@ app_name = 'booking'
 
 urlpatterns = [
     path('users/', include('users.urls')),
-    #path('users/profile/booking/', views.CalendarView.as_view(), name='calendar'),
-    #path('booking/calendar/', views.calendar, name='new_calendar'),
-    path('users/profile/booking/new/', views.BookingView.as_view(), name='user_booking_new'),
+    path('users/profile/<int:pk>/booking/', views.BookingView.as_view(), name='user_booking_new'),
     path('booking/', views.BookingListView.as_view(), name="booking_list"),
     path('booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),
+    path('booking/edit/<int:pk>/', views.BookingUpdateView.as_view(), name="booking_update"),
+    path('booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),
+#    path('users/profile/<int:pk>/booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),
+#    path('users/profile/<int:pk>/booking/edit/<int:pk>/', views.BookingUpdateView.as_view(), name="booking_update"),
+#    path('booking/edit/<int:pk>/booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),
+ 
  
 ]
+
+
+
+    #path('users/profile/booking/', views.CalendarView.as_view(), name='calendar'),
+    #path('booking/calendar/', views.calendar, name='new_calendar'),

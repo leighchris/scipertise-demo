@@ -24,12 +24,12 @@ Event
     <div class="form-group booking_form">
      {% for field in form.visible_fields %}
       {{ field.label_tag }}
-      {% render_field field class="form-control" %}
+      {% render_field field class="form-control" %}<br>
       {% if field.help_text %}
     <small class="form-text text-muted">{{ field.help_text |safe }}</small>
       {% endif %}
     {% endfor %}
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="availability_button">Submit</button>
     </div>
   
 </form>

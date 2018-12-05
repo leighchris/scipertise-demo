@@ -5,14 +5,34 @@
 
 {% block content %}
 
+{% if user.bookings %}
 
-
-{% for booking in booking_list %}
-
-
-<a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
-
+<div class='container' id='profile_content'>
+<h2 id="title">Your scheduled video chats:</h2>
+   
+{% for booking in user.bookings.all %}
+    
+    <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
 {% endfor %}
+    
+</div>
+
+
+
+{% else %}
+
+<div class='container' id='profile_content'>
+   
+
+<h2>You have no bookings</h2>
+    
+</div>
+
+{% endif %}
+
+
+
+
 {% endblock %}
 
 

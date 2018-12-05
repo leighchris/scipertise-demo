@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from django.views.generic import CreateView, TemplateView, DetailView, ListView
+from django.views.generic import CreateView, TemplateView, DetailView, ListView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from datetime import datetime
 from django.http import HttpResponse
@@ -19,22 +19,26 @@ from booking.forms import BookingForm
 class BookingView(CreateView):
     model = Booking
     form_class = BookingForm
-    #fields= ("user", "expert", "title", "start_time", "end_time", "notes")
     def form_valid(self, form):
         form.instance.user = self.request.user
+        form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
         return super(BookingView, self).form_valid(form)
+    
+class BookingUpdateView(UpdateView):
+    model = Booking
+    form_class = BookingForm
+    
+class BookingDeleteView(DeleteView):
+    model = Booking
+    success_url = reverse_lazy('profile')
 
 class BookingListView(ListView):
     model = Booking
     context_object_name = 'booking_list'
     template = 'templates/booking_list.html'
     
-    def get_queryset(self, pk=None):
-        if pk:
-            user = CustomUser.objects.get(pk=pk)
-        else:
-            user = self.request.user
-        bookings = Booking.objects.filter(expert=user)
+    def get_queryset(self):
+        bookings = Booking.objects.filter(user=self.request.user)
         return bookings
 
     
@@ -103,5 +107,12 @@ class BookingDetailView(DetailView):
 #    return render(request, 'booking.html', {'form': form})
 
 
-    
-
+#    def get_queryset(self, pk=None):
+#        if pk:
+#            user = CustomUser.objects.get(pk=pk)
+#        else:
+#            user = self.request.user
+#        bookings = Booking.objects.filter(expert=user)
+#        return bookings
+#
+##
