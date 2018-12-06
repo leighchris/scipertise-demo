@@ -42,8 +42,10 @@
                   <input class="form-control mr-sm-2" type="text" name="q" value="{{request.GET.q}}" placeholder="Search by Skill">
                   <button class="btn btn-primary my-2 my-sm-0" id = "search" name="submit" type="submit" value ="Search">Search</button>
                 </form>
+                {% if user.expert == True %}
                   <a class="nav-item nav-link" href="{% url 'profile' %}">Your Profile</a>
-                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}">Your Bookings</a>
+                {% endif %}
+                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}">Your Sessions</a>
                   <a class ="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                   {% else %}
                   <form class="form-inline my-2 my-lg-0">

@@ -12,7 +12,6 @@ class CustomUserManager(UserManager):
 
 class CustomUser(AbstractUser):
     objects = CustomUserManager()
-    #skills = models.CharField(max_length =200, null=True, default='')
     position = models.CharField(max_length =50, null=True, default='')
     bio = models.CharField(max_length=300, null=True, default='')
     skills = TaggableManager(help_text="A comma-separated list of tags.")
@@ -22,6 +21,11 @@ class CustomUser(AbstractUser):
     skill_area3 = models.CharField(max_length=200, null=True, default='', blank=True)
     skill_area4 = models.CharField(max_length=200, null=True, default='', blank=True)
     skill_area5 = models.CharField(max_length=200, null=True, default='', blank=True)
+    software_hardware = models.CharField(max_length=200, null=True, default='', blank=True)
+    availability = models.CharField(max_length=200, null=True, default='', blank=True)
+    rate = models.CharField(max_length=100, null=True, default='', blank=True)
+    expert = models.BooleanField(default=False)
+    
 
 class TaggedSkill(TaggedItemBase):
     content_object = models.ForeignKey('Skill', on_delete=models.DO_NOTHING)  

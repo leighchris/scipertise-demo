@@ -9,7 +9,13 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email' ,)
+        fields = ('username', 'first_name', 'last_name', 'email', 'expert' ,)
+        help_texts = {
+            'expert': 'Check the box if you would like to be an expert. Otherwise leave blank.',
+        }
+        labels = {
+            'expert': 'Would you like to provide expertise?',
+        }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),

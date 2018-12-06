@@ -1,22 +1,28 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-<h1>Bookings</h1>
 
 {% block content %}
+<div class="container-fluid booking">
 
 {% if user.bookings %}
 
-<div class='container' id='profile_content'>
-<h2 id="title">Your scheduled video chats:</h2>
+<div class='container'>
+<div class="container" id="booking_form_text"><h3>Your scheduled video sessions:</h3></div>
    
 {% for booking in user.bookings.all %}
+    <div class="container card">
+        <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
+        <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
+    </div>
     
-    <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
 {% endfor %}
 {% for booking in user.booking_set.all %}
     
-    <a href="{% url 'booking:booking_detail' pk=booking.pk %}"><p>{{ booking.title }}</p></a>
+       <div class="container card">
+        <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
+        <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
+    </div>
 {% endfor %}
     
 </div>
@@ -24,8 +30,6 @@
 
 
 {% else %}
-
-<div class='container' id='profile_content'>
    
 
 <h2>You have no bookings</h2>

@@ -16,7 +16,7 @@ admin.site.register(TaggedSkill)
 #class SkillAdmin(admin.ModelAdmin):
 #    inlines = [SkillsInline ,]
 
-UserAdmin.fieldsets += ('Custom fields set', {'fields': ('position', 'bio', 'skills', 'image', 'skill_area1', 'skill_area2', 'skill_area3', 'skill_area4', 'skill_area5' ,)}),
+UserAdmin.fieldsets += ('Custom fields set', {'fields': ('position', 'bio', 'skills', 'image', 'skill_area1', 'skill_area2', 'skill_area3', 'skill_area4', 'skill_area5' ,'software_hardware', 'availability', 'rate', 'expert',)}),
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser

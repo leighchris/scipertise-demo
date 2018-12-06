@@ -258,7 +258,7 @@ div#step3.container {
 }
 
 h4.icon_title {
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     border-bottom: 3px solid #dbfe87;
  
@@ -297,13 +297,18 @@ h3.call_to_action {
     
 }
 
-div#signup.container {
+div#signup.container-fluid {
 
     padding: 50px;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color:#a0def8;
+    background-image: linear-gradient(to bottom, #a0def8, #363095);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
     
 }
 
@@ -324,18 +329,22 @@ div#third_section_row.container-fluid {
 
 /** Login Page Styles **/
 
-div#login.container {
+div#login.container-fluid {
   padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+   background-color:#a0def8;
+    background-image: linear-gradient(to bottom, #a0def8, #363095);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
   
 }
 
 div.login_bgrd {
     background-color: white;
     padding: 50px;
-    margin-top: 50px;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
 }
@@ -353,7 +362,8 @@ div#profile_container.container-fluid {
 
    
     padding:30px;
-    background-color: #E1E5EE;
+    background-color:#a0def8;
+    background-image: linear-gradient(to bottom, #E1E5EE, #a0def8);
     display: flex;
     flex-direction: column;
 }
@@ -513,7 +523,8 @@ p.skill_bubble {
 /** Search Page Styles **/
 
 div.container-fluid.search {
-    background-color: #E1E5EE;
+    background-color:#E1E5EE;
+    background-image: linear-gradient(to bottom, #E1E5EE, #13acee);
     height: 100%;
     margin: 0 auto;
     overflow-y:scroll;
@@ -555,12 +566,47 @@ div#search_hit.container {
 }
 /** Calendar Booking Styles **/
 
-div#booking_form_text.container {
+
+button.booking_button {
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+    background-color: #363095;
+    font-size: 14pt;
     color: white;
     font-family: 'Montserrat', sans-serif;
+
+}
+
+button.booking_button:hover {
+       background-color: #dbfe87;
+    color: #363095;
+
+}
+
+div.container-fluid.booking {
+ background-color:#E1E5EE;
+    background-image: linear-gradient(to bottom, #E1E5EE, #13acee);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
+   color: #3a405a;
+}
+
+div#booking_form_text.container {
+    color: #6e75a8;
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding: 20px;
+    
+   
+}
+
+div#booking_content.container {
+    font-family: 'PT Sans', sans-serif;
+    color: #6e75a8;
    
 }
 
@@ -569,14 +615,14 @@ div#booking_form.container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  
+   
   
 }
 
 div.form-group.booking_form {
     background-color: white;
-    padding: 40px;
     border-radius: 10px;
+    padding: 20px 50px 20px 50px;
 }
   
 
