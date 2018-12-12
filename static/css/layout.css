@@ -3,6 +3,14 @@ h2#title {
     padding-bottom: 10px;
 }
 
+img.iconic {
+    height: 12px;
+    width: 12px;
+    fill: gray;
+    stroke: gray;
+   
+}
+
 /** Navbar **/
 
 button.btn.btn-primary {
@@ -393,8 +401,6 @@ div#availability.container {
     font-family: 'PT Sans', sans-serif;
     font-size: 14pt;
     margin:30px 60px 30px 60px;
-    
-    color: #363095;
     padding: 10px;
     border-radius: 10px;
 
@@ -502,6 +508,7 @@ div.container.skills {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-family: 'PT Sans', sans-serif;
   
 }
 
@@ -517,6 +524,11 @@ div.skill_bubble {
 p.skill_bubble {
     padding: 0;
     margin: 0;
+}
+
+div.container.edit_profile {
+    padding:10px;
+    font-family: 'PT Sans', sans-serif;
 }
 
 
@@ -566,7 +578,9 @@ div#search_hit.container {
 }
 /** Calendar Booking Styles **/
 
-
+div.container.delete_booking {
+    text-align: center;
+}
 button.booking_button {
     border-radius: 10px;
     text-align: center;

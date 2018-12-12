@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+<h1>Bookings</h1>
+
+{% block content %}
+
+<div class="container-fluid booking">
+    <div class="container" id="booking_form_text"><h3>Booking request confirmation</h3></div>
+    <div class="container" id="booking_content">
+        
+    <form method="post">
+      {% csrf_token %}
+
+    <div class="form-group booking_form">
+     {% for field in form.visible_fields %}
+      {{ field.label_tag }}
+      {% render_field field class="form-control" %}<br>
+      {% if field.help_text %}
+    <small class="form-text text-muted">{{ field.help_text |safe }}</small>
+      {% endif %}
+    {% endfor %}
+    <button type="submit" class="availability_button">Yes I Confirm</button>
+    </div>
+  
+</form>
+    </div>
+
+</div>
+
+
+
+{% endblock %}

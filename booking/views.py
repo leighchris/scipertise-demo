@@ -14,7 +14,7 @@ from users.forms import CustomUserCreationForm, EditProfile
 from users.models import CustomUser
 #from booking.utils import Calendar
 from booking.models import Booking
-from booking.forms import BookingForm
+from booking.forms import BookingForm, ConfirmForm
 
 class BookingView(CreateView):
     model = Booking
@@ -45,6 +45,41 @@ class BookingListView(ListView):
 class BookingDetailView(DetailView):
     model = Booking
     template = 'templates/booking_detail.html'
+    
+
+        
+#def is_confirmed(request, pk):
+#    form = ConfirmForm()
+#    if request.method == 'POST':
+#        form = ConfirmForm(request.POST,
+#            expert_confirming = request.user, 
+#            booking = get_object_or_404(Booking, pk=booking.pk),
+#            is_confirmed = True
+#            )
+#        if form.is_valid():
+#            form.save()
+#        return HttpResponseRedirect(reverse('booking:booking_detail'))
+#    else:
+#        return render(request, 'confirm_booking.html', {'form': form})
+    
+class ConfirmView(UpdateView):
+    model = Booking
+    form_class = ConfirmForm
+    template = 'templates/confirmation_form.html'
+    def form_valid(self, form):
+        return super(ConfirmView, self).form_valid(form)
+    
+#@login_required
+#def EditProfileView(request):
+#    form = EditProfile()
+#    if request.method == 'POST':
+#        form = EditProfile(request.POST, instance =request.user)
+#        if form.is_valid():
+#            form.save()
+#        return HttpResponseRedirect(reverse('profile'))
+#    else:
+#        form = EditProfile(instance = request.user)
+#        return render(request, 'edit_profile.html', {'form': form})
 
 #class CalendarView(generic.ListView):
 #    model = Booking

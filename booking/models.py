@@ -13,8 +13,9 @@ class Booking(models.Model):
     title = models.CharField(max_length=200, default='Video call with ..', null=True)
     start_time = models.DateTimeField('Start time', null=True)
     end_time = models.DateTimeField('End time', null=True)
-    notes = models.TextField('Notes', blank=True, null=True)
-    
+    notes = models.TextField('Notes', blank=True, null=True) 
+    is_confirmed = models.BooleanField(blank=True, default=False)
+  
  
     class Meta:
         verbose_name = 'Booking'
@@ -23,7 +24,12 @@ class Booking(models.Model):
     def get_absolute_url(self):
         return reverse('booking:booking_detail', kwargs={"pk": self.pk})
     
+#class Confirmation(models.Model):
+#    booking = models.ForeignKey(Booking, on_delete=models.CASCADE)
+#    expert_confirming = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+#    is_confirmed = models.BooleanField(default=False)
+#    
+#    def get_absolute_url(self):
+#        return reverse('booking:booking_detail', kwargs={"pk": self.booking_id})
+#    
 
-        
-
-        

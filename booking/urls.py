@@ -26,6 +26,7 @@ urlpatterns = [
     path('booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),
     path('booking/edit/<int:pk>/', views.BookingUpdateView.as_view(), name="booking_update"),
     path('booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),
+    path('booking/confirm/<int:pk>', views.ConfirmView.as_view(), name='confirm_booking'),
 #    path('users/profile/<int:pk>/booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),
 #    path('users/profile/<int:pk>/booking/edit/<int:pk>/', views.BookingUpdateView.as_view(), name="booking_update"),
 #    path('booking/edit/<int:pk>/booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),

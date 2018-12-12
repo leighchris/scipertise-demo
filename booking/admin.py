@@ -12,8 +12,13 @@ from django.utils.safestring import mark_safe
 
 
 class BookingAdmin(admin.ModelAdmin):
-    list_display = ['title', 'start_time', 'end_time', 'notes']
+    list_display = ['title', 'start_time', 'end_time', 'notes', 'is_confirmed',]
     
 admin.site.register(Booking, BookingAdmin)
 
+#class ConfirmationAdmin(admin.ModelAdmin):
+#    list_display = ['booking', 'expert_confirming', 'is_confirmed',]
+#    
+#admin.site.register(Confirmation, ConfirmationAdmin)
+#
 

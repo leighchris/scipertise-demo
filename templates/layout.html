@@ -24,6 +24,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="iconic.min.js"></script>
  
     </head>
 <body>  
@@ -45,7 +46,7 @@
                 {% if user.expert == True %}
                   <a class="nav-item nav-link" href="{% url 'profile' %}">Your Profile</a>
                 {% endif %}
-                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}">Your Sessions</a>
+                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}">Your Schedule</a>
                   <a class ="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                   {% else %}
                   <form class="form-inline my-2 my-lg-0">
