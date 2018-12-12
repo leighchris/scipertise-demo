@@ -393,6 +393,10 @@ div#expert.container {
 
 }
 
+div.user_name {
+    margin: 20px auto;
+}
+
 div#availability.container {
     display: flex;
     flex-direction: column;
@@ -400,8 +404,7 @@ div#availability.container {
     justify-content: center;
     font-family: 'PT Sans', sans-serif;
     font-size: 14pt;
-    margin:30px 60px 30px 60px;
-    padding: 10px;
+    margin:10px 60px 10px 60px;
     border-radius: 10px;
 
 
@@ -412,7 +415,7 @@ div#profile_content.container {
     background-color: white;
     margin: 10px auto;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
    
@@ -441,11 +444,11 @@ div#tutorials.container {
     align-content: space-between;
    
 }
-.card {
+div.container.card {
     display: flex;
     padding: 20px;
-    height:100px;
-    width: 100px;
+    border-radius: 30px;
+    margin: 20px auto;
  
 }
 
@@ -478,8 +481,9 @@ p.profile_name {
 }
 
 p.profile_text {
-    font-size: 14pt;
+    font-size: 13pt;
     font-family: 'PT Sans', sans-serif;
+    margin: 10px;
   
 }
 
@@ -488,6 +492,14 @@ h4.bio_title {
     font-weight: 600;
     font-size:20pt;
     padding: 10px;
+}
+
+h4.text_title {
+    font-size: 14pt;
+    font-family: 'PT Sans', sans-serif;
+    margin: 10px;
+    font-weight: bolder;
+  
 }
 
 div#edit_profile_button.container {
@@ -527,8 +539,10 @@ p.skill_bubble {
 }
 
 div.container.edit_profile {
-    padding:10px;
+    padding:5px;
     font-family: 'PT Sans', sans-serif;
+    font-size: 11pt;
+    text-align: right;
 }
 
 

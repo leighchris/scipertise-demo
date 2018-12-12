@@ -15,8 +15,10 @@ Event
 {% block content %}
 
 <div class="container-fluid booking">
-    {% if booking and booking.is_confirmed == False %}
-    <div class="container" id="booking_form_text"><h3>Please confirm booking request</h3></div>
+    {% if booking and booking.is_confirmed == False and booking.user == request.user %}
+    <div class="container" id="booking_form_text"><h3>Please select a new time for your video call</h3></div>
+    {% elif booking and booking.is_confirmed == False and booking.expert == request.user %}
+     <div class="container" id="booking_form_text"><h3>Please confirm booking request</h3></div>
     {% elif booking %}
     <div class="container" id="booking_form_text"><h3>Please select a new time for your video call</h3></div>
     {% else %}

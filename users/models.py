@@ -24,16 +24,18 @@ class CustomUser(AbstractUser):
     software_hardware = models.CharField(max_length=200, null=True, default='', blank=True)
     availability = models.CharField(max_length=200, null=True, default='', blank=True)
     rate = models.CharField(max_length=100, null=True, default='', blank=True)
-    expert = models.BooleanField(default=False)
+    expert = models.BooleanField(blank=True, default=False)
+    gives_tutorials = models.BooleanField(blank=True, default=False)
+    tutorial_area = models.CharField(max_length=200, null=True, default='', blank=True)
     
 
-class TaggedSkill(TaggedItemBase):
-    content_object = models.ForeignKey('Skill', on_delete=models.DO_NOTHING)  
-    
-class Skill(models.Model):
-    name = models.CharField(max_length =200, null=True, default='')
-    #skills = models.CharField(max_length =50, null=True, default='')
-    tags = TaggableManager(through=TaggedSkill)
+#class TaggedSkill(TaggedItemBase):
+#    content_object = models.ForeignKey('Skill', on_delete=models.DO_NOTHING)  
+#    
+#class Skill(models.Model):
+#    name = models.CharField(max_length =200, null=True, default='')
+#    #skills = models.CharField(max_length =50, null=True, default='')
+#    tags = TaggableManager(through=TaggedSkill)
 
 
 

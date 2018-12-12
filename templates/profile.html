@@ -13,7 +13,7 @@
                 <img class="profile_image" src="{{ user.image.url }}" width="180"/>
             </div>
             {% endif %}
-            <div>
+            <div class="user_name">
             <p class="profile_name">{{ user.first_name }}&nbsp{{ user.last_name }}</p>
             <p class="profile_text">{{user.position}}</p>
 <!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
@@ -24,80 +24,88 @@
                 <div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div>
                 {% endfor %}
                 </div>
-                    
-{% if user == request.user and request.user.is_authenticated %}
-                <div class="container edit_profile"><p>Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
-                {% endif %}
-                
-<!--                {{user.skills.all|join:", "}}-->
-
             </div>
 
         </div>
+        <div class="container" id="expert_right">
+                {% if user == request.user and request.user.is_authenticated %}
+                <div class="container edit_profile"><p>Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
+            {% else %}
+            <div class="container">
+            <p></p><br>
+            </div>
+                {% endif %}
         
+
         <div class="container" id="availability">
+                                
             <p>Availability: {{ user.availability }}</p>
             <p>Rate: {{ user.rate }}</p>
+            {% if user != request.user %}
             <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
-            <p>or <a href="#">See My Available Tutorials</a></p>
+            <p>or <a href="#tutorial">Join a group session</a></p>
+            {% endif %}
             
         </div>
+            </div>
 
     </div>
 
      <div class="container" id="profile_content">
-         <h4 class="bio_title">My expertise:</h4><br><p class="profile_text">{{ user.bio }}</p><br>
-         {% if user.skill_area1 %}
-         <h4 class="bio_title">Top Skill Area:</h4><br><p class="profile_text">{{ user.skill_area1 }}</p><br>
+         <h4 class="bio_title">About Me:</h4>
+         <p class="profile_text">{{ user.bio }}</p>
+         {% if user.skill_area1 %}<br>
+         <h4 class="bio_title">Areas of expertise:</h4>
+         <h4 class="text_title">Top skill area</h4>
+         <p class="profile_text">{{ user.skill_area1 }}</p>
          {% endif %}
           {% if user.skill_area2 %}
-          <h4 class="bio_title">Skill Area 2:</h4><br><p class="profile_text">{{ user.skill_area2 }}</p><br>
+         <h4 class="text_title">Skill area</h4>
+          <p class="profile_text">{{ user.skill_area2 }}</p>
            {% endif %}
           {% if user.skill_area3 %}
-          <h4 class="bio_title">Skill Area 3:</h4><br><p class="profile_text">{{ user.skill_area3 }}</p><br>
+         <h4 class="text_title">Skill area</h4>
+          <p class="profile_text">{{ user.skill_area3 }}</p>
          {% endif %}
            {% if user.skill_area4 %}
-          <h4 class="bio_title">Skill Area 4:</h4><br><p class="profile_text">{{ user.skill_area4 }}</p><br>
+         <h4 class="text_title">Skill area</h4>
+         <p class="profile_text">{{ user.skill_area4 }}</p>
             {% endif %}
            {% if user.skill_area5 %}
-          <h4 class="bio_title">Skill Area 5:</h4><br><p class="profile_text">{{ user.skill_area5 }}</p><br>
-          {% endif %}
+         <h4 class="text_title">Skill area</h4>
+          <p class="profile_text">{{ user.skill_area5 }}</p>
+          {% endif %}<br>
           {% if user.software_hardware %}
-          <h4 class="bio_title">Software/ Hardware:</h4><br><p class="profile_text">{{ user.software_hardware }}</p><br>
+          <h4 class="bio_title">Software/ Hardware:</h4>
+         <p class="profile_text">{{ user.software_hardware }}</p>
+          {% endif %}
+         {% if user.tutorial_area %}
+          <h4 class="bio_title">I can lead group sessions on:</h4>
+         <p class="profile_text">{{ user.tutorial_area }}</p>
           {% endif %}
        
     </div>
 
     
 
-    
+ <a name="tutorial"></a>   
 <div class="container" id="profile_content">  
-{% if user.bookings %}
-<h4 class="bio_title">{{user.first_name}}'s Scheduled Tutorials</h4>
+{% if user.gives_tutorials %}
+<h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
 {% for booking in user.bookings.all %}
-<div class="container" id="tutorials">
+
     <div class="container card">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">Description of the tutorial to join</p>
     </div>
-</div>
+
 {% endfor %}
 {% else %}
-<h2 id="title">This user is not hosting any tutorials</h2>
+<p class="profile_text">This user is not currently hosting any tutorials<p>
 </div>
     
 {% endif %}
-    
-    
-<!--
-{% if user == request.user and request.user.is_authenticated %}
 
-
-    <a href="{% url 'edit_profile' %}"><button type="submit" class="btn btn-primary">Edit Profile</button></a>
-
-
-{% endif %}
--->
 </div>
 
 

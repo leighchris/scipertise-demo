@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser, Skill
+from .models import CustomUser
 from taggit.forms import *
 
 
@@ -9,12 +9,14 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'expert',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'expert', )
         help_texts = {
             'expert': 'Check the box if you would like to be an expert. Otherwise leave blank.',
+            
         }
         labels = {
             'expert': 'Would you like to provide expertise?',
+           
         }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
@@ -39,10 +41,20 @@ class EditProfile(forms.ModelForm):
     skills = TagField(
         help_text="Please enter a comma separated list of skills"
     )
+    software_hardware = forms.CharField(
+        help_text="Please enter a comma separated list of software, programming languages, equipment or hardware you have expertise with"
+    )
+    gives_tutorials = forms.BooleanField(
+        help_text="Check the box if you would like to host group sessions/ tutorials",
+        label = "Would you like to lead group sessions/ tutorials in your area of expertise?"
+    )
+    tutorial_area = forms.CharField(
+        help_text="Please describe the topics which you can host a group session on"
+    )
 
     class Meta:
         model = CustomUser
-        fields =('position', 'bio', 'skills', 'availability', 'rate' ,)
+        fields =('position', 'bio', 'skills', 'availability', 'rate', 'software_hardware', 'gives_tutorials', 'tutorial_area',)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['position'].widget.attrs['class'] = 'form-control'
@@ -50,15 +62,21 @@ class EditProfile(forms.ModelForm):
         self.fields['rate'].widget.attrs['class'] = 'form-control'
         self.fields['bio'].widget.attrs['class'] = 'form-control'
         self.fields['skills'].widget.attrs['class'] = 'form-control'
+        self.fields['software_hardware'].widget.attrs['class'] = 'form-control'
+        self.fields['gives_tutorials'].widget.attrs['class'] = 'form-control'
+        self.fields['tutorial_area'].widget.attrs['class'] = 'form-control'
         
        
     def clean(self):
         cleaned_data = super().clean()
         position = cleaned_data.get('position')
         bio = cleaned_data.get('bio')
-        bio = cleaned_data.get('availability')
-        bio = cleaned_data.get('rate')
+        availability = cleaned_data.get('availability')
+        rate = cleaned_data.get('rate')
         skills = cleaned_data.get('skills')
+        software_hardware = cleaned_data.get('software_hardware')
+        gives_tutorials = cleaned_data.get('gives_tutorials')
+        tutorial_area = cleaned_data.get('tutorial_area')
         
 class LoginForm(AuthenticationForm):
     username = forms.CharField()

@@ -16,6 +16,48 @@ from users.models import CustomUser
 from booking.models import Booking
 from booking.forms import BookingForm, ConfirmForm
 
+##OpenTok Test
+#
+#from opentok import OpenTok
+#opentok = OpenTok(api_key, api_secret)
+## Create a session that attempts to send streams directly between clients (falling back
+## to use the OpenTok TURN server to relay streams if the clients cannot connect):
+#session = opentok.create_session()
+#
+#from opentok import MediaModes
+## A session that uses the OpenTok Media Router, which is required for archiving:
+#session = opentok.create_session(media_mode=MediaModes.routed)
+#
+## An automatically archived session:
+#session = opentok.create_session(media_mode=MediaModes.routed, archive_mode=ArchiveModes.always)
+#
+## A session with a location hint
+#session = opentok.create_session(location=u'12.34.56.78')
+#
+## Store this session ID in the database
+#session_id = session.session_id
+#
+## Generate a Token from just a session_id (fetched from a database)
+#token = opentok.generate_token(session_id)
+#
+## Generate a Token by calling the method on the Session (returned from create_session)
+#token = session.generate_token()
+#
+#from opentok import Roles
+## Set some options in a token
+#token = session.generate_token(role=Roles.moderator,
+#                               expire_time=int(time.time()) + 10,
+#                               data=u'name=Johnny'
+#                               initial_layout_class_list=[u'focus'])
+#
+#archive = opentok.start_archive(session_id, name=u'Important Presentation', output_mode=OutputModes.individual)
+#
+## Store this archive_id in the database
+#archive_id = archive.id
+#
+
+
+
 class BookingView(CreateView):
     model = Booking
     form_class = BookingForm
