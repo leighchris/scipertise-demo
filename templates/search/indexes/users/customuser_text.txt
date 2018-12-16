@@ -1,0 +1,6 @@
+{{ object.skills.all }}
+{{ object.skill_area1 }}
+{{ object.skill_area2 }}
+{{ object.skill_area3 }}
+{{ object.skill_area4 }}
+{{ object.skill_area5 }}

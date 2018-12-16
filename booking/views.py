@@ -9,6 +9,7 @@ from django.utils.safestring import mark_safe
 from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 import calendar
+from django.core.mail import send_mail
 
 from users.forms import CustomUserCreationForm, EditProfile
 from users.models import CustomUser
@@ -64,11 +65,31 @@ class BookingView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
+        user_email = form.instance.user.email
+        expert_email = form.instance.expert.email
+        msg = 'Thanks for requesting a video chat' + form.instance.user.first_name + '. We will notify you when your booking is confirmed.'
+        msg_expert = 'Someone has requested a video chat with you'
+        send_mail('Thanks for your booking request ' + form.instance.user.first_name, msg, 'founders@scipertise.com',
+        [user_email], fail_silently=False)
+        send_mail('Someone has requested a video chat with you', msg_expert, 'founders@scipertise.com',
+        [expert_email], fail_silently=False)
         return super(BookingView, self).form_valid(form)
     
 class BookingUpdateView(UpdateView):
     model = Booking
     form_class = BookingForm
+#    def form_valid(self, form):
+#        form.instance.user = self.request.user
+#        form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
+#        user_email = form.instance.user.email
+#        expert_email = form.instance.expert.email
+#        msg = 'Thanks for requesting a video chat' + form.instance.user.first_name + '. We will notify you when your booking is confirmed.'
+#        msg_expert = form.instance.user.first_name + ' has made a change to their booking request'
+#        send_mail('Thanks for your booking request ' + form.instance.user.first_name, msg, 'founders@scipertise.com',
+#        [user_email], fail_silently=False)
+#        send_mail(form.instance.user.first_name + ' has requested a change to their booking request', msg_expert, 'founders@scipertise.com',
+#        [expert_email], fail_silently=False)
+#        return super(BookingView, self).form_valid(form)
     
 class BookingDeleteView(DeleteView):
     model = Booking
@@ -87,22 +108,6 @@ class BookingListView(ListView):
 class BookingDetailView(DetailView):
     model = Booking
     template = 'templates/booking_detail.html'
-    
-
-        
-#def is_confirmed(request, pk):
-#    form = ConfirmForm()
-#    if request.method == 'POST':
-#        form = ConfirmForm(request.POST,
-#            expert_confirming = request.user, 
-#            booking = get_object_or_404(Booking, pk=booking.pk),
-#            is_confirmed = True
-#            )
-#        if form.is_valid():
-#            form.save()
-#        return HttpResponseRedirect(reverse('booking:booking_detail'))
-#    else:
-#        return render(request, 'confirm_booking.html', {'form': form})
     
 class ConfirmView(UpdateView):
     model = Booking

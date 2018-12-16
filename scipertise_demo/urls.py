@@ -26,6 +26,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('search/', include('search.urls', namespace='search')),
     path('users/', include('users.urls')),
+    path('video/', include('video.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('booking.urls', namespace='booking')),
     

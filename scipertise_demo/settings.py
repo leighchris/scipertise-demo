@@ -19,6 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
+#API_KEY ='46235562'
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'c5guhld^0gtd%!dj6t7y1(o97o=a_j1d4^amtc(cn*g1qf#_bz'
 
@@ -38,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    
+    'haystack',
 
     'pages',
     'users',
@@ -47,11 +51,21 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap_datepicker_plus',
     'widget_tweaks',
+    'video',
+    'opentok',
   
  
    
   
 ]
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch2_backend.Elasticsearch2SearchEngine',
+        'URL': 'http://127.0.0.1:9200/',
+        'INDEX_NAME': 'haystack',
+    },
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 BOOTSTRAP4 = {
@@ -153,6 +167,18 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 TAGGIT_CASE_INSENSITIVE = True
+
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'leigh.christopher2@gmail.com'
+#EMAIL_HOST_PASSWORD = '9292legoLego'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'scipertise'
+EMAIL_HOST_PASSWORD = 'speedupscience2017'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 
 
