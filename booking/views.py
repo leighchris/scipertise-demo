@@ -17,6 +17,8 @@ from users.models import CustomUser
 from booking.models import Booking
 from booking.forms import BookingForm, ConfirmForm
 
+from django.template.loader import render_to_string
+
 ##OpenTok Test
 #
 #from opentok import OpenTok
@@ -58,7 +60,6 @@ from booking.forms import BookingForm, ConfirmForm
 #
 
 
-
 class BookingView(CreateView):
     model = Booking
     form_class = BookingForm
@@ -67,10 +68,13 @@ class BookingView(CreateView):
         form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
         user_email = form.instance.user.email
         expert_email = form.instance.expert.email
-        msg = 'Thanks for requesting a video chat' + form.instance.user.first_name + '. We will notify you when your booking is confirmed.'
-        msg_expert = 'Someone has requested a video chat with you'
+        msg = 'Thanks for requesting a video chat ' + form.instance.user.first_name + '. We will notify you when your booking is confirmed.'
+        text_content = form.instance.user.first_name + ' has requested a video chat with you. Please confirm that you are available for the booking here.'
+        msg_expert = form.instance.user.first_name + ' has requested a video chat with you. Please confirm that you are available for the booking here.'
+    #send email to the user
         send_mail('Thanks for your booking request ' + form.instance.user.first_name, msg, 'founders@scipertise.com',
         [user_email], fail_silently=False)
+    #send email to the expert
         send_mail('Someone has requested a video chat with you', msg_expert, 'founders@scipertise.com',
         [expert_email], fail_silently=False)
         return super(BookingView, self).form_valid(form)

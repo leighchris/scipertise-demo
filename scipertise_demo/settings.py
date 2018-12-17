@@ -174,11 +174,6 @@ EMAIL_HOST_PASSWORD = '9292legoLego'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-#EMAIL_HOST = 'smtp.sendgrid.net'
-#EMAIL_HOST_USER = 'scipertise'
-#EMAIL_HOST_PASSWORD = 'speedupscience2017'
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
 
 
 

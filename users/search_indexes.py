@@ -4,10 +4,10 @@ from taggit.forms import *
 
 
 class CustomUserIndex(indexes.SearchIndex, indexes.Indexable):
+    text = indexes.CharField(document=True, use_template=True)
     position = indexes.CharField()
     bio = indexes.CharField()
     skills = indexes.MultiValueField()
-    text = indexes.CharField(document=True, use_template=True)
 #    image = indexes.ImageField()
     skill_area1_title = indexes.CharField()
     skill_area1 = indexes.CharField()
