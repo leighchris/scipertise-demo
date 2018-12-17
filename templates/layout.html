@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{% static '/css/layout.css' %}">
   
     <link href="https://fonts.googleapis.com/css?family=Montserrat|PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet"> 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
@@ -39,10 +40,14 @@
             <div class="navbar-nav">
                  <!-- <a class="nav-item nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a> -->
                   {% if user.is_authenticated %}
+                
                  <form class="form-inline my-2 my-lg-0" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
                   <input class="form-control mr-sm-2" type="text" name="q" value="{{request.GET.q}}" placeholder="Search by Skill">
                   <button class="btn btn-primary my-2 my-sm-0" id = "search" name="submit" type="submit" value ="Search">Search</button>
                 </form>
+                
+                
+                
                 {% if user.expert == True %}
                   <a class="nav-item nav-link" href="{% url 'profile' %}">My Profile</a>
                 {% endif %}

@@ -13,18 +13,31 @@ img.iconic {
 
 /** Navbar **/
 
+a.nav-item.nav-link {
+    font-size: 12pt;
+    font-family: 'Montserrat', sans-serif;
+}
+
+input.form-control.mr-sm-2 {
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
 button.btn.btn-primary {
     padding: 8px 10px 8px 10px;
     margin-right: 10px;
     background-color: #363095;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
 
 }
 
 button.btn.btn-primary:hover {
     background-color: #13acee;
-    border-radius: 10px;
+   
+   
 
 }
 
@@ -378,19 +391,27 @@ div#profile_container.container-fluid {
 
 div#profile_intro.container {
    
-    background-color: white;
-    margin: 10px auto;
+
+  
     display: flex;
     flex-direction: row;
     border-radius: 5px;
-    padding: 10px;
+    background-color: white;
+  
   
 }
 
 div#expert.container {
     display: flex;
     flex-direction: row;
+    
 
+
+}
+div#expert_right.container {
+   
+
+   
 }
 
 div.user_name {
@@ -404,7 +425,7 @@ div#availability.container {
     justify-content: center;
     font-family: 'PT Sans', sans-serif;
     font-size: 14pt;
-    margin:10px 60px 10px 60px;
+    margin:20px auto;
     border-radius: 10px;
 
 
@@ -415,10 +436,13 @@ div#profile_content.container {
     background-color: white;
     margin: 10px auto;
     border-radius: 5px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
    
+}
+
+div.profile_content_text {
+    margin:30px;
 }
 
 div#tutorial_content.container {

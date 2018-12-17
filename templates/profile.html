@@ -52,6 +52,7 @@
     </div>
 
      <div class="container" id="profile_content">
+         <div class="profile_content_text">
          <h4 class="bio_title">About Me:</h4>
          <p class="profile_text">{{ user.bio }}</p>
          {% if user.skill_area1 %}<br>
@@ -83,13 +84,14 @@
           <h4 class="bio_title">I can lead group sessions on:</h4>
          <p class="profile_text">{{ user.tutorial_area }}</p>
           {% endif %}
-       
+       </div>
     </div>
 
     
 
  <a name="tutorial"></a>   
 <div class="container" id="profile_content">  
+    <div class="profile_content_text">
 {% if user.gives_tutorials %}
 <h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
 {% for booking in user.bookings.all %}
@@ -105,7 +107,7 @@
 </div>
     
 {% endif %}
-
+</div>
 </div>
 
 
