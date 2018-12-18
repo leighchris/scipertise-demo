@@ -168,9 +168,9 @@ LOGOUT_REDIRECT_URL = 'home'
 
 TAGGIT_CASE_INSENSITIVE = True
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'leigh.christopher2@gmail.com'
-EMAIL_HOST_PASSWORD = '9292legoLego'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

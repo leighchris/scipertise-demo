@@ -6,7 +6,12 @@
 {% block content %}
 
 <div class="container-fluid" id="profile_container">
+   <div class="container profile">
+    <div class="container spacer">
+            </div>
+    
     <div class="container" id = "profile_intro">
+         
         <div class="container" id="expert">
             {% if user.image %}
             <div>
@@ -50,7 +55,12 @@
             </div>
 
     </div>
-
+       <div class="container spacer">
+            </div>
+       </div>
+<div class="container profile">
+    <div class="container spacer">
+            </div>
      <div class="container" id="profile_content">
          <div class="profile_content_text">
          <h4 class="bio_title">About Me:</h4>
@@ -86,13 +96,20 @@
           {% endif %}
        </div>
     </div>
+     <div class="container spacer">
+            </div>
+    </div>
 
     
 
  <a name="tutorial"></a>   
+    
+<div class="container profile">
+       <div class="container spacer">
+            </div>
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
-{% if user.gives_tutorials %}
+{% if user.gives_tutorials and user.bookings.all %}
 <h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
 {% for booking in user.bookings.all %}
 
@@ -103,14 +120,20 @@
 
 {% endfor %}
 {% else %}
-<p class="profile_text">This user is not currently hosting any tutorials<p>
+        <div class="container card">
+       <p class="profile_text">This user is not currently hosting any tutorials<p>
+    </div>
+        {% endif %}
+      
+
 </div>
     
-{% endif %}
 </div>
+       <div class="container spacer">
+            </div>
 </div>
 
 
-
+</div>
 
 {% endblock %}

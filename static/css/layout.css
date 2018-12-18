@@ -320,14 +320,14 @@ h3.call_to_action {
 
 div#signup.container-fluid {
 
-    padding: 50px;
+   
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color:#a0def8;
     background-image: linear-gradient(to bottom, #a0def8, #363095);
-    height: 100%;
+    padding: 10px;
     margin: 0 auto;
     overflow-y:scroll;
     
@@ -372,6 +372,11 @@ div.login_bgrd {
 
 /** Profile Page Styles **/
 
+
+div.container.spacer {
+    width: 7%;
+}
+
 div#edit_profile.container {
     background-color: white;
     padding: 40px;
@@ -390,27 +395,25 @@ div#profile_container.container-fluid {
 }
 
 div#profile_intro.container {
-   
-
   
     display: flex;
     flex-direction: row;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: white;
-  
-  
+    margin: 10px;
+
 }
 
 div#expert.container {
     display: flex;
     flex-direction: row;
+    background-color: white;
     
 
 
 }
 div#expert_right.container {
    
-
    
 }
 
@@ -419,32 +422,37 @@ div.user_name {
 }
 
 div#availability.container {
+
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13pt;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items:center;
-    justify-content: center;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 14pt;
-    margin:20px auto;
-    border-radius: 10px;
+    align-items: center;
+    align-content: center;
+    margin: 20px;
+    text-align: center;
 
 
 }
 div#profile_content.container {
 
-    padding-top: 30px;
     background-color: white;
-    margin: 10px auto;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    margin: 10px;
    
 }
 
 div.profile_content_text {
-    margin:30px;
+    margin: 20px 40px 20px 40px;
 }
 
+div.container.profile {
+    display: flex;
+    flex-direction: row;
+}
 div#tutorial_content.container {
 
     padding-top: 30px;
@@ -645,6 +653,9 @@ div.container-fluid.booking {
     margin: 0 auto;
     overflow-y:scroll;
    color: #3a405a;
+}
+
+div.container.booking_list {
 }
 
 div#booking_form_text.container {

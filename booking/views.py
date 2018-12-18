@@ -18,6 +18,7 @@ from booking.models import Booking
 from booking.forms import BookingForm, ConfirmForm
 
 from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 ##OpenTok Test
 #
@@ -66,18 +67,22 @@ class BookingView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
+        self.pk= Booking.objects.get(id=self.kwargs.get('pk'))
         user_email = form.instance.user.email
         expert_email = form.instance.expert.email
-        msg = 'Thanks for requesting a video chat ' + form.instance.user.first_name + '. We will notify you when your booking is confirmed.'
-        text_content = form.instance.user.first_name + ' has requested a video chat with you. Please confirm that you are available for the booking here.'
-        msg_expert = form.instance.user.first_name + ' has requested a video chat with you. Please confirm that you are available for the booking here.'
+        html_message = render_to_string('booking_request_email_user.html', {'user': form.instance.user,
+                                                                            'expert': form.instance.expert})
+        html_message_expert = render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
+                                                                            'expert': form.instance.expert,
+                                                                            'pk': self.pk})
+        plain_message = strip_tags(html_message)
+        plain_message_expert = strip_tags(html_message_expert)
     #send email to the user
-        send_mail('Thanks for your booking request ' + form.instance.user.first_name, msg, 'founders@scipertise.com',
-        [user_email], fail_silently=False)
+        send_mail('Thanks for your booking request ' + form.instance.user.first_name, plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
     #send email to the expert
-        send_mail('Someone has requested a video chat with you', msg_expert, 'founders@scipertise.com',
-        [expert_email], fail_silently=False)
+        send_mail(form.instance.user.first_name + " has requested a video call with you", plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
         return super(BookingView, self).form_valid(form)
+
     
 class BookingUpdateView(UpdateView):
     model = Booking

@@ -1,6 +1,9 @@
 from haystack import indexes
 from users.models import CustomUser
 from taggit.forms import *
+from elasticsearch_dsl.connections import connections
+
+#connections.create_connection()
 
 
 class CustomUserIndex(indexes.SearchIndex, indexes.Indexable):
