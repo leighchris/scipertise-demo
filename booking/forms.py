@@ -22,6 +22,13 @@ class BookingForm(ModelForm):
           'end_time': DateTimePickerInput(format="YYYY-MM-DD HH:mm"),
           'notes': forms.Textarea(attrs={'class': 'form-control'}),
         }
+        help_texts = {
+    
+          'start_time': 'Please select a time during the available hours specified on profile page',
+          'end_time': 'Appointments cannot exceed 1 hour'
+          
+        }
+
 
 
 class ConfirmForm(ModelForm):

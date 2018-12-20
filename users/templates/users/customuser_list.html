@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Browse our experts{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid search">
+        
+        <div class="container" id="search_results">
+        <h3 class="call_to_action">Find a Researcher with the Right Expertise</h3>
+        <br/><br/>
+
+        {% for expert in object_list %}
+
+        <div class="container" id="search_hit">
+        <div class="container" id="expert">
+            {% if expert.image %}
+            <div>
+                <img class="profile_image" src="{{ expert.image.url }}" width="100"/>
+            </div>
+            {% endif %}
+            <div class="container user_name">
+            <p class="profile_name"><a href="{% url 'profile_with_pk' pk=expert.pk %}">{{ expert.first_name }}&nbsp{{ expert.last_name }}</a></p>
+            <p class="profile_text">{{expert.position}}</p>
+<!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
+        
+                
+                <div class="container skills">
+                {% for skill in expert.skills.all %}
+                <div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div>
+                    {% endfor %}
+                
+                </div>
+                 <div class="browse_bio"> {{ expert.bio }}</div>
+            </div>
+
+        </div>
+        </div>
+
+
+
+        {% endfor %}
+
+ 
+
+        {% endblock %}
+    </div>
+    
+</div>

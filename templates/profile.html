@@ -10,15 +10,14 @@
     <div class="container spacer">
             </div>
     
-    <div class="container" id = "profile_intro">
-         
+    <div class="container" id = "profile_intro">  
         <div class="container" id="expert">
             {% if user.image %}
             <div>
                 <img class="profile_image" src="{{ user.image.url }}" width="180"/>
             </div>
             {% endif %}
-            <div class="user_name">
+            <div class="container user_name">
             <p class="profile_name">{{ user.first_name }}&nbsp{{ user.last_name }}</p>
             <p class="profile_text">{{user.position}}</p>
 <!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
@@ -33,23 +32,24 @@
 
         </div>
         <div class="container" id="expert_right">
-                {% if user == request.user and request.user.is_authenticated %}
-                <div class="container edit_profile"><p>Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
-            {% else %}
-            <div class="container">
-            <p></p><br>
-            </div>
-                {% endif %}
         
 
         <div class="container" id="availability">
                                 
             <p>Availability: {{ user.availability }}</p>
             <p>Rate: {{ user.rate }}</p>
+                {% if user.website %}
+                <a href="{{ user.website }}"><p>Google Scholar Profile</p></a>
+                {% endif %}
             {% if user != request.user %}
-            <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
-            <p>or <a href="#tutorial">Join a group session</a></p>
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
+            {% if user.gives_tutorials %}
+                <p>or <a href="#tutorial">Join a group session</a></p>
             {% endif %}
+            {% elif user.is_authenticated and user == request.user %}
+                <div class="edit_profile"><p class="skill_bubble">Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
+            {% endif %}
+           
             
         </div>
             </div>
@@ -109,13 +109,13 @@
             </div>
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
-{% if user.gives_tutorials and user.bookings.all %}
+{% if user.gives_tutorials and tutorials %}
 <h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
-{% for booking in user.bookings.all %}
+{% for booking in tutorials %}
 
     <div class="container card">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
-        <p class="card-text">Description of the tutorial to join</p>
+        <p class="card-text">{{ booking.start_time }}</p>
     </div>
 
 {% endfor %}

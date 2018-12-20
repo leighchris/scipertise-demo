@@ -16,6 +16,7 @@ class CustomUser(AbstractUser):
     bio = models.CharField(max_length=300, null=True, default='')
     skills = TaggableManager(help_text="A comma-separated list of tags.")
     image = models.ImageField(upload_to="profile_image", blank=True)
+    website = models.CharField(max_length=200, null=True, default='', blank=True)
     skill_area1_title = models.CharField(max_length=150, null=True, default='', blank=True)
     skill_area1 = models.CharField(max_length=200, null=True, default='', blank=True)
     skill_area2_title = models.CharField(max_length=150, null=True, default='', blank=True)

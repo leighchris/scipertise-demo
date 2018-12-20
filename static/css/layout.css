@@ -11,6 +11,11 @@ img.iconic {
    
 }
 
+ul.errorlist {
+    font-size: 10pt;
+    color:red;
+}
+
 /** Navbar **/
 
 a.nav-item.nav-link {
@@ -313,7 +318,7 @@ h2.section3_text {
 h3.call_to_action {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    color: black;
+    color: #4C5280;
     padding-bottom: 20px;
     
 }
@@ -374,7 +379,7 @@ div.login_bgrd {
 
 
 div.container.spacer {
-    width: 7%;
+    width: 4%;
 }
 
 div#edit_profile.container {
@@ -382,6 +387,7 @@ div#edit_profile.container {
     padding: 40px;
     margin-top: 10px;
     border-radius: 10px;
+    
 }
 
 div#profile_container.container-fluid {
@@ -401,6 +407,7 @@ div#profile_intro.container {
     border-radius: 10px;
     background-color: white;
     margin: 10px;
+   
 
 }
 
@@ -413,11 +420,14 @@ div#expert.container {
 
 }
 div#expert_right.container {
+   display: flex;
+   flex-direction: column;
    
+
    
 }
 
-div.user_name {
+div.container.user_name {
     margin: 20px auto;
 }
 
@@ -430,8 +440,10 @@ div#availability.container {
     flex-direction: column;
     align-items: center;
     align-content: center;
-    margin: 20px;
+    justify-content: center;
     text-align: center;
+    height: 50%;
+    
 
 
 }
@@ -446,7 +458,8 @@ div#profile_content.container {
 }
 
 div.profile_content_text {
-    margin: 20px 40px 20px 40px;
+    margin: 20px 70px 20px 70px;
+    
 }
 
 div.container.profile {
@@ -570,15 +583,23 @@ p.skill_bubble {
     margin: 0;
 }
 
-div.container.edit_profile {
-    padding:5px;
-    font-family: 'PT Sans', sans-serif;
-    font-size: 11pt;
-    text-align: right;
+div.edit_profile {
+
+    border-radius: 20px;
+    border: solid 2px #6e75a8;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    margin: 10px auto;
+    display:flex;
+}
+/** Browse Page Styles **/
+
+div.browse_bio {
+    padding-top: 20px;
 }
 
-
 /** Search Page Styles **/
+
 
 div.container-fluid.search {
     background-color:#E1E5EE;
@@ -600,8 +621,6 @@ div#search_form.container {
     padding: 50px;   
 }
 
-
-
 div#search_results.container {
     background-color: white;
     padding: 50px;
@@ -619,10 +638,29 @@ div#search_hit.container {
     border-radius: 10px;
     margin-bottom: 20px;
     border: 1px solid gray;
+    font-family: 'PT Sans', sans-serif;
     
     
 }
 /** Calendar Booking Styles **/
+
+div.container.confirmed {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+p.confirmed {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+img.check {
+    filter: invert(84%) sepia(98%) saturate(250%) hue-rotate(20deg) brightness(103%) contrast(99%);
+    height: 25px;
+    width: 25px;
+    padding-top: 5px;
+}
 
 div.container.delete_booking {
     text-align: center;
@@ -659,7 +697,7 @@ div.container.booking_list {
 }
 
 div#booking_form_text.container {
-    color: #6e75a8;
+    color: #4C5280;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding: 20px;
@@ -669,7 +707,7 @@ div#booking_form_text.container {
 
 div#booking_content.container {
     font-family: 'PT Sans', sans-serif;
-    color: #6e75a8;
+    color: #4C5280;
    
 }
 
@@ -695,6 +733,22 @@ div#booking_call_to_action.container {
     text-align: center;
     padding: 20px;
    
+}
+
+.input-group {
+     padding-bottom: 10px;
+}
+
+input#id_title.form-control {
+    padding-bottom: 10px;
+}
+
+label {
+    padding-top: 10px;
+}
+
+small.form-text.text-muted {
+    padding-bottom: 10px;
 }
 
 .left {
@@ -764,8 +818,22 @@ a {
 
 
 /** Media Queries **/
+@media screen and (max-width: 1200px) {
+ div#availability.container {
+     
+        
+    }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1100px) {
+ div#profile_intro.container {
+    display: inline-block;
+        
+    }
+    
+    
+    
+
+@media screen and (max-width: 1100px) {
     
 div#howitworks.container-fluid {
     
@@ -806,6 +874,7 @@ div#howitworks.container-fluid {
      font-size: 28pt;
   }
     
+
     
 
 

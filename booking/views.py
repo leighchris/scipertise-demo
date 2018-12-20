@@ -20,61 +20,22 @@ from booking.forms import BookingForm, ConfirmForm
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 
-##OpenTok Test
-#
-#from opentok import OpenTok
-#opentok = OpenTok(api_key, api_secret)
-## Create a session that attempts to send streams directly between clients (falling back
-## to use the OpenTok TURN server to relay streams if the clients cannot connect):
-#session = opentok.create_session()
-#
-#from opentok import MediaModes
-## A session that uses the OpenTok Media Router, which is required for archiving:
-#session = opentok.create_session(media_mode=MediaModes.routed)
-#
-## An automatically archived session:
-#session = opentok.create_session(media_mode=MediaModes.routed, archive_mode=ArchiveModes.always)
-#
-## A session with a location hint
-#session = opentok.create_session(location=u'12.34.56.78')
-#
-## Store this session ID in the database
-#session_id = session.session_id
-#
-## Generate a Token from just a session_id (fetched from a database)
-#token = opentok.generate_token(session_id)
-#
-## Generate a Token by calling the method on the Session (returned from create_session)
-#token = session.generate_token()
-#
-#from opentok import Roles
-## Set some options in a token
-#token = session.generate_token(role=Roles.moderator,
-#                               expire_time=int(time.time()) + 10,
-#                               data=u'name=Johnny'
-#                               initial_layout_class_list=[u'focus'])
-#
-#archive = opentok.start_archive(session_id, name=u'Important Presentation', output_mode=OutputModes.individual)
-#
-## Store this archive_id in the database
-#archive_id = archive.id
-#
-
 
 class BookingView(CreateView):
     model = Booking
     form_class = BookingForm
     def form_valid(self, form):
+        booking = form.save(commit=False)
         form.instance.user = self.request.user
         form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
-        self.pk= Booking.objects.get(id=self.kwargs.get('pk'))
         user_email = form.instance.user.email
         expert_email = form.instance.expert.email
         html_message = render_to_string('booking_request_email_user.html', {'user': form.instance.user,
                                                                             'expert': form.instance.expert})
         html_message_expert = render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
                                                                             'expert': form.instance.expert,
-                                                                            'pk': self.pk})
+                                                                            'booking': booking,
+                                                                            })
         plain_message = strip_tags(html_message)
         plain_message_expert = strip_tags(html_message_expert)
     #send email to the user
@@ -87,18 +48,7 @@ class BookingView(CreateView):
 class BookingUpdateView(UpdateView):
     model = Booking
     form_class = BookingForm
-#    def form_valid(self, form):
-#        form.instance.user = self.request.user
-#        form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
-#        user_email = form.instance.user.email
-#        expert_email = form.instance.expert.email
-#        msg = 'Thanks for requesting a video chat' + form.instance.user.first_name + '. We will notify you when your booking is confirmed.'
-#        msg_expert = form.instance.user.first_name + ' has made a change to their booking request'
-#        send_mail('Thanks for your booking request ' + form.instance.user.first_name, msg, 'founders@scipertise.com',
-#        [user_email], fail_silently=False)
-#        send_mail(form.instance.user.first_name + ' has requested a change to their booking request', msg_expert, 'founders@scipertise.com',
-#        [expert_email], fail_silently=False)
-#        return super(BookingView, self).form_valid(form)
+
     
 class BookingDeleteView(DeleteView):
     model = Booking
@@ -123,6 +73,25 @@ class ConfirmView(UpdateView):
     form_class = ConfirmForm
     template = 'templates/confirmation_form.html'
     def form_valid(self, form):
+        booking = Booking.objects.get(id=self.kwargs.get('pk'))
+        form.instance.user = booking.user
+        form.instance.expert = booking.expert
+        user_email = form.instance.user.email
+        expert_email = form.instance.expert.email
+        html_message = render_to_string('confirm_booking_user.html', {'user': form.instance.user,
+                                                                            'expert': form.instance.expert,
+                                                                            'booking': booking,
+                                                                            })
+        html_message_expert = render_to_string('confirm_booking_expert.html', {'user': form.instance.user,
+                                                                            'expert': form.instance.expert,
+                                                                            'booking': booking,
+                                                                            })
+        plain_message = strip_tags(html_message)
+        plain_message_expert = strip_tags(html_message_expert)
+    #send email to the user
+        send_mail('Your Scipertise booking has been confirmed', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
+    #send email to the expert
+        send_mail('Your Scipertise booking has been confirmed', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
         return super(ConfirmView, self).form_valid(form)
     
 #@login_required

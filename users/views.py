@@ -1,12 +1,22 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views import generic
-from django.views.generic import TemplateView, DetailView, FormView
+from django.views.generic import TemplateView, DetailView, FormView, ListView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from .forms import CustomUserCreationForm, EditProfile
 from .models import CustomUser
+
+class BrowseView(ListView):
+    model = CustomUser
+    template = 'customuser_list.html'
+    queryset = CustomUser.objects.filter(expert = True)
+
+    
+#    def get_queryset(self):
+#        experts = CustomUser.objects.filter(expert = True)
+#        return experts
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
@@ -24,8 +34,10 @@ def view_profile(request, pk=None):
     else:
         user = request.user
     bookings = user.bookings.all()
+    tutorials = bookings.filter(is_tutorial=True)
     args = {'user': user,
-            'bookings': bookings
+            'bookings': bookings,
+            'tutorials': tutorials,
            }
     return render(request, 'profile.html', args)
 

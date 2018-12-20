@@ -25,6 +25,9 @@ class CustomUserCreationForm(UserCreationForm):
             'email': forms.TextInput(attrs={'class': 'form-control'}),
             
         }
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.fields['email'].required = True
         
         
 class EditProfile(forms.ModelForm):

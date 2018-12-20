@@ -16,6 +16,7 @@ class Booking(models.Model):
     notes = models.TextField('Notes', blank=True, null=True) 
     is_confirmed = models.BooleanField(blank=True, default=False)
     is_tutorial = models.BooleanField(blank=True, default=False)
+    description = models.TextField('Description', blank=True, null=True) 
   
  
     class Meta:

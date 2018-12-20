@@ -24,25 +24,35 @@
         {% for result in results %}
 
         <div class="container" id="search_hit">
-         <h3><a href="{% url 'profile_with_pk' pk=result.pk %}">{{result.first_name}}&nbsp{{result.last_name}}</a></h3><br>
-        {{result.position}}<br><br>
-        <p>Expertise:</p>{{result.bio}}<br><br>
-<!--        <p>Skills:</p>{{result.skills.all|join:", "}}-->
-           <div class="container skills">
+        <div class="container" id="expert">
+            {% if result.image %}
+            <div>
+                <img class="profile_image" src="{{ result.image.url }}" width="100"/>
+            </div>
+            {% endif %}
+            <div class="container user_name">
+            <p class="profile_name"><a href="{% url 'profile_with_pk' pk=result.pk %}">{{ result.first_name }}&nbsp{{ result.last_name }}</a></p>
+            <p class="profile_text">{{result.position}}</p>
+<!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
+        
+                
+                <div class="container skills">
                 {% for skill in result.skills.all %}
                 <div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div>
-                {% endfor %}
+                    {% endfor %}
+                
                 </div>
-        <br/>
+                 <div class="browse_bio"> {{result.bio }}</div>
+            </div>
 
-        <br/>
+        </div>
         </div>
 
 
 
         {% endfor %}
         {% else %}
-        No search results for this query
+       <div class="container"><p class="profile_text">No search results for this query.<br>Please try searching for a specific skill, software, or area of expertise.</p></div> 
         {% endif %}
         {% endif %}
 
