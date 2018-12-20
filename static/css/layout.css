@@ -16,6 +16,17 @@ ul.errorlist {
     color:red;
 }
 
+input.form-control.form-control-lg {
+    border-radius: 20px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+input.form-control.form-control-md {
+    border-radius: 20px;
+      font-family: 'PT Sans', sans-serif;
+    padding-top: 10px;
+}
+
 /** Navbar **/
 
 a.nav-item.nav-link {
@@ -498,7 +509,7 @@ div.container.card {
 }
 
 button.availability_button {
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     margin: 0 auto;
     padding: 10px 40px 10px 40px;
@@ -618,12 +629,13 @@ h3#search_call_to_action {
 div#search_form.container {
 
     border-radius: 10px;
-    padding: 50px;   
+    padding: 20px 20px 10px 20px;   
 }
 
 div#search_results.container {
     background-color: white;
     padding: 50px;
+    margin-top: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -660,6 +672,13 @@ img.check {
     height: 25px;
     width: 25px;
     padding-top: 5px;
+}
+
+img.x {
+    filter: invert(41%) sepia(97%) saturate(7245%) hue-rotate(353deg) brightness(96%) contrast(128%);
+    height: 20px;
+    width: 20px;
+   
 }
 
 div.container.delete_booking {
