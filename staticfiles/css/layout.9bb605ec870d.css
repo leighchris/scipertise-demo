@@ -1,0 +1,974 @@
+h2#title {
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 10px;
+}
+
+img.iconic {
+    height: 12px;
+    width: 12px;
+    fill: gray;
+    stroke: gray;
+   
+}
+
+ul.errorlist {
+    font-size: 10pt;
+    color:red;
+}
+
+input#search.form-control.form-control-lg {
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+
+   
+}
+
+
+/** Navbar **/
+
+a.nav-item.nav-link {
+    font-size: 11pt;
+    font-family: 'Open Sans', sans-serif;
+    padding-right: 10px;
+}
+
+input.form-control.mr-sm-2 {
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button.btn.btn-primary {
+    padding: 8px 10px 8px 10px;
+    margin-right: 10px;
+    background-color: #363095;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button.btn.btn-primary:hover {
+    background-color: #13acee;
+   
+   
+
+}
+
+/** Main layout and home page styles **/
+/*    background-size: cover;*/
+/*    background-repeat: no-repeat;*/
+
+body {
+
+    background-image: url("scipertise_background_dark.e0d40ad8f498.jpg");
+    background-size: cover;
+    background-repeat:no-repeat;
+ 
+   
+}
+
+div#site_container.container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+div#vision.container {
+    
+   
+    display: flex;
+    flex-direction: column;
+    width: 240%;
+    padding-bottom: 40px;
+    text-align: center;
+    
+}
+
+div#first_section_row.container-fluid {
+    
+    height:100%;
+    padding: 60px 0px;
+}
+
+img.logo {
+ 
+    height:58px;
+    padding: 10px 12px 14px 50px;
+    max-width:100%;
+}
+
+
+h1.value_prop {
+    padding-top: 30px;
+    color: white;
+    font-size: 34pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    clear: right;
+}
+
+p.vision_blurb {
+    padding: 20px 0px 20px 0px;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 14pt;
+}
+
+p.advice_blurb {
+    color:white;
+    font-size: 14pt;
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+/** Home page form styles **/
+
+h4.form_title {
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+form.home_form {
+    background-color: white;
+    padding: 30px 80px;
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+p.form_text {
+    padding-top: 20px;
+    font-family: 'PT Sans', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+input#id_username {
+    width: 280px;
+    padding-top: 5px;
+}
+
+input#id_first_name {
+    width: 280px;
+    padding-top: 5px;
+}
+
+input#id_last_name {
+    width: 280px;
+    padding-top: 10px;
+}
+
+input#id_email {
+    width: 280px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+input#id_password {
+    width: 280px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+input.button {
+    width: 280px;
+    background-color: #363095;
+    color: white;
+    padding: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 200;
+}
+
+input.button:hover {
+    width: 280px;
+    background-color: #13acee;
+    color: white;
+    padding: 10px;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: 200;
+}
+
+div#form.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+   
+}
+
+div#call_to_action.container {
+    display: flex;
+    justify-content: center;
+  
+}
+
+button#call_to_action.btn.btn-primary {
+    border-radius: 15px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 60px 20px 60px;
+    background-color: #13acee;
+    font-size: 14pt;
+}
+
+button#call_to_action.btn.btn-primary:hover {
+    background-color: #dbfe87;
+    color: #363095;
+    border-radius: 15px;
+}
+
+
+/** Home page: How it works styles **/
+
+div#second_section_row.container-fluid {
+    
+    background-color: white;
+    width:100%; 
+    margin: 0 auto;
+    padding: 100px 0px 100px 0px;
+
+}
+
+div#howitworks.container-fluid {
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.divtitle {
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    padding-bottom: 30px;
+    font-weight: 500;
+}
+
+div#step1.container {
+
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column; 
+    
+
+}
+div#step2.container {
+    
+     padding: 0px 15px;
+     display: flex;
+     flex-direction: column; 
+ 
+    
+}
+div#step3.container {
+    
+     padding: 0px 15px;
+     display: flex;
+     flex-direction: column; 
+ 
+    
+}
+
+.icon1 {
+    width: 130px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0px 10px 0px;
+}
+.icon2 {
+    width: 130px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0px 10px 0px;
+}
+.icon3 {
+    width: 130px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0px 10px 0px;
+}
+
+h4.icon_title {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    border-bottom: 3px solid #dbfe87;
+ 
+}
+
+p.icontext {
+   font-family: 'PT Sans', sans-serif; 
+    text-align: center;
+    height: 50px;
+}
+/** Home page: Section 3 styles **/
+
+div#section3_signup.container {
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
+    padding: 50px;
+    margin-top: 30px;
+}
+
+h2.section3_text {
+    color: white;
+    padding-bottom: 20px;
+}
+
+/** Sign-Up Page Styles **/
+
+.call_to_action {
+    width: 100%;
+}
+
+h3.call_to_action {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    color: #4C5280;
+    padding-bottom: 20px;
+    
+}
+
+div#signup.container-fluid {
+
+   
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color:#a0def8;
+    background-image: linear-gradient(to bottom, #a0def8, #363095);
+    padding: 10px;
+    margin: 0 auto;
+    overflow-y:scroll;
+    
+}
+
+div#change_password.container-fluid {
+
+    background-color:#a0def8;
+    margin: 0 auto;
+    
+}
+
+div.signup_bgrd {
+    background-color: white;
+    padding: 40px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+div#third_section_row.container-fluid {
+    padding: 60px 0px;
+    
+
+}
+
+/** Login Page Styles **/
+
+div#login.container-fluid {
+  padding: 10px;
+  display: flex;
+align-items: center;
+  justify-content: center;
+   background-color:#a0def8;
+    background-image: linear-gradient(to bottom, #a0def8, #363095);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
+  
+}
+
+div.login_bgrd {
+    background-color: white;
+    padding: 50px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/** Profile Page Styles **/
+
+h3.password_done {
+     font-family: 'Montserrat', sans-serif;
+    font-size: 24pt;
+    color: white;
+    
+}
+
+p.password_done {
+     font-family: 'Montserrat', sans-serif;
+    color: white;
+    
+}
+
+div.container.password_done {
+    padding: 20px;
+}
+
+
+div.container.spacer {
+    width: 4%;
+}
+
+div#edit_profile.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    height: 100%;
+    overflow-y: scroll;
+
+    
+}
+
+div#profile_container.container-fluid {
+
+   
+    padding:30px;
+    background-color:#a0def8;
+    display: flex;
+    flex-direction: column;
+}
+
+div#profile_intro.container {
+  
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background-color: white;
+    margin: 10px;
+   
+
+}
+
+div#expert.container {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    
+
+
+}
+div#expert_right.container {
+   display: flex;
+   flex-direction: column;
+   
+
+   
+}
+
+div.container.user_name {
+    margin: 20px auto;
+}
+
+div#availability.container {
+
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13pt;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    height: 50%;
+    
+
+
+}
+div#profile_content.container {
+
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+   
+}
+
+div.profile_content_text {
+    margin: 20px 70px 20px 70px;
+    
+}
+
+div.container.profile {
+    display: flex;
+    flex-direction: row;
+}
+div#tutorial_content.container {
+
+    padding-top: 30px;
+    background-color: white;
+    margin: 10px auto;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+   
+}
+div#tutorials.container {
+
+    padding-top: 30px;
+    background-color: white;
+    margin: 10px auto;
+    border-radius: 10px;
+    padding: 10px;
+    display:flex;
+    flex-direction: row;
+    align-content: space-between;
+   
+}
+div.container.card {
+    display: flex;
+    padding: 20px;
+    border-radius: 30px;
+    margin: 20px auto;
+ 
+}
+
+button.availability_button {
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 40px 10px 40px;
+    margin-top: 10px;
+    background-color: #13acee;
+    font-size: 14pt;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button.availability_button:hover {
+       background-color: #dbfe87;
+    color: #363095;
+
+}
+
+p.profile_name {
+    display: inline-block;
+    padding-top: 15px;
+    font-size: 28pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+  
+}
+
+p.profile_text {
+    font-size: 13pt;
+    font-family: 'PT Sans', sans-serif;
+    margin: 10px;
+  
+}
+
+h4.bio_title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size:20pt;
+    padding: 10px;
+}
+
+h4.text_title {
+    font-size: 14pt;
+    font-family: 'PT Sans', sans-serif;
+    margin: 10px;
+    font-weight: bolder;
+  
+}
+
+div#edit_profile_button.container {
+   
+    margin-top: 30px;
+}
+
+.profile_image {
+   border-radius: 20px;
+   margin: 20px;
+}
+
+.bookme {
+    float: right;
+}
+
+div.container.skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'PT Sans', sans-serif;
+  
+}
+
+div.skill_bubble {
+    border-radius: 20px;
+    background-color: #dbfe87;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    margin: 10px;
+    display:flex;
+   
+}
+p.skill_bubble {
+    padding: 0;
+    margin: 0;
+}
+
+div.edit_profile {
+
+    border-radius: 20px;
+    border: solid 1px #6e75a8;
+    text-align: center;
+    padding: 2px 10px 2px 10px;
+    margin: 10px auto;
+    display:flex;
+}
+/** Browse Page Styles **/
+
+div.browse_bio {
+    padding-top: 20px;
+}
+
+/** Search Page Styles **/
+
+.fa {
+   
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+
+div.container-fluid.search {
+    background-color:#a0def8;
+   
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
+
+}
+
+
+
+h3#search_call_to_action {
+     font-family: 'Open Sans', sans-serif;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    color: #3a405a;
+    font-size: 20pt;
+}
+
+div#search_form.container {
+
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;   
+   
+}
+
+div#search_results.container {
+    background-color: white;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+div#search_hit.container {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+    font-family: 'PT Sans', sans-serif;
+    
+    
+}
+/** Calendar Booking Styles **/
+
+div.container.card.booking_list {
+    width: 70%;
+    margin: 10 auto;
+    
+}
+
+div.container.confirmed {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+p.confirmed {
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+img.check {
+    filter: invert(84%) sepia(98%) saturate(250%) hue-rotate(20deg) brightness(103%) contrast(99%);
+    height: 25px;
+    width: 25px;
+    padding-top: 5px;
+}
+
+img.x {
+    filter: invert(41%) sepia(97%) saturate(7245%) hue-rotate(353deg) brightness(96%) contrast(128%);
+    height: 20px;
+    width: 20px;
+   padding-bottom: 5px;
+}
+
+img.search {
+    filter: invert(41%) sepia(97%) saturate(7245%) hue-rotate(353deg) brightness(96%) contrast(128%);
+    height: 20px;
+    width: 20px;
+    margin-top: 3px;
+left: -60px;
+    position: relative;
+   
+}
+
+div.container.delete_booking {
+    text-align: center;
+}
+button.booking_button {
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+    background-color: #363095;
+    font-size: 14pt;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+button.booking_button:hover {
+       background-color: #dbfe87;
+    color: #363095;
+
+}
+
+div.container-fluid.booking {
+ background-color:#E1E5EE;
+    background-image: linear-gradient(to bottom, #E1E5EE, #13acee);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y:scroll;
+   color: #3a405a;
+}
+
+div.container.booking_list {
+}
+
+div#booking_form_text.container {
+    color: #4C5280;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 20px;
+    
+   
+}
+
+div#booking_detail_text.container {
+    color: #4C5280;
+    font-family: 'Montserrat', sans-serif;
+    padding: 30px 0px 0px 30px;
+    
+   
+}
+
+div#booking_content.container {
+    font-family: 'PT Sans', sans-serif;
+    color: #4C5280;
+   
+}
+
+div#booking_form.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  
+}
+
+div.form-group.booking_form {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 50px 20px 50px;
+}
+  
+
+div#booking_call_to_action.container {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 20px;
+   
+}
+
+.input-group {
+     padding-bottom: 10px;
+}
+
+input#id_title.form-control {
+    padding-bottom: 10px;
+}
+
+label {
+    padding-top: 10px;
+}
+
+small.form-text.text-muted {
+    padding-bottom: 10px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.btn {
+  outline: none;
+  color: black;
+  background-color: transparent;
+  box-shadow: 0 0 0 0;
+}
+
+
+div#calendar.container {
+    margin: 10px auto;
+}
+
+.calendar {
+  width: 98%;
+  margin: 0 auto;
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: white;
+}
+
+tbody {
+    border-radius: 10px;
+}
+
+th {
+    background-color: #EBFFA2;
+}
+
+ .calendar td {
+  border: 1px solid #6e75a8;
+  border-radius: 10px;
+}
+
+.calendar th {
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.calendar td {
+  width: 200px;
+  height: 150px;
+  padding: 20px 0px 0px 5px;
+}
+
+.month {
+  font-size: 25px;
+}
+
+.date {
+  font-size: 16px;
+}
+
+a {
+  color: #17a2b8;
+}
+
+
+/** Media Queries **/
+@media screen and (max-width: 1200px) {
+ div#availability.container {
+     
+        
+    }
+
+@media screen and (max-width: 1100px) {
+ div#profile_intro.container {
+    display: inline-block;
+        
+    }
+    
+    
+    
+
+@media screen and (max-width: 1100px) {
+    
+div#howitworks.container-fluid {
+    
+    flex-direction: column;
+    
+}
+
+@media screen and (max-width: 1000px) {
+ div#site_container.container {
+    flex-direction: column;
+  }
+
+
+@media screen and (max-width: 1000px) {
+ div#vision.container {
+     text-align: center;
+     width: 100%;
+  }
+    
+    
+@media screen and (max-width: 600px) {
+ div#vision.container {
+     text-align: center;
+  }
+    
+@media screen and (max-width: 1000px) {
+ p.vision_blurb {
+     font-size: 11pt;
+  }
+    
+@media screen and (max-width: 1000px) {
+ p.advice_blurb {
+     font-size: 11pt;
+  }
+    
+@media screen and (max-width: 1000px) {
+ h1.value_prop {
+     font-size: 28pt;
+  }
+    
+
+    
+
+
+
+    
+    
+
+    
+
+
+
