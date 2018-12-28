@@ -12,7 +12,7 @@ from booking.views import BookingView, BookingUpdateView
 urlpatterns = [
     #path('', include('booking.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('search/', include('haystack.urls')),
+#    path('search/', include('haystack.urls')),
     path('signup/', views.SignUp.as_view(), name='signup'),
     path('login/', auth_views.LoginView.as_view(), {'authentication_form': LoginForm}, name='login'),
     path('profile/', views.view_profile, name='profile'),
