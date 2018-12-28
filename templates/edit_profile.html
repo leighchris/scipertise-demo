@@ -6,15 +6,18 @@
 {% block content %}
 
 
+<div class="container-fluid" id="login">
 
 <div class="container" id="edit_profile">
 
 <form class="signup_form" action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    <a href="{% url 'change_password' %}"><p>Change Password</p></a>
      <button type="submit" class="btn btn-primary">Save Changes</button>
     </form>
                
+</div>
 </div>
 
 

@@ -11,10 +11,10 @@ class BookingForm(ModelForm):
         fields = ['title','start_time','end_time','notes']
         # datetime-local is a HTML5 input type, format to make date time show on fields
         labels = {
-          'title': 'Name for the video chat:',
-          'start_time': 'Suggested date and time:',
+          'title': 'Please select a title for your requested video call:',
+          'start_time': 'Suggested date and start time:',
           'end_time': 'Suggested end time:',
-          'notes': 'Provide 2-3 sentences on what you would like to discuss:',
+          'notes': 'Describe what you are interested in discussing in 2-3 sentences:',
         }
         widgets = {
           'title': forms.TextInput(attrs={'class': 'form-control'}),
@@ -24,8 +24,8 @@ class BookingForm(ModelForm):
         }
         help_texts = {
     
-          'start_time': 'Please select a time during the available hours specified on profile page',
-          'end_time': 'Appointments cannot exceed 1 hour'
+          'start_time': 'Please select a date and time during the available hours listed on the expert profile page',
+          'end_time': '*Appointments cannot exceed 1 hour'
           
         }
 

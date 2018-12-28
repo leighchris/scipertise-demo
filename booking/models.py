@@ -10,7 +10,7 @@ from users.models import CustomUser
 class Booking(models.Model):
     user = models.ForeignKey(CustomUser, null=True, default='', on_delete=models.CASCADE)
     expert = models.ForeignKey(CustomUser, null=True, default='',on_delete=models.CASCADE, related_name='bookings')
-    title = models.CharField(max_length=200, default='Video call with ..', null=True)
+    title = models.CharField(max_length=200, default='Title/subject of your video call', null=True)
     start_time = models.DateTimeField('Start time', null=True)
     end_time = models.DateTimeField('End time', null=True)
     notes = models.TextField('Notes', blank=True, null=True) 

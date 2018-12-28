@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
 from .forms import CustomUserCreationForm, EditProfile
+from django.contrib.auth.forms import PasswordChangeForm
 from .models import CustomUser
 
 class BrowseView(ListView):
@@ -53,5 +54,17 @@ def EditProfileView(request):
         form = EditProfile(instance = request.user)
         return render(request, 'edit_profile.html', {'form': form})
     
+#def change_password(request):
+#    
+#    if request.method == "POST":
+#        form = PasswordChangeForm(request.POST, user=request.user)
+#      
+#        if form.is_valid():
+#            form.save()
+#        return HttpResponseRedirect(reverse('profile'))
+#    else:
+#        form = PasswordChangeForm(user = request.user)
+#        return render(request, 'change_password.html', {'form': form})
+#    
 
 

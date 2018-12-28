@@ -11,7 +11,7 @@
 <div class="container" id="booking_form_text"><h3>Your scheduled video sessions:</h3></div>
    
 {% for booking in user.bookings.all %}
-    <div class="container card">
+    <div class="container card booking_list">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
     </div>
@@ -19,7 +19,7 @@
 {% endfor %}
 {% for booking in user.booking_set.all %}
     
-       <div class="container card">
+       <div class="container card booking_list">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
     </div>

@@ -39,7 +39,7 @@
             <p>Availability: {{ user.availability }}</p>
             <p>Rate: {{ user.rate }}</p>
                 {% if user.website %}
-                <a href="{{ user.website }}"><p>Google Scholar Profile</p></a>
+                <a href="{{ user.website }}" target="_blank"><p>Google Scholar Profile</p></a>
                 {% endif %}
             {% if user != request.user %}
                 <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
@@ -87,7 +87,7 @@
           <p class="profile_text">{{ user.skill_area5 }}</p>
           {% endif %}<br>
           {% if user.software_hardware %}
-          <h4 class="bio_title">Software/ Hardware:</h4>
+          <h4 class="bio_title">Software and Hardware:</h4>
          <p class="profile_text">{{ user.software_hardware }}</p>
           {% endif %}
          {% if user.tutorial_area %}

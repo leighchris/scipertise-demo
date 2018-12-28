@@ -16,22 +16,21 @@ ul.errorlist {
     color:red;
 }
 
-input.form-control.form-control-lg {
+input#search.form-control.form-control-lg {
     border-radius: 20px;
-    font-family: 'PT Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+
+   
 }
 
-input.form-control.form-control-md {
-    border-radius: 20px;
-      font-family: 'PT Sans', sans-serif;
-    padding-top: 10px;
-}
 
 /** Navbar **/
 
 a.nav-item.nav-link {
-    font-size: 12pt;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 11pt;
+    font-family: 'Open Sans', sans-serif;
+    padding-right: 10px;
 }
 
 input.form-control.mr-sm-2 {
@@ -273,22 +272,22 @@ div#step3.container {
 }
 
 .icon1 {
-    width: 150px;
-    height: 140px;
+    width: 130px;
+    height: 120px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
 }
 .icon2 {
-   width: 150px;
-    height: 140px;
+    width: 130px;
+    height: 120px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
 }
 .icon3 {
-   width: 150px;
-    height: 140px;
+    width: 130px;
+    height: 120px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
@@ -304,6 +303,7 @@ h4.icon_title {
 p.icontext {
    font-family: 'PT Sans', sans-serif; 
     text-align: center;
+    height: 50px;
 }
 /** Home page: Section 3 styles **/
 
@@ -327,7 +327,7 @@ h2.section3_text {
 }
 
 h3.call_to_action {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     text-align: center;
     color: #4C5280;
     padding-bottom: 20px;
@@ -349,6 +349,13 @@ div#signup.container-fluid {
     
 }
 
+div#change_password.container-fluid {
+
+    background-color:#a0def8;
+    margin: 0 auto;
+    
+}
+
 div.signup_bgrd {
     background-color: white;
     padding: 40px;
@@ -367,9 +374,9 @@ div#third_section_row.container-fluid {
 /** Login Page Styles **/
 
 div#login.container-fluid {
-  padding: 20px;
+  padding: 10px;
   display: flex;
-  align-items: center;
+align-items: center;
   justify-content: center;
    background-color:#a0def8;
     background-image: linear-gradient(to bottom, #a0def8, #363095);
@@ -388,6 +395,23 @@ div.login_bgrd {
 
 /** Profile Page Styles **/
 
+h3.password_done {
+     font-family: 'Montserrat', sans-serif;
+    font-size: 24pt;
+    color: white;
+    
+}
+
+p.password_done {
+     font-family: 'Montserrat', sans-serif;
+    color: white;
+    
+}
+
+div.container.password_done {
+    padding: 20px;
+}
+
 
 div.container.spacer {
     width: 4%;
@@ -396,8 +420,10 @@ div.container.spacer {
 div#edit_profile.container {
     background-color: white;
     padding: 40px;
-    margin-top: 10px;
     border-radius: 10px;
+    height: 100%;
+    overflow-y: scroll;
+
     
 }
 
@@ -406,7 +432,6 @@ div#profile_container.container-fluid {
    
     padding:30px;
     background-color:#a0def8;
-    background-image: linear-gradient(to bottom, #E1E5EE, #a0def8);
     display: flex;
     flex-direction: column;
 }
@@ -597,9 +622,9 @@ p.skill_bubble {
 div.edit_profile {
 
     border-radius: 20px;
-    border: solid 2px #6e75a8;
+    border: solid 1px #6e75a8;
     text-align: center;
-    padding: 0px 10px 0px 10px;
+    padding: 2px 10px 2px 10px;
     margin: 10px auto;
     display:flex;
 }
@@ -611,25 +636,43 @@ div.browse_bio {
 
 /** Search Page Styles **/
 
+.fa {
+   
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
 
 div.container-fluid.search {
-    background-color:#E1E5EE;
-    background-image: linear-gradient(to bottom, #E1E5EE, #13acee);
+    background-color:#a0def8;
+   
     height: 100%;
     margin: 0 auto;
     overflow-y:scroll;
 
 }
 
+
+
 h3#search_call_to_action {
-    font-family: 'Montserrat', sans-serif;
-    
+     font-family: 'Open Sans', sans-serif;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    color: #3a405a;
+    font-size: 20pt;
 }
 
 div#search_form.container {
 
     border-radius: 10px;
     padding: 20px 20px 10px 20px;   
+   
 }
 
 div#search_results.container {
@@ -656,6 +699,12 @@ div#search_hit.container {
 }
 /** Calendar Booking Styles **/
 
+div.container.card.booking_list {
+    width: 70%;
+    margin: 10 auto;
+    
+}
+
 div.container.confirmed {
     display: flex;
     flex-direction: row;
@@ -678,6 +727,16 @@ img.x {
     filter: invert(41%) sepia(97%) saturate(7245%) hue-rotate(353deg) brightness(96%) contrast(128%);
     height: 20px;
     width: 20px;
+   padding-bottom: 5px;
+}
+
+img.search {
+    filter: invert(41%) sepia(97%) saturate(7245%) hue-rotate(353deg) brightness(96%) contrast(128%);
+    height: 20px;
+    width: 20px;
+    margin-top: 3px;
+left: -60px;
+    position: relative;
    
 }
 
@@ -720,6 +779,14 @@ div#booking_form_text.container {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding: 20px;
+    
+   
+}
+
+div#booking_detail_text.container {
+    color: #4C5280;
+    font-family: 'Montserrat', sans-serif;
+    padding: 30px 0px 0px 30px;
     
    
 }

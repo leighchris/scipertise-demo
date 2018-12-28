@@ -9,13 +9,15 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'expert', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'expert', 'gives_tutorials', )
         help_texts = {
             'expert': 'Check the box if you would like to be an expert. Otherwise leave blank.',
+            'gives_tutorials': 'Check the box if you are open to leading group sessions/tutorials in your area of expertise.'
             
         }
         labels = {
             'expert': 'Would you like to provide expertise?',
+            'gives_tutorials': 'If you answered yes to providing expertise, are you interested in leading group sessions?'
            
         }
         widgets = {
@@ -31,14 +33,17 @@ class CustomUserCreationForm(UserCreationForm):
         
         
 class EditProfile(forms.ModelForm):
+    username =forms.CharField(
+        help_text="Please enter a username if you would like to change your current username"
+    )
     position =forms.CharField(
         help_text="Please enter your job title and Institution or Company you work for"
     )
     availability = forms.CharField(
-        help_text="Please state the time slots your are available during the week (e.g. Mondays and Wednesdays between 6-8pm)"
+        help_text="Please state the time slots your are available during the week (e.g. Mondays between 6-8pm)"
     )
     rate = forms.CharField(
-        help_text="Please select your hourly rate (e.g. $50/ per hour)"
+        help_text="Please select your hourly rate in CAD dollars (e.g. $50/ per hour)"
     )
     bio = forms.CharField(widget=forms.Textarea())
     skills = TagField(
@@ -48,8 +53,8 @@ class EditProfile(forms.ModelForm):
         help_text="Please enter a comma separated list of software, programming languages, equipment or hardware you have expertise with"
     )
     gives_tutorials = forms.BooleanField(
-        help_text="Check the box if you would like to host group sessions/ tutorials",
-        label = "Would you like to lead group sessions/ tutorials in your area of expertise?"
+        help_text="Check the box if you are open to leading group sessions/ tutorials",
+        label = "Are you interested in leading group sessions/ tutorials in your area of expertise?"
     )
     tutorial_area = forms.CharField(
         help_text="Please describe the topics which you can host a group session on"
@@ -57,9 +62,10 @@ class EditProfile(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields =('position', 'bio', 'skills', 'availability', 'rate', 'software_hardware', 'gives_tutorials', 'tutorial_area',)
+        fields =('username','position', 'bio', 'skills', 'availability', 'rate', 'software_hardware', 'gives_tutorials', 'tutorial_area',)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['position'].widget.attrs['class'] = 'form-control'
         self.fields['availability'].widget.attrs['class'] = 'form-control'
         self.fields['rate'].widget.attrs['class'] = 'form-control'
@@ -72,6 +78,7 @@ class EditProfile(forms.ModelForm):
        
     def clean(self):
         cleaned_data = super().clean()
+        position = cleaned_data.get('username')
         position = cleaned_data.get('position')
         bio = cleaned_data.get('bio')
         availability = cleaned_data.get('availability')
