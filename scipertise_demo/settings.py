@@ -30,7 +30,7 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['cryptic-dawn-32564.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['cryptic-dawn-32564.herokuapp.com','127.0.0.1','0.0.0.0']
 
 
 # Application definition
@@ -184,7 +184,6 @@ EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
