@@ -12,6 +12,7 @@ django-haystack==2.8.1
 django-heroku==0.3.1
 django-messages==0.5.3
 django-taggit==0.23.0
+django-taggit~=0.22.2
 django-widget-tweaks==1.4.3
 docopt==0.4.0
 ecdsa==0.13
