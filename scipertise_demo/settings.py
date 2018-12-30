@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap_datepicker_plus',
     'widget_tweaks',
-    'sendgrid',
   
  
    
