@@ -24,78 +24,78 @@ from django.utils.html import strip_tags
 class BookingView(CreateView):
     model = Booking
     form_class = BookingForm
-    def form_valid(self, form):
-        booking = form.save(commit=False)
-        form.instance.user = self.request.user
-        form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
-        user_email = form.instance.user.email
-        expert_email = form.instance.expert.email
-
-        html_message = render_to_string('booking_request_email_user.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert})
-        html_message_expert = render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        plain_message = strip_tags(html_message)
-        plain_message_expert = strip_tags(html_message_expert)
-    #send email to the user
-        send_mail('Thanks for your booking request ' + form.instance.user.first_name, plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
-    #send email to the expert
-        send_mail(form.instance.user.first_name + " has requested a video call with you", plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
-        return super(BookingView, self).form_valid(form)
+#    def form_valid(self, form):
+#        booking = form.save(commit=False)
+#        form.instance.user = self.request.user
+#        form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
+#        user_email = form.instance.user.email
+#        expert_email = form.instance.expert.email
+#
+#        html_message = render_to_string('booking_request_email_user.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert})
+#        html_message_expert = render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        plain_message = strip_tags(html_message)
+#        plain_message_expert = strip_tags(html_message_expert)
+#    #send email to the user
+#        send_mail('Thanks for your booking request ' + form.instance.user.first_name, plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
+#    #send email to the expert
+#        send_mail(form.instance.user.first_name + " has requested a video call with you", plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
+#        return super(BookingView, self).form_valid(form)
 
     
 class BookingUpdateView(UpdateView):
     model = Booking
     form_class = BookingForm
-    def form_valid(self, form):
-        booking = Booking.objects.get(id=self.kwargs.get('pk'))
-        form.instance.user = booking.user
-        form.instance.expert = booking.expert
-        user_email = form.instance.user.email
-        expert_email = form.instance.expert.email
-        html_message = render_to_string('update_booking_user.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        html_message_expert = render_to_string('update_booking_expert.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        plain_message = strip_tags(html_message)
-        plain_message_expert = strip_tags(html_message_expert)
-    #send email to the user
-        send_mail('Your Scipertise booking request has been changed', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
-    #send email to the expert
-        send_mail('Your Scipertise booking request has been changed', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
-        return super(BookingUpdateView, self).form_valid(form)
+#    def form_valid(self, form):
+#        booking = Booking.objects.get(id=self.kwargs.get('pk'))
+#        form.instance.user = booking.user
+#        form.instance.expert = booking.expert
+#        user_email = form.instance.user.email
+#        expert_email = form.instance.expert.email
+#        html_message = render_to_string('update_booking_user.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        html_message_expert = render_to_string('update_booking_expert.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        plain_message = strip_tags(html_message)
+#        plain_message_expert = strip_tags(html_message_expert)
+#    #send email to the user
+#        send_mail('Your Scipertise booking request has been changed', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
+#    #send email to the expert
+#        send_mail('Your Scipertise booking request has been changed', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
+#        return super(BookingUpdateView, self).form_valid(form)
 
     
 class BookingDeleteView(DeleteView):
     model = Booking
     success_url = reverse_lazy('profile')
-    def form_valid(self, form):
-        booking = Booking.objects.get(id=self.kwargs.get('pk'))
-        form.instance.user = booking.user
-        form.instance.expert = booking.expert
-        user_email = form.instance.user.email
-        expert_email = form.instance.expert.email
-        html_message = render_to_string('delete_booking_user.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        html_message_expert = render_to_string('delete_booking_expert.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        plain_message = strip_tags(html_message)
-        plain_message_expert = strip_tags(html_message_expert)
-    #send email to the user
-        send_mail('Your Scipertise booking has been cancelled', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
-    #send email to the expert
-        send_mail('Your Scipertise booking has been cancelled', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
-        return super(BookingUpdateView, self).form_valid(form)
+#    def form_valid(self, form):
+#        booking = Booking.objects.get(id=self.kwargs.get('pk'))
+#        form.instance.user = booking.user
+#        form.instance.expert = booking.expert
+#        user_email = form.instance.user.email
+#        expert_email = form.instance.expert.email
+#        html_message = render_to_string('delete_booking_user.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        html_message_expert = render_to_string('delete_booking_expert.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        plain_message = strip_tags(html_message)
+#        plain_message_expert = strip_tags(html_message_expert)
+#    #send email to the user
+#        send_mail('Your Scipertise booking has been cancelled', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
+#    #send email to the expert
+#        send_mail('Your Scipertise booking has been cancelled', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
+#        return super(BookingUpdateView, self).form_valid(form)
 
 class BookingListView(ListView):
     model = Booking
@@ -115,27 +115,27 @@ class ConfirmView(UpdateView):
     model = Booking
     form_class = ConfirmForm
     template = 'templates/confirmation_form.html'
-    def form_valid(self, form):
-        booking = Booking.objects.get(id=self.kwargs.get('pk'))
-        form.instance.user = booking.user
-        form.instance.expert = booking.expert
-        user_email = form.instance.user.email
-        expert_email = form.instance.expert.email
-        html_message = render_to_string('confirm_booking_user.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        html_message_expert = render_to_string('confirm_booking_expert.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        plain_message = strip_tags(html_message)
-        plain_message_expert = strip_tags(html_message_expert)
-    #send email to the user
-        send_mail('Your Scipertise booking has been confirmed', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
-    #send email to the expert
-        send_mail('Your Scipertise booking has been confirmed', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
-        return super(ConfirmView, self).form_valid(form)
+#    def form_valid(self, form):
+#        booking = Booking.objects.get(id=self.kwargs.get('pk'))
+#        form.instance.user = booking.user
+#        form.instance.expert = booking.expert
+#        user_email = form.instance.user.email
+#        expert_email = form.instance.expert.email
+#        html_message = render_to_string('confirm_booking_user.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        html_message_expert = render_to_string('confirm_booking_expert.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        plain_message = strip_tags(html_message)
+#        plain_message_expert = strip_tags(html_message_expert)
+#    #send email to the user
+#        send_mail('Your Scipertise booking has been confirmed', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
+#    #send email to the expert
+#        send_mail('Your Scipertise booking has been confirmed', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
+#        return super(ConfirmView, self).form_valid(form)
     
 #@login_required
 #def EditProfileView(request):
