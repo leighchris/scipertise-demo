@@ -33,16 +33,14 @@ class BookingView(CreateView):
         form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
         user_email = form.instance.user.email
         expert_email = form.instance.expert.email
+        from_email = 'founders@scipertise.com'
+        to_email = user_email
+        subject = 'Thanks for your booking request ' + form.instance.user.first_name
 
         content = Content("text/plain", render_to_string('booking_request_email_user.html', {'user': form.instance.user,
                                                                             'expert': form.instance.expert})
-#        html_message_expert = Content("text/plain", render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
-#                                                                            'expert': form.instance.expert,
-#                                                                            'booking': booking,
-#                                                                            })
-#        plain_message = strip_tags(html_message)
-#        plain_message_expert = strip_tags(html_message_expert)
-        mail = Mail('founders@scipertise.com', 'Thanks for your booking request ' + form.instance.user.first_name, user_email, content)
+
+        mail = Mail(from_email, subject, to_email, content)
         response = sg.client.mail.send.post(request_body=mail.get())
         print(response.status_code)
         print(response.body)
