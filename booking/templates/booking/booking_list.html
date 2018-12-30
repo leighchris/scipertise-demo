@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container-fluid booking">
 
-{% if user.bookings %}
+{% if user.bookings or user.booking_set %}
 
 <div class='container booking_list'>
 <div class="container" id="booking_form_text"><h3>Your scheduled video sessions:</h3></div>
