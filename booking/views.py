@@ -19,30 +19,38 @@ from booking.forms import BookingForm, ConfirmForm
 
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-
+import sendgrid
+from sendgrid.helpers.mail import *
 
 
 class BookingView(CreateView):
     model = Booking
     form_class = BookingForm
     def form_valid(self, form):
+        sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
         booking = form.save(commit=False)
         form.instance.user = self.request.user
         form.instance.expert = CustomUser.objects.get(id=self.kwargs.get('pk'))
         user_email = form.instance.user.email
         expert_email = form.instance.expert.email
-        html_message = render_to_string('booking_request_email_user.html', {'user': form.instance.user,
+
+        content = Content("text/plain", render_to_string('booking_request_email_user.html', {'user': form.instance.user,
                                                                             'expert': form.instance.expert})
-        html_message_expert = render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
-                                                                            'expert': form.instance.expert,
-                                                                            'booking': booking,
-                                                                            })
-        plain_message = strip_tags(html_message)
-        plain_message_expert = strip_tags(html_message_expert)
-    #send email to the user
-        send_mail('Thanks for your booking request ' + form.instance.user.first_name, plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
-    #send email to the expert
-        send_mail(form.instance.user.first_name + " has requested a video call with you", plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
+#        html_message_expert = Content("text/plain", render_to_string('booking_request_email_expert.html', {'user': form.instance.user,
+#                                                                            'expert': form.instance.expert,
+#                                                                            'booking': booking,
+#                                                                            })
+#        plain_message = strip_tags(html_message)
+#        plain_message_expert = strip_tags(html_message_expert)
+        mail = Mail('founders@scipertise.com', 'Thanks for your booking request ' + form.instance.user.first_name, user_email, content)
+        response = sg.client.mail.send.post(request_body=mail.get())
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+#    #send email to the user
+#        send_mail('Thanks for your booking request ' + form.instance.user.first_name, plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
+#    #send email to the expert
+#        send_mail(form.instance.user.first_name + " has requested a video call with you", plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
         return super(BookingView, self).form_valid(form)
 
     

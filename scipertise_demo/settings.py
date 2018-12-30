@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'bootstrap_datepicker_plus',
     'widget_tweaks',
+    'sendgrid',
+ 
   
  
    
@@ -177,14 +179,16 @@ LOGOUT_REDIRECT_URL = 'home'
 
 TAGGIT_CASE_INSENSITIVE = True
 
-EMAIL_BACKEND = "sgbackend.SendGridBackend"
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'EMAIL_HOST_USER'
 EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'founders@scipertise.com'
+
 SENDGRID_API_KEY='SENDGRID_API_KEY'
+SENDGRID_PASSWORD='SENDGRID_PASSWORD'
+SENDGRID_USERNAME='SENDGRID_USERNAME'
 
 
 # Activate Django-Heroku.
