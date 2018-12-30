@@ -34,7 +34,7 @@ class BookingView(CreateView):
         user_email = form.instance.user.email
         expert_email = form.instance.expert.email
         from_email = 'founders@scipertise.com'
-        to_email = user_email
+        to_email = form.instance.user.email
         subject = 'Thanks for your booking request ' + form.instance.user.first_name
 
         content = Content("text/plain", render_to_string('booking_request_email_user.html', {'user': form.instance.user,
