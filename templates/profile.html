@@ -67,23 +67,23 @@
          <p class="profile_text">{{ user.bio }}</p>
          {% if user.skill_area1 %}<br>
          <h4 class="bio_title">Areas of expertise:</h4>
-         <h4 class="text_title">Top skill area</h4>
+         <h4 class="text_title">{{ user.skill_area1_title }</h4>
          <p class="profile_text">{{ user.skill_area1 }}</p>
          {% endif %}
           {% if user.skill_area2 %}
-         <h4 class="text_title">Skill area</h4>
+         <h4 class="text_title">{{ user.skill_area2_title }}</h4>
           <p class="profile_text">{{ user.skill_area2 }}</p>
            {% endif %}
           {% if user.skill_area3 %}
-         <h4 class="text_title">Skill area</h4>
+         <h4 class="text_title">{{ user.skill_area3_title }}</h4>
           <p class="profile_text">{{ user.skill_area3 }}</p>
          {% endif %}
            {% if user.skill_area4 %}
-         <h4 class="text_title">Skill area</h4>
+         <h4 class="text_title">{{ user.skill_area4_title }}</h4>
          <p class="profile_text">{{ user.skill_area4 }}</p>
             {% endif %}
            {% if user.skill_area5 %}
-         <h4 class="text_title">Skill area</h4>
+         <h4 class="text_title">{{ user.skill_area5_title }}</h4>
           <p class="profile_text">{{ user.skill_area5 }}</p>
           {% endif %}<br>
           {% if user.software_hardware %}
