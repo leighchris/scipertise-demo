@@ -37,19 +37,62 @@ class EditProfile(forms.ModelForm):
         help_text="Please enter a username if you would like to change your current username"
     )
     position =forms.CharField(
-        help_text="Please enter your job title and Institution or Company you work for"
+        label="What is your current job title/ position?",
+        help_text="Please enter your job title and Institution or Company you work for (e.g. Postdoctoral Fellow at McGill University)"
     )
     availability = forms.CharField(
+        label="What times are you generally available during the week?",
         help_text="Please state the time slots your are available during the week (e.g. Mondays between 6-8pm)"
     )
     rate = forms.CharField(
+        
         help_text="Please select your hourly rate in CAD dollars (e.g. $50/ per hour)"
     )
-    bio = forms.CharField(widget=forms.Textarea())
     skills = TagField(
-        help_text="Please enter a comma separated list of skills"
+        label="Please list 3-6 keywords for your skills/ expertise",
+        help_text="Please enter a comma separated list of skills (e.g. fMRI, cognitive neuroscience, EEG, memory)"
     )
+    bio = forms.CharField(widget=forms.Textarea(),
+        label="What is your primary area of expertise?",
+        help_text="In 2-3 sentences, describe your general experience and expertise in your field"
+    )
+    skill_area1_title =forms.CharField(
+        label="What is the title of your top skill area?",
+    )
+    skill_area1 =forms.CharField(widget=forms.Textarea(),
+        label="Describe your skill area/ experience in 1-3 sentences",
+    )
+    
+    skill_area2_title =forms.CharField(
+        label="What is the title of your second skill area (Optional)?",
+    )
+    skill_area2 =forms.CharField(widget=forms.Textarea(),
+        label="Describe your skill area/ experience in 1-3 sentences",
+    )
+    
+    skill_area3_title =forms.CharField(
+        label="What is the title of your third skill area (Optional)?",
+    )
+    skill_area3 =forms.CharField(widget=forms.Textarea(),
+        label="Describe your skill area/ experience in 1-3 sentences",
+    )
+    
+    skill_area4_title =forms.CharField(
+        label="What is the title of your fourth skill area (Optional)?",
+    )
+    skill_area4 =forms.CharField(widget=forms.Textarea(),
+        label="Describe your skill area/ experience in 1-3 sentences",
+    )
+    
+    skill_area5_title =forms.CharField(
+        label="What is the title of your fifth skill area (Optional)?",
+    )
+    skill_area5 =forms.CharField(widget=forms.Textarea(),
+        label="Describe your skill area/ experience in 1-3 sentences",
+    )
+ 
     software_hardware = forms.CharField(
+        label="What software, equipment or techniques do you have expertise with",
         help_text="Please enter a comma separated list of software, programming languages, equipment or hardware you have expertise with"
     )
     gives_tutorials = forms.BooleanField(
@@ -57,7 +100,8 @@ class EditProfile(forms.ModelForm):
         label = "Are you interested in leading group sessions/ tutorials in your area of expertise?"
     )
     tutorial_area = forms.CharField(
-        help_text="Please describe the topics which you can host a group session on"
+        label = "If you answered yes to leading group sessions, what specific topics would you be able to teach?",
+        help_text="Please describe in 1-2 sentences the topics/ technical skills which you can host a group session on"
     )
 
     class Meta:
