@@ -106,18 +106,28 @@ class EditProfile(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields =('username','position', 'bio', 'skills', 'availability', 'rate', 'software_hardware', 'gives_tutorials', 'tutorial_area',)
+        fields =('username','position', 'bio', 'skills', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'availability', 'rate', 'software_hardware', 'gives_tutorials', 'tutorial_area',)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['class'] = 'form-control'
-        self.fields['position'].widget.attrs['class'] = 'form-control'
-        self.fields['availability'].widget.attrs['class'] = 'form-control'
-        self.fields['rate'].widget.attrs['class'] = 'form-control'
-        self.fields['bio'].widget.attrs['class'] = 'form-control'
-        self.fields['skills'].widget.attrs['class'] = 'form-control'
-        self.fields['software_hardware'].widget.attrs['class'] = 'form-control'
-        self.fields['gives_tutorials'].widget.attrs['class'] = 'form-control'
-        self.fields['tutorial_area'].widget.attrs['class'] = 'form-control'
+        self.fields['username'].required = False
+        self.fields['position'].required = True
+        self.fields['availability'].required = False
+        self.fields['rate'].required = False
+        self.fields['bio'].required = True
+        self.fields['skills'].required =True
+        self.fields['skill_area1_title'].required =True
+        self.fields['skill_area1'].required =True
+        self.fields['skill_area2_title'].required =False
+        self.fields['skill_area2'].required =False
+        self.fields['skill_area3_title'].required =False
+        self.fields['skill_area3'].required =False
+        self.fields['skill_area4_title'].required =False
+        self.fields['skill_area4'].required =False
+        self.fields['skill_area5_title'].required =False
+        self.fields['skill_area5'].required =False
+        self.fields['software_hardware'].required  = False
+        self.fields['gives_tutorials'].required = False
+        self.fields['tutorial_area'].required =False
         
        
     def clean(self):
@@ -128,6 +138,16 @@ class EditProfile(forms.ModelForm):
         availability = cleaned_data.get('availability')
         rate = cleaned_data.get('rate')
         skills = cleaned_data.get('skills')
+        skill_area1_title = cleaned_data.get('skill_area1_title')
+        skill_area1 = cleaned_data.get('skill_area1')
+        skill_area2_title = cleaned_data.get('skill_area2_title')
+        skill_area2 = cleaned_data.get('skill_area2')
+        skill_area3_title = cleaned_data.get('skill_area3_title')
+        skill_area3 = cleaned_data.get('skill_area3')
+        skill_area4_title = cleaned_data.get('skill_area4_title')
+        skill_area4 = cleaned_data.get('skill_area4')
+        skill_area5_title = cleaned_data.get('skill_area5_title')
+        skill_area5 = cleaned_data.get('skill_area5')
         software_hardware = cleaned_data.get('software_hardware')
         gives_tutorials = cleaned_data.get('gives_tutorials')
         tutorial_area = cleaned_data.get('tutorial_area')
