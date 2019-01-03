@@ -32,7 +32,15 @@ ADMINS = (('Leigh', 'leigh.christopher2@gmail.com'),)
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG = os.environ.get('DEBUG')
+if DEBUG is None:
+    DEBUG = False
+else:
+    if 'True' in DEBUG:
+        DEBUG = True
+    else:
+        DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'cryptic-dawn-32564.herokuapp.com']
 
