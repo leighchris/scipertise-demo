@@ -32,7 +32,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'SECRET_KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'cryptic-dawn-32564.herokuapp.com']
 
@@ -198,6 +198,8 @@ DEFAULT_FROM_EMAIL = 'founders@scipertise.com'
 SENDGRID_API_KEY='SENDGRID_API_KEY'
 SENDGRID_PASSWORD='SENDGRID_PASSWORD'
 SENDGRID_USERNAME='SENDGRID_USERNAME'
+
+ADMINS = (('Leigh', 'leigh.christopher2@gmail.com'),)
 
 
 # Activate Django-Heroku.
