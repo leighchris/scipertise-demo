@@ -12,7 +12,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import django_heroku
-import dj_database_url
+import dj-database-url
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES[‘default’].update(db_from_env)
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -31,7 +34,7 @@ SECRET_KEY = 'SECRET_KEY'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'cryptic-dawn-32564.herokuapp.com']
 
 
 # Application definition
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    ’whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
@@ -77,8 +81,8 @@ BOOTSTRAP4 = {
 SITE_ID = 1
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -88,7 +92,7 @@ MIDDLEWARE = [
 
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = ‘whitenoise.storage.CompressedManifestStaticFilesStorage’
 
 ROOT_URLCONF = 'scipertise_demo.urls'
 
