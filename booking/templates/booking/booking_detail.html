@@ -27,16 +27,16 @@
             <p><strong>Description: </strong>{{ booking.description }}</p>
            <p> Please contact founders@scipertise.com to see if there are any spaces remaining.</p>
         {% endif %}  
-            
+            {% if not booking.is_confirmed and user.expert and booking.expert == request.user %}
+            <div><a href="{% url 'booking:confirm_booking' pk=booking.pk %}"><button type='submit' class='booking_button'>Confirm Booking Request</button></a></div> 
+            {% endif %}
+           <div><a href="{% url 'booking:booking_update' pk=booking.pk %}"><button type='submit' class='booking_button'>Edit Booking</button></a></div> 
+           <div><a href="{% url 'booking:booking_delete' pk=booking.pk %}"><button type='submit' class='booking_button'>Delete Booking</button></a></div>    
     </div>
 
     </div>
 
-{% if not booking.is_confirmed and user.expert and booking.expert == request.user %}
-  <div><a href="{% url 'booking:confirm_booking' pk=booking.pk %}"><button type='submit' class='booking_button'>Confirm Booking Request</button></a></div> 
-{% endif %}
-  <div><a href="{% url 'booking:booking_update' pk=booking.pk %}"><button type='submit' class='booking_button'>Edit Booking Request</button></a></div> 
-   <div><a href="{% url 'booking:booking_delete' pk=booking.pk %}"><button type='submit' class='booking_button'>Delete Booking</button></a></div> 
+
     </div>
   
 </div>

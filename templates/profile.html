@@ -42,7 +42,7 @@
                 <a href="{{ user.website }}" target="_blank"><p>Google Scholar Profile</p></a>
                 {% endif %}
             {% if user != request.user %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="availability_button">Request to Book</button></a><br>
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a><br>
             {% if user.gives_tutorials %}
                 <p>or <a href="#tutorial">Join a group session</a></p>
             {% endif %}

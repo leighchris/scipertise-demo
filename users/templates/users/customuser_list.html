@@ -8,9 +8,9 @@
 <div class="container-fluid search">
         <div class="container" id="search_form">
             <form class="form-group" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
-            <h3 id="search_call_to_action">Find researchers</h3>
+            <h3 id="search_call_to_action">Find a scientist</h3>
                 <input class="form-control form-control-lg border-right-0" id="search" type="text" name="q" value="{{request.GET.q}}" placeholder="Enter a skill, technique, software or area of expertise"> 
-                <button class="availability_button" type="submit" name="submit" value="Search">Search</button>
+                <button class="search_button" type="submit" name="submit" value="Search">Search</button>
             </form>
         </div>
         
