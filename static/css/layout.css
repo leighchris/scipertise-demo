@@ -94,8 +94,8 @@ div#first_section_row.container-fluid {
 
 img.logo {
  
-    height:58px;
-    padding: 10px 12px 14px 50px;
+    height:48px;
+    padding: 8px 12px 8px 50px;
     max-width:100%;
 }
 
@@ -103,7 +103,7 @@ img.logo {
 h1.value_prop {
     padding-top: 30px;
     color: white;
-    font-size: 34pt;
+    font-size: 30pt;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     clear: right;
@@ -113,12 +113,12 @@ p.vision_blurb {
     padding: 20px 0px 20px 0px;
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14pt;
+    font-size: 12pt;
 }
 
 p.advice_blurb {
     color:white;
-    font-size: 14pt;
+    font-size: 12pt;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -203,18 +203,23 @@ div#call_to_action.container {
 }
 
 button#call_to_action.btn.btn-primary {
-    border-radius: 15px;
+    border-radius: 20px;
     text-align: center;
     margin: 0 auto;
-    padding: 20px 60px 20px 60px;
-    background-color: #13acee;
-    font-size: 14pt;
+    padding: 10px 50px 10px 50px;
+    background-color: transparent;
+    border: 2px solid;
+    border-color: white;
+    color: white;
+    font-size: 12pt;
 }
 
 button#call_to_action.btn.btn-primary:hover {
-    background-color: #dbfe87;
-    color: #363095;
-    border-radius: 15px;
+    background-color: transparent;
+    border: 2px solid;
+    border-color: #dbfe87;
+    color: #dbfe87;
+   
 }
 
 
@@ -248,7 +253,7 @@ div#howitworks.container-fluid {
 
 div#step1.container {
 
-    padding: 0px 15px;
+    padding: 0px 20px;
     display: flex;
     flex-direction: column; 
     
@@ -256,7 +261,7 @@ div#step1.container {
 }
 div#step2.container {
     
-     padding: 0px 15px;
+     padding: 0px 20px;
      display: flex;
      flex-direction: column; 
  
@@ -264,7 +269,7 @@ div#step2.container {
 }
 div#step3.container {
     
-     padding: 0px 15px;
+     padding: 0px 20px;
      display: flex;
      flex-direction: column; 
  
@@ -272,22 +277,22 @@ div#step3.container {
 }
 
 .icon1 {
-    width: 130px;
-    height: 120px;
+    width: 120px;
+    height: 110px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
 }
 .icon2 {
-    width: 130px;
-    height: 120px;
+    width: 120px;
+    height: 110px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
 }
 .icon3 {
-    width: 130px;
-    height: 120px;
+    width: 120px;
+    height: 110px;
     display: block;
     margin: 0 auto;
     padding: 10px 0px 10px 0px;
@@ -296,7 +301,8 @@ div#step3.container {
 h4.icon_title {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    border-bottom: 3px solid #dbfe87;
+    border-bottom: 2px solid #dbfe87;
+   
  
 }
 
@@ -378,8 +384,8 @@ div#login.container-fluid {
   display: flex;
 align-items: center;
   justify-content: center;
-   background-color:#a0def8;
-    background-image: linear-gradient(to bottom, #a0def8, #363095);
+   background-color:#363095;
+    background-image: linear-gradient(to bottom, #363095, #a0def8);
     height: 100%;
     margin: 0 auto;
     overflow-y:scroll;
@@ -555,8 +561,8 @@ p.profile_name {
 }
 
 p.profile_text {
-    font-size: 13pt;
-    font-family: 'PT Sans', sans-serif;
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;
     margin: 10px;
   
 }
@@ -756,8 +762,8 @@ button.booking_button:hover {
 }
 
 div.container-fluid.booking {
- background-color:#E1E5EE;
-    background-image: linear-gradient(to bottom, #E1E5EE, #13acee);
+ background-color:#363095;
+    background-image: linear-gradient(to bottom, #363095, #a0def8);
     height: 100%;
     margin: 0 auto;
     overflow-y:scroll;
