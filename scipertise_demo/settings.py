@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 import django_heroku
 import dj_database_url
+import logging
 
 #db_from_env = dj_database_url.config(conn_max_age=600)
 #DATABASES[‘default’].update(db_from_env)
@@ -29,13 +30,13 @@ ADMINS = (('Leigh', 'leigh.christopher2@gmail.com'),)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+#DEBUG = True
 
-#DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', 'cryptic-dawn-32564.herokuapp.com']
 
@@ -95,7 +96,7 @@ MIDDLEWARE = [
 
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 ROOT_URLCONF = 'scipertise_demo.urls'
@@ -122,18 +123,18 @@ WSGI_APPLICATION = 'scipertise_demo.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
-DATABASES = {
-    'default': dj_database_url.config(
-        default='DATABASE_URL'
-    )
-}
-#
 #DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
+#    'default': dj_database_url.config(
+#        default='DATABASE_URL'
+#    )
 #}
+#
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -192,16 +193,97 @@ LOGOUT_REDIRECT_URL = 'home'
 
 TAGGIT_CASE_INSENSITIVE = True
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'EMAIL_HOST_USER'
-EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'founders@scipertise.com'
+#EMAIL_HOST = 'smtp.sendgrid.net'
+#EMAIL_HOST_USER = 'EMAIL_HOST_USER'
+#EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
+#EMAIL_PORT = 587
+#EMAIL_USE_TLS = True
+#DEFAULT_FROM_EMAIL = 'founders@scipertise.com'
+#
+#SENDGRID_API_KEY='SENDGRID_API_KEY'
+#SENDGRID_PASSWORD='SENDGRID_PASSWORD'
+#SENDGRID_USERNAME='SENDGRID_USERNAME'
 
-SENDGRID_API_KEY='SENDGRID_API_KEY'
-SENDGRID_PASSWORD='SENDGRID_PASSWORD'
-SENDGRID_USERNAME='SENDGRID_USERNAME'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.sendgrid.com'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+
+
+LOGGING = {
+
+'version': 1,
+
+'disable_existing_loggers': True,
+
+'formatters': {
+
+'verbose': {
+
+'format': '%(levelname)s [%(asctime)s] %(module)s %(message)s'
+
+},
+
+},
+
+'handlers': {
+
+'console': {
+
+'level': 'DEBUG',
+
+'class': 'logging.StreamHandler',
+
+'formatter': 'simple'
+
+},
+
+'file': {
+
+'class': 'logging.handlers.RotatingFileHandler',
+
+'formatter': 'verbose',
+
+'filename': '/var/www/logs/ibiddjango.log',
+
+'maxBytes': 1024000,
+
+'backupCount': 3,
+
+},
+
+'mail_admins': {
+
+'level': 'ERROR',
+
+'class': 'django.utils.log.AdminEmailHandler'
+
+}
+
+},
+
+'loggers': {
+
+'django': {
+
+'handlers': ['file', 'console','mail_admins'],
+
+'propagate': False,
+
+'level': 'DEBUG',
+
+},
+
+}
+
+}
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 
 
 # Activate Django-Heroku.
