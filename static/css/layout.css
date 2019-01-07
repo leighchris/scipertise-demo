@@ -527,7 +527,7 @@ div#tutorials.container {
 div.container.card {
     display: flex;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 20px;
     margin: 20px auto;
  
 }
@@ -774,7 +774,7 @@ div.container.booking_list {
 }
 
 div#booking_form_text.container {
-    color: #4C5280;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     padding: 20px;
