@@ -46,7 +46,7 @@
           {% if form.position.help_text %}
         <small class="form-text text-muted">{{ form.position.help_text |safe }}</small>
           {% endif %}
-    <h3 class="edit_profile_subheading">Section 1: Skill Overview</h4>
+    <h3 class="edit_profile_subheading">Section 1: Skill Overview</h3>
           {{ form.bio.label_tag }}
           {% render_field form.bio class="form-control" %}
           {% if form.bio.help_text %}
@@ -62,7 +62,7 @@
           {% if form.software_hardware.help_text %}
         <small class="form-text text-muted">{{ form.software_hardware.help_text |safe }}</small>
           {% endif %}
-    <h3 class="edit_profile_subheading">Section 2: Your Skills in Detail</h4>
+    <h3 class="edit_profile_subheading">Section 2: Your Skills in Detail</h3>
         <p>In this section, describe 2-5 of your top skills/areas of expertise. For each skill, briefly describe the experience(s) that allowed you to gain or demonstrate the skill (see examples below)</p>
           {{ form.skill_area1_title.label_tag }}
           {% render_field form.skill_area1_title class="form-control" %}
@@ -114,7 +114,7 @@
           {% if form.skill_area5.help_text %}
         <small class="form-text text-muted">{{ form.skill_area5.help_text |safe }}</small>
           {% endif %}
-    <h3 class="edit_profile_subheading">Section 3: Group Sessions/Tutorials</h4>
+    <h3 class="edit_profile_subheading">Section 3: Group Sessions/Tutorials</h3>
         {{ form.gives_tutorials.label_tag }}
           {% render_field form.gives_tutorials class="form-control" %}
           {% if form.gives_tutorials.help_text %}
@@ -125,7 +125,7 @@
           {% if form.tutorial_area.help_text %}
         <small class="form-text text-muted">{{ form.tutorial_area.help_text |safe }}</small>
           {% endif %}
-     <h3 class="edit_profile_subheading">Section 4: Rates and Availability</h4>
+     <h3 class="edit_profile_subheading">Section 4: Rates and Availability</h3>
         {{ form.rate.label_tag }}
           {% render_field form.rate class="form-control" %}
           {% if form.rate.help_text %}

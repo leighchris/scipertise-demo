@@ -174,6 +174,21 @@ class LoginForm(AuthenticationForm):
         self.fields['username'].widget.attrs['class'] = 'form-control'
         self.fields['password'].widget.attrs['class'] = 'form-control'
         
+class EditProfileImage(forms.ModelForm):
+    image=forms.ImageField()
+   
+    class Meta:
+        model = CustomUser
+        fields =('image',)
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['image'].required = False
+        
+    def clean(self):
+        cleaned_data = super().clean()
+        position = cleaned_data.get('image')
+       
         
     
 

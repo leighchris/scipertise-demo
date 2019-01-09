@@ -21,4 +21,5 @@ urlpatterns = [
     path('change-password/', auth_views.PasswordChangeView.as_view(template_name='change_password.html'), name='change_password'),
     path('change-password/done/', auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html'), name='password_change_done'),
     path('browse/', views.BrowseView.as_view(), name='browse'),
+    path('profile/image/', views.EditProfileImageView, name='edit_profile_image'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

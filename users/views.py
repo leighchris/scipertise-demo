@@ -5,7 +5,7 @@ from django.views.generic import TemplateView, DetailView, FormView, ListView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
-from .forms import CustomUserCreationForm, EditProfile
+from .forms import CustomUserCreationForm, EditProfile, EditProfileImage
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import CustomUser
 
@@ -53,6 +53,25 @@ def EditProfileView(request):
     else:
         form = EditProfile(instance = request.user)
         return render(request, 'edit_profile.html', {'form': form})
+    
+def EditProfileImageView(request):
+    form = EditProfileImage()
+    if request.method == 'POST':
+        form = EditProfileImage(request.POST, instance =request.user)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = EditProfileImage(instance = request.user)
+        return render(request, 'edit_profile_image.html', {'form': form})
+    
+#def EditProfileImageView(FormView):
+#    template_name='edit_profile_image.html'
+#    form_class= EditProfileImage
+#    success_url = reverse_lazy('profile')
+#    
+#    def form_valid(self, form):
+#        return HttpResponse('form valid')
     
 #def change_password(request):
 #    
