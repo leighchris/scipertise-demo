@@ -9,15 +9,27 @@ from .forms import CustomUserCreationForm, EditProfile, EditProfileImage
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import CustomUser
 
+
+class SkillView(ListView):
+    model = CustomUser
+    template_name = 'users/skills.html'
+    queryset = CustomUser.objects.all()
+    
+    def get_queryset(self):
+        queryset = CustomUser.objects.filter(skills__name = self.kwargs['slug'])
+        return queryset
+    
+
 class BrowseView(ListView):
     model = CustomUser
-    template = 'customuser_list.html'
     queryset = CustomUser.objects.filter(expert = True)
 
     
 #    def get_queryset(self):
 #        experts = CustomUser.objects.filter(expert = True)
 #        return experts
+
+
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm

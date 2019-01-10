@@ -1,27 +1,22 @@
 {% extends 'layout.html' %}
 {% load static %}
 
-{% block title %}Search{% endblock %}
+{% block title %}Browse our experts{% endblock %}
 
 {% block content %}
 
 <div class="container-fluid search">
-    <div class="container" id="search_form">
+        <div class="container" id="search_form">
             <form class="form-group" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
             <h3 id="search_call_to_action">Find a scientist</h3>
-                <input class="form-control form-control-lg" id="search" type="text" name="q" value="{{request.GET.q}}" placeholder="Enter a skill, technique, software or area of expertise"/>
+                <input class="form-control form-control-lg border-right-0" id="search" type="text" name="q" value="{{request.GET.q}}" placeholder="Enter a skill, technique, software or area of expertise"> 
                 <button class="search_button" type="submit" name="submit" value="Search">Search</button>
             </form>
         </div>
-
-        {% if submitbutton == 'Search' and request.GET.q != '' %}
-        {% if results %}
         
         <div class="container" id="search_results">
-        <h3>Scientists matching "<b>{{ request.GET.q }}</b>"</h3>
-        <br/><br/>
 
-        {% for result in results %}
+        {% for result in object_list %}
 
         <div class="container" id="search_hit">
         <div class="container" id="expert">
@@ -38,11 +33,11 @@
                 
                 <div class="container skills">
                 {% for skill in result.skills.all %}
-                <div class="skill_bubble"><p class="skill_bubble"><a href="{% url 'skills' skill.name %}">{{ skill.name }}</a></p></div>
+                <div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div>
                     {% endfor %}
                 
                 </div>
-                 <div class="browse_bio"> {{result.bio }}</div>
+                 <div class="browse_bio"> {{ result.bio }}</div>
             </div>
 
         </div>
@@ -51,12 +46,9 @@
 
 
         {% endfor %}
-        {% else %}
-       <div class="container"><p class="profile_text">No search results for this query.<br>Please try searching for a specific skill, software, or area of expertise.</p></div> 
-        {% endif %}
-        {% endif %}
 
-        {% endblock %}
-    </div>
-    
+ </div>
 </div>
+        {% endblock %}
+    
+    
