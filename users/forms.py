@@ -42,7 +42,7 @@ class EditProfile(forms.ModelForm):
     )
     availability = forms.CharField(
         label="What times are you generally free during the week?",
-        help_text="Example: Mondays from 6-8pm EST' or 'Sunday evenings and weekdays from 8-10am EST"
+        help_text="Example: Mondays from 6-8pm EST' or 'Sunday evenings and weekdays from 8-10am EST. Please include your timezone."
     )
     rate = forms.CharField(
         
@@ -50,7 +50,7 @@ class EditProfile(forms.ModelForm):
         label="Hourly rate (CAD)"
     )
     skills = TagField(
-        label="Enter 3-6 keywords  describing your skills/expertise to help people find you, separated by commas",
+        label="Enter 3-6 keywords (maximum of 6) describing your skills to help people find you, separated by commas. Do not include slashes in the skill tag name",
         help_text="Example: fMRI, cognitive neuroscience, EEG, memory, functional connectivity"
     )
     bio = forms.CharField(widget=forms.Textarea(),
@@ -62,7 +62,7 @@ class EditProfile(forms.ModelForm):
         help_text="Example: I'm use pain psychophysical measures and quantitative sensory testing with patients in a clinical setting."
     )
     skill_area1 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demostrate this skill",
+        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
         help_text="Example: Completed several investigations using a pain psychophysics protocol involving thermal, mechanical and electrical stimulation. I often host workshops and teach courses on this topic."
     )
     
@@ -71,7 +71,7 @@ class EditProfile(forms.ModelForm):
         help_text="Example: I'm an experienced researcher on the topics of chronic pain and peripheral neuropathy characteristics and symptoms."
     )
     skill_area2 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demostrate this skill",
+        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
         help_text="Example: Recently characterized pain-related symptoms and disease-related factors in different chronic pain populations - several first and senior author publications on this topic."
     )
     
@@ -80,7 +80,7 @@ class EditProfile(forms.ModelForm):
         help_text="Example: I'm experience with task-based fMRI experiment design and fMRI analysis using FSL software and psychophysics toolbox (MATLAB)."
     )
     skill_area3 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demostrate this skill",
+        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
         help_text="Example: I have designed several tasks for the fMRI environment to measure pain perception, and have published two papers in which I completed task-based and connectivity analyses."
     )
     
@@ -89,7 +89,7 @@ class EditProfile(forms.ModelForm):
         help_text="Example: Studiyng sex differences and the brain"
     )
     skill_area4 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demostrate this skill",
+        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
         help_text="I'm currently investigating sex differences in resting state brain activity in a human chronic pain population"
     )
     
@@ -97,7 +97,7 @@ class EditProfile(forms.ModelForm):
         label="Describe your fifth skill in 1-2 sentences (optional)",
     )
     skill_area5 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demostrate this skill",
+        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
     )
  
     software_hardware = forms.CharField(
