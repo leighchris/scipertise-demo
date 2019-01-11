@@ -490,7 +490,7 @@ div#expert.container {
 
 
 div.container.user_name {
-    margin: 20px auto;
+    margin: 10px auto;
 }
 
 div#availability.container {
@@ -503,6 +503,7 @@ div#availability.container {
     align-items: center;
     justify-content: center;
     text-align: center;
+    width: 300px;
     
 
 
@@ -646,6 +647,7 @@ div.skill_bubble {
 p.skill_bubble {
     padding: 0;
     margin: 0;
+    font-size: 10pt;
 }
 
 div.edit_profile {
