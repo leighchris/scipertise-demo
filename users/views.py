@@ -69,7 +69,7 @@ def EditProfileView(request):
 def EditProfileImageView(request):
     form = EditProfileImage()
     if request.method == 'POST':
-        form = EditProfileImage(request.POST, instance =request.user)
+        form = EditProfileImage(request.POST, request.FILES, instance =request.user)
         if form.is_valid():
             form.save()
         return HttpResponseRedirect(reverse('profile'))
