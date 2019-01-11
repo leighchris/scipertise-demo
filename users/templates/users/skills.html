@@ -33,7 +33,7 @@
                 
                 <div class="container skills">
                 {% for skill in result.skills.all %}
-                <div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div>
+                <div class="skill_bubble"><p class="skill_bubble"><a href="{% url 'skills' skill.name %}">{{ skill.name }}</a></p></div>
                     {% endfor %}
                 
                 </div>

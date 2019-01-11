@@ -960,7 +960,7 @@ a {
 /** Media Queries **/
 @media screen and (max-width: 1200px) {
  div#availability.container {
-     
+     width: 100%;
         
     }
 
