@@ -22,7 +22,7 @@ from django.conf.urls import handler404
 
 urlpatterns = [
  
-    path('admin/', admin.site.urls),
+    path('superusers/access/admin/scipertise/', admin.site.urls),
     path('', include('pages.urls')),
     path('search/', include('search.urls', namespace='search')),
     path('users/', include('users.urls')),
