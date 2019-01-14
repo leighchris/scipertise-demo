@@ -982,17 +982,42 @@ a {
 
 
 /** Media Queries **/
-@media screen and (max-width: 1200px) {
+ @media screen and (max-width: 1200px) {   
+    div.profile_content_text {
+         margin: 20px 100px 20px 80px;
+     }
+@media screen and (max-width: 1100px) {
  div#availability.container {
-     width: 100%;
-        
+     width: 80%;
+     display: block;
+     margin-top: 40px;
+    }
+    
+@media screen and (max-width: 1100px) {
+ div.edit_profile {
+     display: inline-block;
+     margin: 0 auto;
+     text-align: center;
     }
 
 @media screen and (max-width: 1100px) {
  div#profile_intro.container {
     display: inline-block;
+     width: 80%
         
     }
+ @media screen and (max-width: 1100px) {   
+    div#profile_content.container {
+    display: inline-block;
+     width: 80%
+        
+     }
+
+     
+ @media screen and (max-width: 1100px) {  
+     div.divider {
+         width: 100%;
+     }
     
     
     
