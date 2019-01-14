@@ -48,6 +48,7 @@ a.nav-item.nav-link {
 input.form-control.mr-sm-2 {
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
+    font-size: 11pt;
 
 }
 
@@ -790,7 +791,12 @@ div.container.confirmed {
 
 p.confirmed {
     padding-top: 5px;
-    padding-left: 5px;
+
+   
+}
+
+h3.card-title {
+    padding-left: 7px;
 }
 
 img.check {
