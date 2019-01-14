@@ -18,9 +18,9 @@
 <!--        <h3 class="call_to_action">Find a Researcher with the Right Expertise</h3>-->
 
         {% for expert in object_list %}
-
-        <div class="container" id="search_hit">
             {% if expert.bio %}
+        <div class="container" id="search_hit">
+            
         <div class="container" id="expert">
             {% if expert.image %}
             <div>
@@ -43,8 +43,9 @@
             </div>
 
         </div>
-             {% endif %}
+             
         </div>
+            {% endif %}
 
 
 
