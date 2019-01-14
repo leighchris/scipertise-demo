@@ -119,10 +119,12 @@
             </div>
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
+    {% if user.gives_tutorials %}
+        <h4 class="bio_title">{{ user.first_name }} can lead group sessions on:</h4>
+         <p class="profile_text">{{ user.tutorial_area }}</p>
+        {% endif %}
 {% if user.gives_tutorials and tutorials %}
             {% if user.tutorial_area %}
-          <h4 class="bio_title">{{ user.first_name }} can lead group sessions on:</h4>
-         <p class="profile_text">{{ user.tutorial_area }}</p>
           {% endif %}
 <h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
 {% for booking in tutorials %}
@@ -136,6 +138,9 @@
 {% else %}
         <div class="container card">
        <p class="profile_text">This user is not currently hosting any tutorials<p>
+                 {% if user != request.user %}
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>
+            {% endif %}
     </div>
         {% endif %}
       
