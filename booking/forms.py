@@ -8,12 +8,13 @@ from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTime
 class BookingForm(ModelForm):
     class Meta:
         model = Booking
-        fields = ['title','start_time','end_time','notes']
+        fields = ['title','start_time','end_time','is_tutorial','notes']
         # datetime-local is a HTML5 input type, format to make date time show on fields
         labels = {
-          'title': 'Please select a title for your requested video call:',
-          'start_time': 'Suggested date and start time:',
-          'end_time': 'Suggested end time:',
+          'title': 'Please select a title for your requested video call',
+          'start_time': 'Suggested date and start time',
+          'end_time': 'Suggested end time',
+          'is_tutorial': 'Are you requesting a group tutorial?',
           'notes': 'Describe what you are interested in discussing in 2-3 sentences:',
         }
         widgets = {
@@ -25,7 +26,8 @@ class BookingForm(ModelForm):
         help_texts = {
     
           'start_time': 'Please select a date and time during the available hours listed on the expert profile page',
-          'end_time': '*Appointments cannot exceed 1 hour'
+          'end_time': '*Appointments cannot exceed 1 hour',
+          'is_tutorial': 'Group video sessions are limited to 4 people. Please leave the box unchecked if you would like a one-on-one video call.',
           
         }
 

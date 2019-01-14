@@ -139,7 +139,7 @@
         <div class="container card">
        <p class="profile_text">This user is not currently hosting any tutorials<p>
                  {% if user != request.user %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a Tutorial</button></a>
             {% endif %}
     </div>
         {% endif %}
