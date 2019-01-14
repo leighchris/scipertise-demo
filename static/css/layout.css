@@ -785,7 +785,7 @@ p.confirmed {
 }
 
 img.check {
-    filter: invert(84%) sepia(98%) saturate(250%) hue-rotate(20deg) brightness(103%) contrast(99%);
+    filter: invert(79%) sepia(69%) saturate(446%) hue-rotate(102deg) brightness(95%) contrast(98%);
     height: 25px;
     width: 25px;
     padding-top: 5px;
