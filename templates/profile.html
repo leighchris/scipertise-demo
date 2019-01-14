@@ -14,8 +14,10 @@
         <div class="container" id="expert">
             {% if user.image %}
             <div>
-                <img class="profile_image" src="{{ user.image.url }}" width="180"/>
+               <a href="{% url 'edit_profile_image' %}"><img class="profile_image" src="{{ user.image.url }}" width="180"/></a>
             </div>
+               {% elif not user.image and user.is_authenticated and user == request.user %}
+                <div class="edit_profile_image_button"><p class="image_bubble">Add Profile Image&nbsp&nbsp<a href="{% url 'edit_profile_image' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
             {% endif %}
             <div class="container user_name">
             <p class="profile_name">{{ user.first_name }}&nbsp{{ user.last_name }}</p>
@@ -119,7 +121,7 @@
             </div>
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
-    {% if user.gives_tutorials %}
+    {% if user.gives_tutorials and user.tutorial_area %}
         <h4 class="bio_title">{{ user.first_name }} can lead group sessions on:</h4>
          <p class="profile_text">{{ user.tutorial_area }}</p>
         {% endif %}

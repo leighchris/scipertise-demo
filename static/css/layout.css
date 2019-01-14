@@ -641,6 +641,21 @@ div#edit_profile_button.container {
     margin-top: 30px;
 }
 
+div.edit_profile_image_button {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+p.image_bubble {
+    padding: 80px 40px 80px 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10pt;
+    border: 1px solid #CBCDD4;
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
 .profile_image {
    border-radius: 20px;
    margin: 30px 20px 0px 0px;
