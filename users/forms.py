@@ -40,6 +40,9 @@ class EditProfile(forms.ModelForm):
         label="Enter your current position and location (institution or company)",
         help_text="Example: Postdoctoral Fellow in Neuroscience at McGill University"
     )
+    website = forms.CharField(
+        label="Please add the url for your Google Scholar profile (optional)",
+    )
     availability = forms.CharField(
         label="What times are you generally free during the week?",
         help_text="Example: Mondays from 6-8pm EST' or 'Sunday evenings and weekdays from 8-10am EST. Please include your timezone."
@@ -114,11 +117,12 @@ class EditProfile(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields =('username','position', 'bio', 'skills', 'software_hardware', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'rate', 'availability',)
+        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'rate', 'availability',)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].required = False
         self.fields['position'].required = True
+        self.fields['website'].required = False
         self.fields['bio'].required = True
         self.fields['skills'].required =True
         self.fields['software_hardware'].required  = False
@@ -141,8 +145,9 @@ class EditProfile(forms.ModelForm):
        
     def clean(self):
         cleaned_data = super().clean()
-        position = cleaned_data.get('username')
+        username = cleaned_data.get('username')
         position = cleaned_data.get('position')
+        website = cleaned_data.get('website')
         bio = cleaned_data.get('bio')
         skills = cleaned_data.get('skills')
         software_hardware = cleaned_data.get('software_hardware')
