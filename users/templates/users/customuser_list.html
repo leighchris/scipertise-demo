@@ -20,6 +20,7 @@
         {% for expert in object_list %}
 
         <div class="container" id="search_hit">
+            {% if expert.bio %}
         <div class="container" id="expert">
             {% if expert.image %}
             <div>
@@ -42,6 +43,7 @@
             </div>
 
         </div>
+             {% endif %}
         </div>
 
 
