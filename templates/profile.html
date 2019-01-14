@@ -14,7 +14,7 @@
         <div class="container" id="expert">
             {% if user.image %}
             <div>
-                <img class="profile_image" src="{{ user.image.url }}" width="180" height="210"/>
+                <img class="profile_image" src="{{ user.image.url }}" width="180"/>
             </div>
             {% endif %}
             <div class="container user_name">
@@ -43,7 +43,7 @@
             <p>Rate: {{ user.rate }}</p>
                
             {% if user != request.user %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a><br>
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>
             {% if user.gives_tutorials %}
                 <p>or <a href="#tutorial">Join a group session</a></p>
             {% endif %} 
