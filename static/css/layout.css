@@ -1,3 +1,14 @@
+
+a {
+    color: #6e75a8;
+}
+
+p.website_text {
+    color: #6e75a8;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 5px;
+}
+
 h2#title {
     font-family: 'Montserrat', sans-serif;
     padding-bottom: 10px;
@@ -503,7 +514,8 @@ div#availability.container {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 320px;
+    width: 370px;
+    height: 280px;
     
 
 
@@ -584,31 +596,32 @@ button.availability_button:hover {
 
 p.profile_name {
     display: inline-block;
-    padding-top: 15px;
+    padding: 16px 0px 0px 0px;
     font-size: 28pt;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
+    margin-bottom: 0;
   
 }
 
 p.profile_text {
     font-size: 12pt;
     font-family: 'Open Sans', sans-serif;
-    margin: 10px;
+    margin: 10px 0px 0px 0px;
   
 }
 
 h4.bio_title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size:20pt;
-    padding: 10px;
+    font-size: 20pt;
+    margin: 10px 0px 10px 0px;
 }
 
 h4.text_title {
     font-size: 14pt;
     font-family: 'Open Sans', sans-serif;
-    margin: 10px;
+    margin: 10px 0px 0px 0px;
     font-weight: bolder;
   
 }
@@ -620,7 +633,7 @@ div#edit_profile_button.container {
 
 .profile_image {
    border-radius: 20px;
-   margin: 20px;
+   margin: 20px 20px 0px 0px;
 }
 
 .bookme {
@@ -632,6 +645,7 @@ div.container.skills {
     flex-direction: row;
     flex-wrap: wrap;
     font-family: 'Open Sans', sans-serif;
+    padding: 0px;
   
 }
 
@@ -648,6 +662,7 @@ p.skill_bubble {
     padding: 0;
     margin: 0;
     font-size: 10pt;
+    color: #6e75a8;
 }
 
 div.edit_profile {
@@ -953,7 +968,7 @@ th {
 }
 
 a {
-  color: #17a2b8;
+  color: #6e75a8;
 }
 
 

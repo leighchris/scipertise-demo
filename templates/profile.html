@@ -14,7 +14,7 @@
         <div class="container" id="expert">
             {% if user.image %}
             <div>
-                <img class="profile_image" src="{{ user.image.url }}" width="180"/>
+                <img class="profile_image" src="{{ user.image.url }}" width="180" height="210"/>
             </div>
             {% endif %}
             <div class="container user_name">
@@ -22,10 +22,13 @@
             <p class="profile_text">{{user.position}}</p>
 <!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
         
+                {% if user.website %}
+                <a href="{{ user.website }}" target="_blank"><p class="website_text">Google Scholar Profile</p></a>
+                {% endif %}
                 
                 <div class="container skills">
                 {% for skill in user.skills.all %}
-                    <div class="skill_bubble"><p class="skill_bubble"><a href="{% url 'skills' skill.name %}">{{ skill.name }}</a></p></div>
+                    <div class="skill_bubble"><a href="{% url 'skills' skill.name %}"><p class="skill_bubble">{{ skill.name }}</p></a></div>
                 {% endfor %}
                 </div>
             </div>
@@ -38,21 +41,17 @@
                                 
             <p>Availability: {{ user.availability }}</p>
             <p>Rate: {{ user.rate }}</p>
-                {% if user.website %}
-                <a href="{{ user.website }}" target="_blank"><p>Google Scholar Profile</p></a>
-                {% endif %}
+               
             {% if user != request.user %}
                 <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a><br>
             {% if user.gives_tutorials %}
                 <p>or <a href="#tutorial">Join a group session</a></p>
-            {% endif %}
+            {% endif %} 
             {% elif user.is_authenticated and user == request.user %}
                 <div class="edit_profile"><p class="skill_bubble">Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
             {% endif %}
            
-            
- 
-            </div>
+       </div>
 
     </div>
        <div class="container spacer">
