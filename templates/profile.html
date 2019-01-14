@@ -64,37 +64,46 @@
             </div>
      <div class="container" id="profile_content">
          <div class="profile_content_text">
-         <h4 class="bio_title">About Me:</h4>
+         <h4 class="bio_title">About Me</h4>
          <p class="profile_text">{{ user.bio }}</p>
-         {% if user.skill_area1 %}<br>
-         <h4 class="bio_title">Expertise:</h4>
+    <div class="divider"></div>
+         {% if user.skill_area1 %}
+         <h4 class="bio_title">Expertise</h4>
          <h4 class="text_title">{{ user.skill_area1_title }}</h4>
          <p class="profile_text">{{ user.skill_area1 }}</p>
+    <div class="divider"></div>
          {% endif %}
+
           {% if user.skill_area2 %}
          <h4 class="text_title">{{ user.skill_area2_title }}</h4>
           <p class="profile_text">{{ user.skill_area2 }}</p>
+    <div class="divider"></div>
            {% endif %}
+    
           {% if user.skill_area3 %}
          <h4 class="text_title">{{ user.skill_area3_title }}</h4>
           <p class="profile_text">{{ user.skill_area3 }}</p>
+    <div class="divider"></div>
          {% endif %}
+   
            {% if user.skill_area4 %}
          <h4 class="text_title">{{ user.skill_area4_title }}</h4>
          <p class="profile_text">{{ user.skill_area4 }}</p>
+    <div class="divider"></div>
             {% endif %}
+
            {% if user.skill_area5 %}
          <h4 class="text_title">{{ user.skill_area5_title }}</h4>
           <p class="profile_text">{{ user.skill_area5 }}</p>
-          {% endif %}<br>
+    <div class="divider"></div>
+          {% endif %}
+ 
           {% if user.software_hardware %}
-          <h4 class="bio_title">Software and Hardware:</h4>
+          <h4 class="bio_title">Software and Hardware</h4>
          <p class="profile_text">{{ user.software_hardware }}</p>
           {% endif %}
-         {% if user.tutorial_area %}
-          <h4 class="bio_title">I can lead group sessions on:</h4>
-         <p class="profile_text">{{ user.tutorial_area }}</p>
-          {% endif %}
+             <br>
+     
        </div>
     </div>
      <div class="container spacer">
@@ -111,6 +120,10 @@
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
 {% if user.gives_tutorials and tutorials %}
+            {% if user.tutorial_area %}
+          <h4 class="bio_title">{{ user.first_name }} can lead group sessions on:</h4>
+         <p class="profile_text">{{ user.tutorial_area }}</p>
+          {% endif %}
 <h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
 {% for booking in tutorials %}
 

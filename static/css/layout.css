@@ -527,11 +527,12 @@ div#profile_content.container {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    width: 1000px;
    
 }
 
 div.profile_content_text {
-    margin: 20px 70px 20px 70px;
+    margin: 20px 140px 20px 80px;
     
 }
 
@@ -611,15 +612,23 @@ p.profile_text {
   
 }
 
+div.divider {
+    border-bottom: 1px solid #CBCDD4;
+    padding-top: 10px;
+    width: 720px;
+    margin: 20px auto;
+    
+}
+
 h4.bio_title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 20pt;
-    margin: 10px 0px 10px 0px;
+    font-size: 16pt;
+    margin: 10px 0px 15px 0px;
 }
 
 h4.text_title {
-    font-size: 14pt;
+    font-size: 12pt;
     font-family: 'Open Sans', sans-serif;
     margin: 10px 0px 0px 0px;
     font-weight: bolder;
