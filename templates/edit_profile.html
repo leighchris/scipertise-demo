@@ -46,6 +46,11 @@
           {% if form.position.help_text %}
         <small class="form-text text-muted">{{ form.position.help_text |safe }}</small>
           {% endif %}
+          {{ form.position.website }}
+          {% render_field form.website class="form-control" %}
+          {% if form.website.help_text %}
+        <small class="form-text text-muted">{{ form.website.help_text |safe }}</small>
+          {% endif %}
     <h3 class="edit_profile_subheading">Section 1: Skill Overview</h3>
           {{ form.bio.label_tag }}
           {% render_field form.bio class="form-control" %}

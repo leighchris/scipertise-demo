@@ -41,7 +41,7 @@ class EditProfile(forms.ModelForm):
         help_text="Example: Postdoctoral Fellow in Neuroscience at McGill University"
     )
     website = forms.CharField(
-        label="Please add the url for your Google Scholar profile (optional)",
+        label="Please add the url for your Google Scholar profile below (optional)",
     )
     availability = forms.CharField(
         label="What times are you generally free during the week?",
