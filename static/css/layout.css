@@ -455,6 +455,15 @@ div#edit_profile.container {
 
     
 }
+.profile_image_page {
+    width: 70%;
+    margin: 40px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    
+}
+
 
 /*
 form.signup_form {
@@ -617,7 +626,7 @@ div.divider {
     border-bottom: 1px solid #CBCDD4;
     padding-top: 10px;
     width: 720px;
-    margin: 20px 20px 20px 0px;
+    margin: 20px 20px 40px 0px;
     
 }
 
@@ -812,6 +821,15 @@ p.confirmed {
 
 h3.card-title {
     padding-left: 7px;
+    
+}
+
+h5.card-title {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p.card-text {
+    font-family: 'Open Sans', sans-serif;
 }
 
 img.check {
@@ -840,6 +858,14 @@ left: -60px;
 
 div.container.delete_booking {
     text-align: center;
+}
+
+.cancel_link {
+    color: white;
+}
+
+.cancel_link:hover {
+    color: white;
 }
 button.booking_button {
     border-radius: 10px;
@@ -909,6 +935,7 @@ div.form-group.booking_form {
     background-color: white;
     border-radius: 10px;
     padding: 20px 50px 20px 50px;
+    margin: 0px 100px 10px 100px;
 }
   
 
@@ -1000,6 +1027,88 @@ th {
 a {
   color: #6e75a8;
 }
+
+/**Footer **/
+
+.footer-distributed{
+	background-color: #a0def8;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+ 
+	width: 100%;
+	text-align: center;
+	font: 'Open Sans', sans-serif;
+    
+  
+
+	padding: 15px 50px;
+	
+}
+
+.footer-distributed .footer-left p{
+	color:  white;
+      color: #6e75a8;
+	font-size: 11px;
+	margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed p.footer-links{
+	font-size: 11pt;
+
+      color: #6e75a8;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-right{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 15px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-left: 3px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 600px) {
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		text-align: center;
+	}
+
+	.footer-distributed .footer-right{
+		float: none;
+		margin: 0 auto 20px;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+	}
+}
+
 
 
 /** Media Queries **/

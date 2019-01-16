@@ -122,24 +122,26 @@
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
     {% if user.gives_tutorials and user.tutorial_area %}
-        <h4 class="bio_title">{{ user.first_name }} can lead group sessions on:</h4>
-         <p class="profile_text">{{ user.tutorial_area }}</p>
-        {% endif %}
+        <h4 class="bio_title">Tutorials and Group Webinars</h4>
+         <p class="profile_text">{{user.first_name}} can lead tutorials on: {{ user.tutorial_area }}</p>
+        {% endif %}<br>
 {% if user.gives_tutorials and tutorials %}
-            {% if user.tutorial_area %}
-          {% endif %}
-<h4 class="bio_title">{{user.first_name}}'s scheduled group sessions</h4>
+
+<h4 class="bio_title">Available Tutorials</h4>
 {% for booking in tutorials %}
+        {% if booking.is_confirmed %}
 
     <div class="container card">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">{{ booking.start_time }}</p>
     </div>
 
-{% endfor %}
+
+        {% endif %}
+        {% endfor %}
 {% else %}
         <div class="container card">
-       <p class="profile_text">This user is not currently hosting any tutorials<p>
+       <p class="profile_text">This user is not currently hosting any tutorials.<p>
                  {% if user != request.user %}
                 <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a Tutorial</button></a>
             {% endif %}

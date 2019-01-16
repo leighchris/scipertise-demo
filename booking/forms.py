@@ -15,7 +15,7 @@ class BookingForm(ModelForm):
           'start_time': 'Suggested date and start time',
           'end_time': 'Suggested end time',
           'is_tutorial': 'Are you requesting a group tutorial?',
-          'notes': 'Describe what you are interested in discussing in 2-3 sentences:',
+          'notes': 'Briefly describe what you are interested in discussing. If you are requesting a tutorial, then please provide a description of the topics you would like covered.',
         }
         widgets = {
           'title': forms.TextInput(attrs={'class': 'form-control'}),
