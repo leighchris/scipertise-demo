@@ -682,6 +682,7 @@ div.edit_profile_image_button {
     display: flex;
     align-items:center;
     justify-content: center;
+    margin: 10px;
 }
 
 p.image_bubble {
