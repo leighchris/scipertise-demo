@@ -1262,7 +1262,36 @@ div#howitworks.container-fluid {
  h1.value_prop {
      font-size: 28pt;
   }
+@media screen and (max-width: 800px) {   
+div#first_section_row.container-fluid {
     
+    height:100%;
+    padding: 60px 0px 0px 0px;
+}
+    }
+@media screen and (max-width: 800px) {   
+h2.section3_text {
+    
+   font-size: 24px;
+}
+    }
+
+    
+@media screen and (max-width: 800px) {   
+p.advice_blurb {
+    
+   display: none;
+}
+    }
+    
+@media screen and (max-width: 800px) {   
+img.logo {
+    
+   height: 45px;
+    padding-left: 10px;
+}
+    }
+
 
     
 
