@@ -7,14 +7,12 @@
 
 <div class="container-fluid" id="profile_container">
    <div class="container profile">
-    <div class="container spacer">
-            </div>
     
     <div class="container" id = "profile_intro">  
         <div class="container" id="expert">
             {% if user.image %}
             <div>
-               <a href="{% url 'edit_profile_image' %}"><img class="profile_image" src="{{ user.image.url }}" width="180"/></a>
+               <a href="{% url 'edit_profile_image' %}"><img class="profile_image" src="{{ user.image.url }}" width="170"/></a>
             </div>
                {% elif not user.image and user.is_authenticated and user == request.user %}
                 <div class="edit_profile_image_button"><p class="image_bubble">Add Profile Image&nbsp&nbsp<a href="{% url 'edit_profile_image' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
@@ -42,9 +40,12 @@
         
 
         <div class="container" id="availability">
-                                
-            <p>Availability: {{ user.availability }}</p>
-            <p>Rate: {{ user.rate }}</p>
+               <div class="availability_text">
+                <p>Availability: {{ user.availability }}</p>
+                <p>Rate: {{ user.rate }}</p>
+            
+            </div>                 
+          
                
             {% if user != request.user %}
                 <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>
@@ -58,12 +59,10 @@
        </div>
 
     </div>
-       <div class="container spacer">
-            </div>
+      
        </div>
 <div class="container profile">
-    <div class="container spacer">
-            </div>
+  
      <div class="container" id="profile_content">
          <div class="profile_content_text">
          <h4 class="bio_title">About Me</h4>
@@ -108,8 +107,7 @@
      
        </div>
     </div>
-     <div class="container spacer">
-            </div>
+ 
     </div>
 
     
@@ -117,8 +115,7 @@
  <a name="tutorial"></a>   
     
 <div class="container profile">
-       <div class="container spacer">
-            </div>
+    
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
     {% if user.gives_tutorials and user.tutorial_area %}
@@ -152,8 +149,7 @@
 </div>
     
 </div>
-       <div class="container spacer">
-            </div>
+
 </div>
 
 

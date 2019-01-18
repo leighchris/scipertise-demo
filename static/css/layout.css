@@ -271,6 +271,7 @@ div#step1.container {
     padding: 0px 20px;
     display: flex;
     flex-direction: column; 
+    margin: 10px;
     
 
 }
@@ -279,7 +280,8 @@ div#step2.container {
      padding: 0px 20px;
      display: flex;
      flex-direction: column; 
- 
+  margin: 10px;
+    
     
 }
 div#step3.container {
@@ -287,7 +289,8 @@ div#step3.container {
      padding: 0px 20px;
      display: flex;
      flex-direction: column; 
- 
+  margin: 10px;
+    
     
 }
 
@@ -494,8 +497,10 @@ div#profile_intro.container {
     display: flex;
     flex-direction: row;
     border-radius: 10px;
-    background-color: white;
-    margin: 10px;
+ 
+    margin-bottom: 5px;
+    padding:0px;
+    margin: 10px 20px 0px 20px;
    
 
 }
@@ -504,6 +509,11 @@ div#expert.container {
     display: flex;
     flex-direction: row;
     background-color: white;
+
+    background-color: white;
+        border-radius: 10px;
+        margin-right: 10px;
+      padding: 10px 0px;
     
 
 
@@ -511,7 +521,7 @@ div#expert.container {
 
 
 div.container.user_name {
-    margin: 10px auto;
+    margin: 0px 0px 10px 10px;
 }
 
 div#availability.container {
@@ -524,11 +534,17 @@ div#availability.container {
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 370px;
-    height: 280px;
-    
+    width: 50%;
+    margin: 0px;
+    padding: 10px 0px;
+    background-color: white;
+        border-radius: 10px;  
 
 
+}
+
+div.availability_text {
+    margin: 20px 20px 0px 20px;
 }
 div#profile_content.container {
 
@@ -536,8 +552,8 @@ div#profile_content.container {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    width: 1000px;
+     margin: 10px 20px;
+  
    
 }
 
@@ -625,7 +641,6 @@ p.profile_text {
 div.divider {
     border-bottom: 1px solid #CBCDD4;
     padding-top: 10px;
-    width: 720px;
     margin: 20px 20px 40px 0px;
     
 }
@@ -667,7 +682,7 @@ p.image_bubble {
 
 .profile_image {
    border-radius: 20px;
-   margin: 30px 20px 0px 0px;
+   margin: 20px;
 }
 
 .bookme {
@@ -688,7 +703,7 @@ div.skill_bubble {
     border: solid 1px #36F1CD;
     text-align: center;
     padding: 0px 10px 0px 10px;
-    margin: 10px;
+    margin: 5px;
     display:flex;
    
 }
@@ -1116,31 +1131,86 @@ a {
     div.profile_content_text {
          margin: 20px 100px 20px 80px;
      }
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
  div#availability.container {
-     width: 80%;
-     display: block;
-     margin-top: 40px;
+     width: 600px;
+     display: inline-block;
+     margin-top: 10px;
     }
     
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
  div.edit_profile {
      display: inline-block;
      margin: 0 auto;
      text-align: center;
     }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1000px) {
  div#profile_intro.container {
     display: inline-block;
-     width: 80%
+     margin: 20px;
+     width: 600px;
+    
         
     }
- @media screen and (max-width: 1100px) {   
+ @media screen and (max-width: 1000px) {   
     div#profile_content.container {
     display: inline-block;
-     width: 80%
+        margin: 20px;
+         width: 600px;
+  
         
+     }
+@media screen and (max-width: 1000px) {
+   .profile_image {
+    display: none;
+    
+        
+    }
+     
+     
+@media screen and (max-width: 800px) {
+ div#availability.container {
+     width: 400px;
+     display: inline-block;
+     margin: 15px 10px 0px 10px;
+    }
+    
+@media screen and (max-width: 800px) {
+ div#profile_intro.container {
+    display: inline-block;
+     margin: 10px;
+     width: 400px;
+    
+        
+    }
+@media screen and (max-width: 800px) {    
+    div#expert.container {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+
+    background-color: white;
+        border-radius: 10px;
+        margin: 10px;
+      padding: 10px 0px;
+    }
+
+
+}
+ @media screen and (max-width: 800px) {   
+    div#profile_content.container {
+    display: inline-block;
+         width: 400px;
+        padding-top: 10px;
+       
+  
+        
+     }
+     
+ @media screen and (max-width: 1200px) {   
+    div.profile_content_text {
+         margin: 5px;
      }
 
      
