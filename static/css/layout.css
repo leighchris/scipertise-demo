@@ -66,10 +66,23 @@ button.btn.btn-primary {
 button.btn.btn-primary:hover {
     border: 1px solid #36F1CD;
     color: #36F1CD;
+}
+
+button.btn.btn-outline-secondary {
+    background-color: #CBCDD4;
+    border: 1px solid #CBCDD4;
+    color: #363095;
    
-   
+    font-family: 'Open Sans', sans-serif;
 
 }
+
+button.btn.btn-outline-secondary:hover {
+    background-color: #36F1CD;
+    border: 1px solid #36F1CD;
+    color: #363095;
+}
+
 
 /** Main layout and home page styles **/
 /*    background-size: cover;*/
@@ -752,17 +765,11 @@ button.search_button:hover {
 
 }
 
-.fa {
-   
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
+input#example-search-input.form-control.form-control-lg.border-left-0.border {
+    font-size: 12pt;
+  
 }
+
 
 
 div.container-fluid.search {
@@ -794,8 +801,8 @@ div#search_form.container {
 
 div#search_results.container {
     background-color: white;
-    padding: 50px;
-    margin-top: 20px;
+    padding: 30px;
+    margin-top: 10px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;

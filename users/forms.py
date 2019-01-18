@@ -9,15 +9,14 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'expert', 'gives_tutorials', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'expert', )
         help_texts = {
             'expert': 'Check the box if you would like to be an expert. Otherwise leave blank.',
-            'gives_tutorials': 'Check the box if you are open to leading group sessions/tutorials in your area of expertise.'
-            
+           
         }
         labels = {
             'expert': 'Would you like to provide expertise?',
-            'gives_tutorials': 'If you answered yes to providing expertise, are you interested in leading group sessions?'
+            
            
         }
         widgets = {
