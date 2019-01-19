@@ -120,10 +120,10 @@ class EditProfile(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].required = False
-        self.fields['position'].required = False
+        self.fields['position'].required = True
         self.fields['website'].required = False
         self.fields['bio'].required = False
-        self.fields['skills'].required =False
+        self.fields['skills'].required =True
         self.fields['software_hardware'].required  = False
         self.fields['skill_area1_title'].required =False
         self.fields['skill_area1'].required =False
