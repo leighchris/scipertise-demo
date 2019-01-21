@@ -27,7 +27,7 @@ ul.errorlist {
     color:red;
 }
 
-input#search.form-control.form-control-lg {
+input#search.form-control {
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
     font-size: 11pt;
@@ -72,6 +72,7 @@ button.btn.btn-outline-secondary {
     background-color: #CBCDD4;
     border: 1px solid #CBCDD4;
     color: #363095;
+    border-radius: 15px;
    
     font-family: 'Open Sans', sans-serif;
 
@@ -637,7 +638,7 @@ button.availability_button:hover {
 p.profile_name {
     display: inline-block;
     padding: 16px 0px 0px 0px;
-    font-size: 28pt;
+    font-size: 24pt;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin-bottom: 0;
@@ -771,6 +772,18 @@ input#example-search-input.form-control.form-control-lg.border-left-0.border {
   
 }
 
+.input-group-text.bg-white.border-right-0 {
+    border-radius: 15px;
+}
+
+.input-group-prepend {
+    border-radius: 15px;
+}
+
+.input-group-append {
+    border-radius: 15px;
+}
+
 
 
 div.container-fluid.search {
@@ -790,7 +803,7 @@ h3#search_call_to_action {
     padding-bottom: 5px;
     padding-left: 5px;
     color: white;
-    font-size: 18pt;
+    font-size: 14pt;
 }
 
 div#search_form.container {
@@ -803,7 +816,7 @@ div#search_form.container {
 div#search_results.container {
     background-color: white;
     padding: 30px;
-    margin-top: 10px;
+    margin: 10px 40px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -819,6 +832,7 @@ div#search_hit.container {
     margin-bottom: 20px;
     border: 1px solid gray;
     font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
     
     
 }
@@ -844,6 +858,8 @@ p.confirmed {
 
 h3.card-title {
     padding-left: 7px;
+    font-size: 14pt;
+    font-weight: 600;
     
 }
 
