@@ -6,9 +6,9 @@
 {% block content %}
 
 
-<div class="container-fluid" id="login">
+<div class="container-fluid booking">
 
-<div class="container" id="edit_profile">  
+
     
 <!--
 <form class ="signup_form" method="post">
@@ -29,13 +29,13 @@
 </form>
     
 -->
+ <div class="container" id="booking_form">  
     
-    
-<form class ="signup_form" method="post">
+<form  class="form-group booking_form"  method="post">
       {% csrf_token %}
 
-        <div class="form-group booking_form">
-    <h3 class="edit_profile_subheading">Complete Your Profile Information</h4>
+        <div>
+    <h3 class="edit_profile_subheading">Complete Your Profile Information</h3>
           {{ form.username.label_tag }}
           {% render_field form.username class="form-control" %}
           {% if form.username.help_text %}
@@ -149,10 +149,10 @@
   </div>
 </form>
         
-        
+    </div>     
                
 </div>
-</div>
+
 
 
 {% endblock %}

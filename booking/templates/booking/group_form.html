@@ -16,13 +16,13 @@ Event
 
 <div class="container-fluid booking">
     {% if booking and booking.is_confirmed == False and booking.user == request.user %}
-    <div class="container" id="booking_form_text"><h3>Please select a new time for your video call</h3></div>
+    <div class="container" id="booking_form_text"><h3>Please select a new time for your group session</h3></div>
     {% elif booking and booking.is_confirmed == False and booking.expert == request.user %}
-     <div class="container" id="booking_form_text"><h3>Please confirm booking request</h3></div>
+     <div class="container" id="booking_form_text"><h3>Please confirm group session</h3></div>
     {% elif booking %}
-    <div class="container" id="booking_form_text"><h3>Please select a new time for your video call</h3></div>
+    <div class="container" id="booking_form_text"><h3>Please select a new time for your group session</h3></div>
     {% else %}
-    <div class="container" id="booking_form_text"><h3>Request a video call</h3></div>
+    <div class="container" id="booking_form_text"><h3>Request a group video session</h3></div>
      {% endif %}
 <div class="container" id="booking_form">
    
@@ -30,7 +30,8 @@ Event
       {% csrf_token %}
        
     <div class="form-group booking_form">
-<!--    <h4 class="bio_title">*{{ expert.first_name }}'s availability is: {{ expert.availability }} </h4>-->
+    <h4 class="bio_title">*{{ expert.first_name }}'s availability is: {{ expert.availability }} </h4>
+    <p>When you request a group session, up to 3 other people can sign up. The cost of the session is shared amongst participants. At least one other person must sign up 24 hours prior to the session's start time. If not, the session will be cancelled, and you are welcome to book an individual session instead.</p>
      {% for field in form.visible_fields %}
       
       {{ field.label_tag }}

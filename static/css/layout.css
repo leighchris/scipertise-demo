@@ -467,7 +467,7 @@ div#edit_profile.container {
     padding: 10px;
     border-radius: 10px;
     height: 100%;
-    overflow-y: scroll;
+  
     margin: 0 auto;
 
     
@@ -966,15 +966,18 @@ div#booking_form.container {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: white;
+    width: 60%;
+    padding:10px 40px;
+    border-radius: 15px;
    
   
 }
 
 div.form-group.booking_form {
-    background-color: white;
-    border-radius: 10px;
+  
     padding: 20px 50px 20px 50px;
-    margin: 0px 100px 10px 100px;
+   
 }
   
 

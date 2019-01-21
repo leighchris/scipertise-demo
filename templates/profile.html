@@ -119,16 +119,16 @@
     
 
  <a name="tutorial"></a>   
-    
+{% if user.gives_tutorials and user.tutorial_area %}    
 <div class="container profile">
     
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
-    {% if user.gives_tutorials and user.tutorial_area %}
+ 
         <h4 class="bio_title">Group Sessions</h4>
          <p class="profile_text">{{ user.first_name }} can lead group sessions on the topics listed under 'Tutorials' above</p>
-        {% endif %}<br>
-{% if user.gives_tutorials and tutorials %}
+       <br>
+{% if tutorials %}
 
 <h4 class="bio_title">Available Group Sessions</h4>
 {% for booking in tutorials %}
@@ -138,27 +138,29 @@
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">{{ booking.start_time }}</p>
     </div>
-
-
         {% endif %}
         {% endfor %}
+        
+      
+  
+
 {% else %}
         <div class="container card">
        <p class="profile_text">This user is not currently hosting any group sessions.<p>
-                 {% if user != request.user %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a New Group Session</button></a>
-            {% endif %}
+  
     </div>
-        {% endif %}
-      
+       {% endif %}
+    {% if user != request.user %}
+                <a href="{% url 'booking:user_group_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a New Group Session</button></a>
+            {% endif %}   
 
 </div>
     
 </div>
-
+         
 </div>
 
-
+ {% endif %}
 </div>
 
 {% endblock %}
