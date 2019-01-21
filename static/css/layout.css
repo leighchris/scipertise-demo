@@ -504,7 +504,7 @@ div#profile_container.container-fluid {
     background-image: linear-gradient(to bottom, #363095, #a0def8);
     display: flex;
     flex-direction: column;
-    height: 100%;
+ 
 }
 
 div#profile_intro.container {
