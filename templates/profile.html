@@ -102,7 +102,13 @@
           {% if user.software_hardware %}
           <h4 class="bio_title">Software and Hardware</h4>
          <p class="profile_text">{{ user.software_hardware }}</p>
+                <div class="divider"></div>  
           {% endif %}
+           
+        {% if user.gives_tutorials and user.tutorial_area %}
+        <h4 class="bio_title">Tutorials</h4>
+         <p class="profile_text">{{ user.tutorial_area }}</p>
+        {% endif %}
              <br>
      
        </div>
@@ -119,12 +125,12 @@
 <div class="container" id="profile_content">  
     <div class="profile_content_text">
     {% if user.gives_tutorials and user.tutorial_area %}
-        <h4 class="bio_title">Tutorials and Group Webinars</h4>
-         <p class="profile_text">{{user.first_name}} can lead tutorials on: {{ user.tutorial_area }}</p>
+        <h4 class="bio_title">Group Sessions</h4>
+         <p class="profile_text">{{ user.first_name }} can lead group sessions on the topics listed under 'Tutorials' above</p>
         {% endif %}<br>
 {% if user.gives_tutorials and tutorials %}
 
-<h4 class="bio_title">Available Tutorials</h4>
+<h4 class="bio_title">Available Group Sessions</h4>
 {% for booking in tutorials %}
         {% if booking.is_confirmed %}
 
@@ -138,9 +144,9 @@
         {% endfor %}
 {% else %}
         <div class="container card">
-       <p class="profile_text">This user is not currently hosting any tutorials.<p>
+       <p class="profile_text">This user is not currently hosting any group sessions.<p>
                  {% if user != request.user %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a Tutorial</button></a>
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a New Group Session</button></a>
             {% endif %}
     </div>
         {% endif %}

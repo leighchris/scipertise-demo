@@ -22,17 +22,16 @@ Event
     {% elif booking %}
     <div class="container" id="booking_form_text"><h3>Please select a new time for your video call</h3></div>
     {% else %}
-    <div class="container" id="booking_form_text"><h3>Please select a time for your video call</h3></div>
+    <div class="container" id="booking_form_text"><h3>Request a video call</h3></div>
      {% endif %}
-    <div class="container" id="booking_form">
-       
- 
-        
+<div class="container" id="booking_form">
+   
     <form method="post">
       {% csrf_token %}
-
     <div class="form-group booking_form">
+
      {% for field in form.visible_fields %}
+      
       {{ field.label_tag }}
       {% render_field field class="form-control" %}
       {% if field.help_text %}

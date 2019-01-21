@@ -11,7 +11,7 @@ class BookingForm(ModelForm):
         fields = ['title','start_time','end_time','is_tutorial','notes']
         # datetime-local is a HTML5 input type, format to make date time show on fields
         labels = {
-          'title': 'Please select a title for your requested video call',
+          'title': 'Please enter a title for your call',
           'start_time': 'Suggested date and start time',
           'end_time': 'Suggested end time',
           'is_tutorial': 'Are you requesting a group tutorial?',
