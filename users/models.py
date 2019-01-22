@@ -28,11 +28,14 @@ class CustomUser(AbstractUser):
     skill_area5_title = models.CharField(max_length =10000, null=True, default='', blank=True)
     skill_area5 = models.CharField(max_length =10000, null=True, default='', blank=True)
     software_hardware = models.CharField(max_length =10000, null=True, default='', blank=True)
+    software_hardware_intermediate = models.CharField(max_length =10000, null=True, default='', blank=True)
     availability = models.CharField(max_length=10000, null=True, default='', blank=True)
     rate = models.CharField(max_length= 10000, null=True, default='', blank=True)
     expert = models.BooleanField(blank=True, default=False)
     gives_tutorials = models.BooleanField(blank=True, default=False)
     tutorial_area = models.CharField(max_length =10000, null=True, default='', blank=True)
+    wants_expert = models.BooleanField(blank=True, default=False)
+    needs_help_with = models.CharField(max_length =10000, null=True, default='', blank=True)
     
 
 #class TaggedSkill(TaggedItemBase):

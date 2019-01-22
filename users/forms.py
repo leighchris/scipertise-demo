@@ -9,21 +9,24 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'expert', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'expert', 'wants_expert', 'needs_help_with', )
         help_texts = {
-            'expert': 'Check the box if you would like to be an expert. Otherwise leave blank.',
+            'expert': 'Check the box if you would like to be an expert or mentor. This is required to create an expert profile.',
+            'wants_expert': 'Check the box if you are interested in finding expertise. Otherwise leave blank.',
+            'needs_help_with': 'This information is confidential and will not be published anywhere.',
            
         }
         labels = {
             'expert': 'Would you like to provide expertise?',
-            
-           
+            'wants_expert': 'Would you like to find expertise or get help with your research?',
+            'needs_help_with': 'What are some topics, techniques or skills you currently would like help with (be specific)?',
         }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
+            'needs_help_with': forms.Textarea(attrs={'class': 'form-control'}),
             
         }
         def __init__(self, *args, **kwargs):
@@ -106,6 +109,10 @@ class EditProfile(forms.ModelForm):
         label="Enter the names of relevant equipment, hardware, or software you are 'expert level' at:",
         help_text="Enter the names of relevant equipment, hardware, or software you are 'expert level' at, separated by commas"
     )
+    software_hardware_intermediate = forms.CharField(
+        label="Enter the names of relevant equipment, hardware, or software you are 'intermediate level' at:",
+        help_text="Enter the names of relevant equipment, hardware, or software you are 'intermediate level' at, separated by commas"
+    )
     gives_tutorials = forms.BooleanField(
         label = "Check this box if you are interested in leading video chat tutorials or small group lessons in your area of expertise"
     )
@@ -116,7 +123,7 @@ class EditProfile(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'rate', 'availability',)
+        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'software_hardware_intermediate', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'rate', 'availability',)
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].required = False
@@ -125,6 +132,7 @@ class EditProfile(forms.ModelForm):
         self.fields['bio'].required = False
         self.fields['skills'].required =True
         self.fields['software_hardware'].required  = False
+        self.fields['software_hardware_intermediate'].required  = False
         self.fields['skill_area1_title'].required =False
         self.fields['skill_area1'].required =False
         self.fields['skill_area2_title'].required =False
@@ -150,6 +158,7 @@ class EditProfile(forms.ModelForm):
         bio = cleaned_data.get('bio')
         skills = cleaned_data.get('skills')
         software_hardware = cleaned_data.get('software_hardware')
+        software_hardware_intermediate = cleaned_data.get('software_hardware_intermediate')
         skill_area1_title = cleaned_data.get('skill_area1_title')
         skill_area1 = cleaned_data.get('skill_area1')
         skill_area2_title = cleaned_data.get('skill_area2_title')
