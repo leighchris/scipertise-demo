@@ -102,7 +102,9 @@
           {% if user.software_hardware %}
           <h4 class="bio_title">Software and Hardware</h4>
          <p class="profile_text">Expert: {{ user.software_hardware }}</p>
+             {% if user.software_hardware_intermediate %}
              <p class="profile_text">Intermediate: {{ user.software_hardware }}</p>
+             {% endif %}
                 <div class="divider"></div>  
           {% endif %}
            
