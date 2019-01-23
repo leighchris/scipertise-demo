@@ -94,6 +94,7 @@ body {
     background-image: url(scipertise_background_dark.jpg);
     background-size: cover;
     background-repeat:no-repeat;
+  
  
    
 }
@@ -777,6 +778,7 @@ input#example-search-input.form-control.form-control-lg.border-left-0.border {
 
 .input-group-text.bg-white.border-right-0 {
     border-radius: 15px;
+  
 }
 
 .input-group-prepend {
@@ -807,12 +809,15 @@ h3#search_call_to_action {
     padding-left: 5px;
     color: white;
     font-size: 14pt;
+    margin-top: 20px;
+   
+  
 }
 
 div#search_form.container {
 
     border-radius: 10px;
-    padding: 20px 20px 10px 20px;   
+    padding: 0px;   
    
 }
 
@@ -1076,34 +1081,39 @@ a {
 /**Footer **/
 
 .footer-distributed{
-	background-color: #a0def8;
+	background-color: #3a405a;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
+    margin-top: 50px;
  
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	font: 'Open Sans', sans-serif;
+    clear: both;
     
   
 
-	padding: 15px 50px;
+	padding: 20px 50px;
 	
 }
 
 .footer-distributed .footer-left p{
-	color:  white;
-      color: #6e75a8;
-	font-size: 11px;
-	margin: 0;
+	color:  #F5F5F5;
+	font-size: 12px;
+
 }
 
 /* Footer links */
 
+a#first_link {
+    padding-left: 20px;
+}
+
 .footer-distributed p.footer-links{
 	font-size: 11pt;
 
-      color: #6e75a8;
-	margin: 0 0 10px;
+      color: #F5F5F5;
+	margin: 0px;
 	padding: 0;
 }
 
@@ -1117,6 +1127,7 @@ a {
 .footer-distributed .footer-right{
 	float: right;
 	margin-top: 6px;
+   
 	max-width: 180px;
 }
 
@@ -1124,11 +1135,11 @@ a {
 	display: inline-block;
 	width: 35px;
 	height: 35px;
-	background-color:  #33383b;
+	
 	border-radius: 2px;
 
 	font-size: 15px;
-	color: #ffffff;
+	color: #F5F5F5;
 	text-align: center;
 	line-height: 35px;
 

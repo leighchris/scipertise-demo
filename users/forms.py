@@ -51,7 +51,7 @@ class EditProfile(forms.ModelForm):
     )
     rate = forms.CharField(
         
-        help_text="Please select your hourly rate in CAD dollars (e.g. $50)",
+        help_text="Please select your hourly rate in CAD dollars (e.g. $50/hour). Scipertise will deduct a platform fee of 15% for all transactions. Please set your hourly rate accordingly.",
         label="Hourly rate (CAD)"
     )
     skills = TagField(
