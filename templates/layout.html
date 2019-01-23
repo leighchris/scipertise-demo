@@ -55,13 +55,13 @@
                 
                 <a class="nav-item nav-link" href="{% url 'browse' %}">FIND SCIENTISTS</a>
                 {% if user.expert == True %}
-                  <a class="nav-item nav-link" href="{% url 'profile' %}">PROFILE</a>
+                  <a class="nav-item nav-link" href="{% url 'profile' %}">MY PROFILE</a>
                 {% endif %}
-                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}">SCHEDULE</a>
+                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}"> MY SCHEDULE</a>
                   <a class ="nav-item nav-link" href="{% url 'logout' %}">LOGOUT</a>
                   {% else %}
                   <form class="form-inline my-2 my-lg-0">
-                    <a  href="{% url 'signup' %}"><button class="btn btn-primary" type="button">Signup for beta</button></a>
+                    <a  href="{% url 'signup' %}"><button class="btn btn-primary" type="button">Sign Up for beta</button></a>
                   </form>
                   <a class ="nav-item nav-link" id="login" href="{% url 'login' %}">LOGIN</a>
                   {% endif %}
