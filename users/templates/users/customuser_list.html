@@ -31,6 +31,7 @@
 <!--        <h3 class="call_to_action">Find a Researcher with the Right Expertise</h3>-->
 
         {% for expert in object_list %}
+            {% if expert.profile_approved == True %}  
             {% if expert.bio %}
         <div class="container" id="search_hit">
             
@@ -60,7 +61,7 @@
         </div>
             {% endif %}
 
-
+        {% endif %}
 
         {% endfor %}
 

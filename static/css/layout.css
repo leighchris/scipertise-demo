@@ -68,6 +68,23 @@ button.btn.btn-primary:hover {
     color: #36F1CD;
 }
 
+
+button.btn.btn-primary.edit_profile {
+    padding: 6px 10px 6px 10px;
+    margin: 20px 20px 20px 0px;
+    background-color: transparent;
+    border: 1px solid #363095;
+    color: #363095;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+button.btn.btn-primary.edit_profile:hover {
+    border: 1px solid #36F1CD;
+    color: #36F1CD;
+}
+
 button.btn.btn-outline-secondary {
     background-color: #CBCDD4;
     border: 1px solid #CBCDD4;
@@ -950,7 +967,7 @@ div#booking_form_text.container {
     color: white;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
-    padding: 20px;
+    padding: 20px 10px 0px 10px;
     
    
 }
@@ -970,14 +987,13 @@ div#booking_content.container {
 }
 
 div#booking_form.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+   
     background-color: white;
     width: 60%;
     padding:10px 40px;
-    border-radius: 15px;
+    overflow-y: scroll;
+    margin: 10px auto;
+
    
   
 }

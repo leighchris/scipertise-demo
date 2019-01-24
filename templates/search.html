@@ -43,6 +43,7 @@
         <br/>
 
         {% for result in results %}
+           {% if result.profile_approved == True %}  
 
         <div class="container" id="search_hit">
         <div class="container" id="expert">
@@ -60,6 +61,7 @@
                 <div class="container skills">
                 {% for skill in result.skills.all %}
                 <div class="skill_bubble"><a href="{% url 'skills' skill.name %}"><p class="skill_bubble">{{ skill.name }}</p></a></div>
+                   
                     {% endfor %}
                 
                 </div>
@@ -70,12 +72,16 @@
         </div>
 
 
-
+        {% endif %}
         {% endfor %}
+    
+           
         {% else %}
        <div class="container"><p class="profile_text">No search results for this query.<br>Please try searching for a specific skill, software, or area of expertise.</p></div> 
+           
         {% endif %}
         {% endif %}
+         
 
         {% endblock %}
     </div>

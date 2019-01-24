@@ -35,116 +35,48 @@ class CustomUserCreationForm(UserCreationForm):
         
         
 class EditProfile(forms.ModelForm):
-    username =forms.CharField(
-        help_text="If you'd like to change your username, enter a new username above"
-    )
-    position =forms.CharField(
-        label="Enter your current position and location (institution or company)",
-        help_text="Example: Postdoctoral Fellow in Neuroscience at McGill University"
-    )
-    website = forms.CharField(
-        label="Please add the url for your Google Scholar profile below (optional)",
-    )
-    availability = forms.CharField(
-        label="What times are you generally free during the week?",
-        help_text="Example: Mondays from 6-8pm EST' or 'Sunday evenings and weekdays from 8-10am EST. Please include your timezone."
-    )
-    rate = forms.CharField(
-        
-        help_text="Please select your hourly rate in CAD dollars (e.g. $50/hour). Scipertise will deduct a platform fee of 15% for all transactions. Please set your hourly rate accordingly.",
-        label="Hourly rate (CAD)"
-    )
-    skills = TagField(
-        label="Enter 3-6 keywords (maximum of 6) describing your skills to help people find you, separated by commas. Do not include slashes in the skill tag name",
-        help_text="Example: fMRI, cognitive neuroscience, EEG, memory, functional connectivity"
-    )
-    bio = forms.CharField(widget=forms.Textarea(),
-        label="What is your primary area of expertise?",
-        help_text="Describe your general experience/expertise in your field in 2-3 sentences."
-    )
-    skill_area1_title =forms.CharField(
-        label="Describe your first skill in 1-2 sentences",
-        help_text="Example: I'm use pain psychophysical measures and quantitative sensory testing with patients in a clinical setting."
-    )
-    skill_area1 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
-        help_text="Example: Completed several investigations using a pain psychophysics protocol involving thermal, mechanical and electrical stimulation. I often host workshops and teach courses on this topic."
-    )
-    
-    skill_area2_title =forms.CharField(
-        label="Describe your second skill in 1-2 sentences",
-        help_text="Example: I'm an experienced researcher on the topics of chronic pain and peripheral neuropathy characteristics and symptoms."
-    )
-    skill_area2 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
-        help_text="Example: Recently characterized pain-related symptoms and disease-related factors in different chronic pain populations - several first and senior author publications on this topic."
-    )
-    
-    skill_area3_title =forms.CharField(
-        label="Describe your third skill in 1-2 sentences (optional)",
-        help_text="Example: I'm experience with task-based fMRI experiment design and fMRI analysis using FSL software and psychophysics toolbox (MATLAB)."
-    )
-    skill_area3 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
-        help_text="Example: I have designed several tasks for the fMRI environment to measure pain perception, and have published two papers in which I completed task-based and connectivity analyses."
-    )
-    
-    skill_area4_title =forms.CharField(
-        label="Describe your fourth skill in 1-2 sentences (optional)",
-        help_text="Example: Studiyng sex differences and the brain"
-    )
-    skill_area4 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
-        help_text="I'm currently investigating sex differences in resting state brain activity in a human chronic pain population"
-    )
-    
-    skill_area5_title =forms.CharField(
-        label="Describe your fifth skill in 1-2 sentences (optional)",
-    )
-    skill_area5 =forms.CharField(widget=forms.Textarea(),
-        label="Give examples of experience(s) that allowed you to gain or demonstrate this skill",
-    )
- 
-    software_hardware = forms.CharField(
-        label="Enter the names of relevant equipment, hardware, or software you are 'expert level' at:",
-        help_text="Enter the names of relevant equipment, hardware, or software you are 'expert level' at, separated by commas"
-    )
-    software_hardware_intermediate = forms.CharField(
-        label="Enter the names of relevant equipment, hardware, or software you are 'intermediate level' at:",
-        help_text="Enter the names of relevant equipment, hardware, or software you are 'intermediate level' at, separated by commas"
-    )
-    gives_tutorials = forms.BooleanField(
-        label = "Check this box if you are interested in leading video chat tutorials or small group lessons in your area of expertise"
-    )
-    tutorial_area = forms.CharField(
-        label = "If you checked the box above to lead tutorials/group lessons, please give examples of topics/technical skills you would be willing to teach",
-        
-    )
 
     class Meta:
         model = CustomUser
-        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'software_hardware_intermediate', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'rate', 'availability',)
+        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'software_hardware_intermediate', 'rate', 'availability', )
+        help_texts = {
+            'username': "If you'd like to change your username, enter a new username above",
+            'position': "Example: Postdoctoral Fellow in Neuroscience at McGill University",
+            'availability': "Example: Mondays from 6-8pm EST' or 'Sunday evenings and weekdays from 8-10am EST. Please include your                     timezone.",
+            'rate': "Please select your hourly rate in CAD dollars (e.g. $50/hour). Scipertise will deduct a platform fee of 15% for                    all transactions. Please set your hourly rate accordingly.",
+            'skills': "Example: fMRI, cognitive neuroscience, EEG, memory, functional connectivity",
+            'bio': "Describe your general experience/expertise in your field in 2-3 sentences.",
+            
+            'software_hardware': "Enter the names of relevant equipment, hardware, or software you are 'expert level' at, separated by                  commas",
+            'software_hardware_intermediate': "Enter the names of relevant equipment, hardware, or software you are 'intermediate                        level' at, separated by commas",
+            
+        }
+        
+        labels = {
+             'position': "Enter your current position and location (institution or company)",
+             'website': "Please add the url for your Google Scholar profile below (optional)",
+             'availability': "What times are you generally free during the week?",
+             'rate': "Hourly rate (CAD)",
+             'skills': "Enter 3-6 keywords (maximum of 6) describing your skills to help people find you, separated by commas. Do not               include slashes in the skill tag name",
+             'bio': "Summarize your experience and expertise in a short bio",
+             'software_hardware': "Equipment, hardware, or software you are 'expert level' at:",
+             'software_hardware_intermediate': "Equipment, hardware, or software you are 'intermediate level' at:",    
+                
+         }
+        widgets = {
+                'bio': forms.Textarea(),
+
+            }
+        
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].required = False
+        self.fields['username'].required = True
         self.fields['position'].required = True
         self.fields['website'].required = False
         self.fields['bio'].required = False
         self.fields['skills'].required =True
         self.fields['software_hardware'].required  = False
         self.fields['software_hardware_intermediate'].required  = False
-        self.fields['skill_area1_title'].required =False
-        self.fields['skill_area1'].required =False
-        self.fields['skill_area2_title'].required =False
-        self.fields['skill_area2'].required =False
-        self.fields['skill_area3_title'].required =False
-        self.fields['skill_area3'].required =False
-        self.fields['skill_area4_title'].required =False
-        self.fields['skill_area4'].required =False
-        self.fields['skill_area5_title'].required =False
-        self.fields['skill_area5'].required =False
-        self.fields['gives_tutorials'].required = False
-        self.fields['tutorial_area'].required =False     
         self.fields['rate'].required = False
         self.fields['availability'].required = False
         
@@ -159,6 +91,74 @@ class EditProfile(forms.ModelForm):
         skills = cleaned_data.get('skills')
         software_hardware = cleaned_data.get('software_hardware')
         software_hardware_intermediate = cleaned_data.get('software_hardware_intermediate')
+        rate = cleaned_data.get('rate')
+        availability = cleaned_data.get('availability')
+        
+class EditProfileDetail(forms.ModelForm):
+
+    class Meta:
+        model = CustomUser
+        fields =('skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'profile_under_review', )
+        help_texts = {
+           
+            'skill_area1_title': "Example: I'm use pain psychophysical measures and quantitative sensory testing with patients in a                     clinical setting.",
+            'skill_area1': "Example: Completed several investigations using a pain psychophysics protocol involving thermal, mechanical                 and electrical stimulation. I often host workshops and teach courses on this topic.",
+            'skill_area2_title': "Example: I'm an experienced researcher on the topics of chronic pain and peripheral neuropathy                       characteristics and symptoms.",
+            'skill_area2': "Example: Recently characterized pain-related symptoms and disease-related factors in different chronic pain                 populations - several first and senior author publications on this topic.",
+            'skill_area3_title': "Example: I'm experience with task-based fMRI experiment design and fMRI analysis using FSL software                   and psychophysics toolbox (MATLAB).",
+            'skill_area3': "Example: I have designed several tasks for the fMRI environment to measure pain perception, and have                        published two papers in which I completed task-based and connectivity analyses.",
+            'skill_area4_title': "Example: Studiyng sex differences and the brain",
+            'skill_area4': "I'm currently investigating sex differences in resting state brain activity in a human chronic pain                         population",
+       
+            
+        }
+        
+        labels = {
+
+             'skill_area1_title': "Describe your first skill in 1-2 sentences",
+             'skill_area1': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
+             'skill_area2_title': 'Describe your second skill in 1-2 sentences',
+             'skill_area2': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
+             'skill_area3_title': 'Describe your third skill in 1-2 sentences (optional)',
+             'skill_area3': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
+             'skill_area4_title': 'Describe your fourth skill in 1-2 sentences (optional)',
+             'skill_area4': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
+             'skill_area5_title': 'Describe your fifth skill in 1-2 sentences (optional)',
+             'skill_area5': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
+             'gives_tutorials': "Check this box if you are interested in leading video chat tutorials or small group lessons in your                      area of expertise",
+             'tutorial_area': "If you checked the box above to lead tutorials/group lessons, please give examples of topics/technical                    skills you would be willing to teach",
+             'profile_under_review': 'Check this box once your profile is complete. Once you submit your profile, we will review it. If                     you are approved as an expert/ mentor we will notify you within 48 hours of submission.'
+                
+         }
+        widgets = {
+                'skill_area1': forms.Textarea(),
+                'skill_area2': forms.Textarea(),
+                'skill_area3': forms.Textarea(),
+                'skill_area4': forms.Textarea(),
+                'skill_area5': forms.Textarea(),
+                'tutorial_area': forms.Textarea(),
+            }
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['skill_area1_title'].required =False
+        self.fields['skill_area1'].required =False
+        self.fields['skill_area2_title'].required =False
+        self.fields['skill_area2'].required =False
+        self.fields['skill_area3_title'].required =False
+        self.fields['skill_area3'].required =False
+        self.fields['skill_area4_title'].required =False
+        self.fields['skill_area4'].required =False
+        self.fields['skill_area5_title'].required =False
+        self.fields['skill_area5'].required =False
+        self.fields['gives_tutorials'].required = False
+        self.fields['tutorial_area'].required =False   
+        self.fields['profile_under_review'].required =False 
+   
+       
+    def clean(self):
+        cleaned_data = super().clean()
         skill_area1_title = cleaned_data.get('skill_area1_title')
         skill_area1 = cleaned_data.get('skill_area1')
         skill_area2_title = cleaned_data.get('skill_area2_title')
@@ -171,9 +171,8 @@ class EditProfile(forms.ModelForm):
         skill_area5 = cleaned_data.get('skill_area5')
         gives_tutorials = cleaned_data.get('gives_tutorials')
         tutorial_area = cleaned_data.get('tutorial_area')
-        rate = cleaned_data.get('rate')
-        availability = cleaned_data.get('availability')
-     
+        profile_under_review = cleaned_data.get('profile_under_review')
+
         
 class LoginForm(AuthenticationForm):
     username = forms.CharField()

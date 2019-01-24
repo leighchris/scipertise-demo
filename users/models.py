@@ -36,6 +36,8 @@ class CustomUser(AbstractUser):
     tutorial_area = models.CharField(max_length =10000, null=True, default='', blank=True)
     wants_expert = models.BooleanField(blank=True, default=False)
     needs_help_with = models.CharField(max_length =10000, null=True, default='', blank=True)
+    profile_under_review = models.BooleanField(blank=True, default=False)
+    profile_approved = models.BooleanField(blank=True, default=False)
     
 
 #class TaggedSkill(TaggedItemBase):
