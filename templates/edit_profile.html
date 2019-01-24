@@ -166,7 +166,7 @@
           {% if form_two.tutorial_area.help_text %}
         <small class="form-text text-muted">{{ form_two.tutorial_area.help_text |safe }}</small>
           {% endif %}
-   {% if profile_approved == False and profile_under_review == False %}
+   {% if profile_approved == False or profile_under_review == False %}
          <h3 class="edit_profile_subheading">Submit Profile for Review</h3>
           {{ form_two.profile_under_review.label_tag }}
           {% render_field form_two.profile_under_review class="form-control" %}
@@ -175,7 +175,7 @@
           {% endif %}
         {% endif %}
 
-     {% if profile_approved == False and profile_under_review == False %}
+     {% if profile_approved == False or profile_under_review == False %}
          <button type="submit" class="btn btn-primary edit_profile">Save this Section and Submit Profile</button>
         {% else %}
         <button type="submit" class="btn btn-primary edit_profile">Save this Section and Submit</button>
