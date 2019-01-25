@@ -676,8 +676,6 @@ p.profile_name.results {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin-bottom: 0;
-
-  
 }
 
 a.profile_name {
@@ -922,6 +920,14 @@ p.confirmed {
     padding-top: 5px;
 
    
+}
+
+h3.video_sessions {
+    
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14pt;
 }
 
 h3.card-title {

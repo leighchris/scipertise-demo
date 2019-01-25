@@ -9,9 +9,10 @@
 
 <div class='container booking_list'>
 {% if user.bookings.all or user.booking_set.all %}
-<div class="container" id="booking_form_text"><h3>Your scheduled video sessions:</h3></div>
+<div class="container" id="booking_form_text"><h3 class="video_sessions">Your scheduled video sessions:</h3></div>
    
 {% for booking in user.bookings.all %}
+    
     <div class="container card booking_list">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
@@ -31,7 +32,7 @@
 
 {% else %} 
 
-<div class="container" id="booking_form_text"><h3>You have no scheduled video sessions.</h3></div>
+<div class="container" id="booking_form_text"><h3 class="video_sessions">You have no scheduled video sessions.</h3></div>
    
 
 {% endif %}
