@@ -42,7 +42,15 @@
             </div>
             {% endif %}
             <div class="container user_name">
+            
+        <!-- added an if statement so that if not logged in then you can't click on expert profile because of bug -->
+                
+            {% if user.is_authenticated %}
             <p class="profile_name"><a href="{% url 'profile_with_pk' pk=expert.pk %}">{{ expert.first_name }}&nbsp{{ expert.last_name }}</a></p>
+            {% else %}
+                 <p class="profile_name"><a href="{% url 'signup' %}">{{ expert.first_name }}&nbsp{{ expert.last_name }}</a></p>  
+             {% endif %}
+                
             <p class="profile_text">{{expert.position}}</p>
 <!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
         

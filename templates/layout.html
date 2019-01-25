@@ -46,22 +46,20 @@
             <div class="navbar-nav">
                  <!-- <a class="nav-item nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a> -->
               
+                {% if user.is_authenticated %}
                 
-                 <form class="form-inline my-2 my-lg-0" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
+                <form class="form-inline my-2 my-lg-0" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
                   <input class="form-control mr-sm-2" type="text" name="q" value="{{request.GET.q}}" placeholder="Search by Skill">
                   <button class="btn btn-primary my-2 my-sm-0" id = "search" name="submit" type="submit" value ="Search">Search</button>
                 </form>
-                
-                
                 <a class="nav-item nav-link" href="{% url 'browse' %}">FIND SCIENTISTS</a>
-                {% if user.is_authenticated %}
-                {% if user.expert == True %}
                   <a class="nav-item nav-link" href="{% url 'profile' %}">MY PROFILE</a>
-                {% endif %}
                   <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}"> MY SCHEDULE</a>
                   <a class ="nav-item nav-link" href="{% url 'logout' %}">LOGOUT</a>
-                  {% else %}
-
+                
+                {% else %}
+                 <a class="nav-item nav-link" href="{% url 'browse' %}">FIND SCIENTISTS</a>
+                
                   <a class ="nav-item nav-link" id="login" href="{% url 'login' %}">LOGIN</a>
 <!--
                 <form class="form-inline my-2 my-lg-0">
@@ -69,7 +67,8 @@
                   </form>
 -->
                 <a class ="nav-item nav-link" href="{% url 'signup' %}">SIGN UP</a>
-                  {% endif %}
+                {% endif %}
+                
             </div>
           </div>
     </nav>

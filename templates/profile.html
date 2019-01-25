@@ -14,8 +14,8 @@
             <div>
                <a href="{% url 'edit_profile_image' %}"><img class="profile_image" src="{{ user.image.url }}" width="170"/></a>
             </div>
-               {% elif not user.image and user.is_authenticated and user == request.user %}
-                <div class="edit_profile_image_button"><p class="image_bubble">Add Profile Image&nbsp&nbsp<a href="{% url 'edit_profile_image' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
+            {% elif not user.image and user.is_authenticated and user == request.user %}
+            <div class="edit_profile_image_button"><p class="image_bubble">Add Profile Image&nbsp&nbsp<a href="{% url 'edit_profile_image' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
             {% endif %}
             <div class="container user_name">
             <p class="profile_name">{{ user.first_name }}&nbsp{{ user.last_name }}</p>
@@ -47,14 +47,17 @@
             </div>                 
           
                
-            {% if user != request.user %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>
+            {% if user != request.user and user.is_authenticated %}
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>      
+     
             {% if user.gives_tutorials %}
                 <p>or <a href="#tutorial">Join a group session</a></p>
             {% endif %} 
             {% elif user.is_authenticated and user == request.user %}
                 <div class="edit_profile"><p class="skill_bubble">Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
             {% endif %}
+                        
+        
            
        </div>
 
