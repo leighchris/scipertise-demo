@@ -62,7 +62,7 @@
                 {% for skill in result.skills.all %}
                 <div class="skill_bubble"><a href="{% url 'skills' skill.name %}"><p class="skill_bubble">{{ skill.name }}</p></a></div>
                    
-                    {% endfor %}
+                {% endfor %}
                 
                 </div>
                  <div class="browse_bio"> {{result.bio }}</div>
