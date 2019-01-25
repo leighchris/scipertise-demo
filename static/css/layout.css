@@ -28,7 +28,7 @@ ul.errorlist {
 }
 
 input#search.form-control {
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: 'Open Sans', sans-serif;
     font-size: 11pt;
 
@@ -86,10 +86,11 @@ button.btn.btn-primary.edit_profile:hover {
 }
 
 button.btn.btn-outline-secondary {
-    background-color: #CBCDD4;
-    border: 1px solid #CBCDD4;
-    color: #363095;
-    border-radius: 15px;
+    background-color: #363095;
+    border: 1px solid #363095;
+    color: white;
+    border-radius: 20px;
+    margin-left: 5px;
    
     font-family: 'Open Sans', sans-serif;
 
@@ -98,7 +99,7 @@ button.btn.btn-outline-secondary {
 button.btn.btn-outline-secondary:hover {
     background-color: #36F1CD;
     border: 1px solid #36F1CD;
-    color: #363095;
+    color: white;
 }
 
 
@@ -372,7 +373,7 @@ p.icontext {
 div#section3_signup.container {
     color: black;
     font-family: 'Montserrat', sans-serif;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 50px;
     margin-top: 30px;
 }
@@ -399,7 +400,7 @@ h3.call_to_action {
 div#signup.container-fluid {
 
    
-    border-radius: 10px;
+    border-radius: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -421,8 +422,8 @@ div#change_password.container-fluid {
 div.signup_bgrd {
     background-color: white;
     padding: 40px;
-    margin-top: 5px;
-    border-radius: 10px;
+    margin: 33px auto;
+    border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
 
 }
@@ -451,7 +452,7 @@ align-items: center;
 div.login_bgrd {
     background-color: white;
     padding: 50px;
-    border-radius: 10px;
+    border-radius: 5px;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -483,7 +484,7 @@ div#edit_profile.container {
     width:70%;
     background-color: white;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     height: 100%;
   
     margin: 0 auto;
@@ -518,8 +519,9 @@ div#profile_container.container-fluid {
 
    
     padding:30px;
-    background-color:#363095;
-    background-image: linear-gradient(to bottom, #363095, #a0def8);
+    background-color:#eaebf2;
+  
+/*    background-image: linear-gradient(to bottom, #363095, #a0def8);*/
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -531,7 +533,7 @@ div#profile_intro.container {
   
     display: flex;
     flex-direction: row;
-    border-radius: 10px;
+    border-radius: 5px;
  
     margin-bottom: 5px;
     padding:0px;
@@ -546,7 +548,7 @@ div#expert.container {
     background-color: white;
 
     background-color: white;
-        border-radius: 10px;
+        border-radius: 5px;
         margin-right: 10px;
       padding: 10px 0px;
     
@@ -573,7 +575,7 @@ div#availability.container {
     margin: 0px;
     padding: 10px 0px;
     background-color: white;
-        border-radius: 10px;  
+        border-radius: 5px;  
 
 
 }
@@ -617,7 +619,7 @@ div#tutorials.container {
     padding-top: 30px;
     background-color: white;
     margin: 10px auto;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px;
     display:flex;
     flex-direction: row;
@@ -627,7 +629,7 @@ div#tutorials.container {
 div.container.card {
     display: flex;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
     margin: 20px auto;
  
 }
@@ -663,13 +665,43 @@ p.profile_name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin-bottom: 0;
+
   
 }
+
+p.profile_name.results {
+    display: inline-block;
+    padding: 0px 0px 0px 0px;
+    font-size: 24pt;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+
+  
+}
+
+a.profile_name {
+    color: #6e75a8;
+    
+}
+
+a.profile_name:hover {
+color: #363095;
+text-decoration: none;
+}
+
 
 p.profile_text {
     font-size: 12pt;
     font-family: 'Open Sans', sans-serif;
     margin: 10px 0px 0px 0px;
+  
+}
+
+p.profile_text.results {
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px 0px 25px 0px;
   
 }
 
@@ -788,9 +820,15 @@ button.search_button:hover {
 
 }
 
-input#example-search-input.form-control.form-control-lg.border-left-0.border {
+input#example-search-input.form-control {
     font-size: 12pt;
+    border-radius: 20px;
+    
   
+}
+
+div.col-md-6 {
+    padding-left: 5px;
 }
 
 .input-group-text.bg-white.border-right-0 {
@@ -806,11 +844,16 @@ input#example-search-input.form-control.form-control-lg.border-left-0.border {
     border-radius: 15px;
 }
 
+div.input-group {
+    margin-top: 25px;
+    margin-left: 10px;
+}
+
 
 
 div.container-fluid.search {
-    background-color:#363095;
-    background-image: linear-gradient(to bottom, #363095, #a0def8);
+     background-color:#eaebf2;
+/*    background-image: linear-gradient(to bottom, #363095, #a0def8);*/
    
     height: 100%;
     margin: 0 auto;
@@ -824,7 +867,7 @@ h3#search_call_to_action {
      font-family: 'Open Sans', sans-serif;
     padding-bottom: 5px;
     padding-left: 5px;
-    color: white;
+    color: #6e75a8;
     font-size: 14pt;
     margin-top: 20px;
    
@@ -839,9 +882,9 @@ div#search_form.container {
 }
 
 div#search_results.container {
-    background-color: white;
-    padding: 30px;
-    margin: 10px 40px;
+   
+    padding: 0px;
+    margin: 0px auto;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -855,7 +898,7 @@ div#search_hit.container {
     background-color: white;
     border-radius: 10px;
     margin-bottom: 20px;
-    border: 1px solid gray;
+    border-bottom: 1px solid gray;
     font-family: 'Open Sans', sans-serif;
     font-size: 12pt;
     
@@ -964,12 +1007,18 @@ div.container.booking_list {
 }
 
 div#booking_form_text.container {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    padding: 20px 10px 0px 10px;
-    
    
+    
+    text-align: center;
+    padding: 30px 10px 0px 10px; 
+}
+
+
+h3.booking_form_text {
+     color: #6e75a8;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: center;
 }
 
 div#booking_detail_text.container {
@@ -992,7 +1041,8 @@ div#booking_form.container {
     width: 60%;
     padding:10px 40px;
     overflow-y: scroll;
-    margin: 10px auto;
+    margin: 40px auto;
+    border-radius: 5px;
 
    
   
@@ -1058,7 +1108,7 @@ div#calendar.container {
 }
 
 tbody {
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 th {
@@ -1067,7 +1117,7 @@ th {
 
  .calendar td {
   border: 1px solid #6e75a8;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .calendar th {
@@ -1093,6 +1143,7 @@ th {
 a {
   color: #6e75a8;
 }
+
 
 /**Footer **/
 
@@ -1248,7 +1299,7 @@ a#first_link {
     background-color: white;
 
     background-color: white;
-        border-radius: 10px;
+        border-radius: 5px;
         margin: 10px;
       padding: 10px 0px;
     }

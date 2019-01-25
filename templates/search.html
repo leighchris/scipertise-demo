@@ -10,18 +10,17 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h3 id="search_call_to_action">Find a scientist</h3>
             <form class="form-group"  action="{% url 'search:search_users' %}" method="GET" >
             <div class="input-group">
-                <span class="input-group-prepend">
-                    <div class="input-group-text bg-white border-right-0"><i class="fa fa-search"></i></div>
-                </span>
-                <input class="form-control border-left-0 border" type="search" name="q" value="{{request.GET.q}}" id="example-search-input" placeholder="Enter a technique, software or area of expertise">
-                <span class="input-group-append">
+               
+<!--                    <div class="input-group-text bg-white border-right-0"><i class="fa fa-search"></i></div>-->
+               
+                <input class="form-control" type="search" name="q" value="{{request.GET.q}}" id="example-search-input" placeholder="Enter a technique, software or area of expertise">
+              
                 <button class="btn btn-outline-secondary border-left-0 border" type="submit" name="submit" value="Search">
                     Search
                 </button>
-              </span>
+          
             </div>
                 </form>
         </div>
@@ -53,11 +52,11 @@
             </div>
             {% endif %}
             <div class="container user_name">
-            <p class="profile_name"><a href="{% url 'profile_with_pk' pk=result.pk %}">{{ result.first_name }}&nbsp{{ result.last_name }}</a></p>
-            <p class="profile_text">{{result.position}}</p>
+            <p class="profile_name results"><a href="{% url 'profile_with_pk' pk=result.pk %}">{{ result.first_name }}&nbsp{{ result.last_name }}</a></p>
+            <p class="profile_text results">{{result.position}}</p>
 <!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
         
-                
+              
                 <div class="container skills">
                 {% for skill in result.skills.all %}
                 <div class="skill_bubble"><a href="{% url 'skills' skill.name %}"><p class="skill_bubble">{{ skill.name }}</p></a></div>
