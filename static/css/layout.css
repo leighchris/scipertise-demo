@@ -458,6 +458,17 @@ div.login_bgrd {
 
 /** Profile Page Styles **/
 
+a.join_group {
+    color: #363095;
+
+}
+
+a.join_group:hover {
+    color: #6e75a8;
+    text-decoration: none;
+
+}
+
 h3.password_done {
      font-family: 'Montserrat', sans-serif;
     font-size: 24pt;
