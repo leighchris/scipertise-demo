@@ -15,16 +15,18 @@ Event
 {% block content %}
 
 <div class="container-fluid booking">
-    {% if booking and booking.is_confirmed == False and booking.user == request.user %}
-    <div class="container" id="booking_form_text"><h3>Please select a new time for your group session</h3></div>
-    {% elif booking and booking.is_confirmed == False and booking.expert == request.user %}
-     <div class="container" id="booking_form_text"><h3>Please confirm group session</h3></div>
-    {% elif booking %}
-    <div class="container" id="booking_form_text"><h3>Please select a new time for your group session</h3></div>
-    {% else %}
-    <div class="container" id="booking_form_text"><h3>Request a group video session</h3></div>
-     {% endif %}
+ 
 <div class="container" id="booking_form">
+    
+       {% if booking and booking.is_confirmed == False and booking.user == request.user %}
+    <div class="container" id="booking_form_text"><h3 class="booking_form_text">Please select a new time for your group session</h3></div>
+    {% elif booking and booking.is_confirmed == False and booking.expert == request.user %}
+     <div class="container" id="booking_form_text"><h3 class= "booking_form_text">Please confirm group session</h3></div>
+    {% elif booking %}
+    <div class="container" id="booking_form_text"><h3  class= "booking_form_text">Please select a new time for your group session</h3></div>
+    {% else %}
+    <div class="container" id="booking_form_text"><h3  class= "booking_form_text">Request a group video session</h3></div>
+     {% endif %}
    
     <form method="post">
       {% csrf_token %}
