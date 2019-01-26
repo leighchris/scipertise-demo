@@ -3,6 +3,10 @@ a {
     color: #6e75a8;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 p.website_text {
     color: #6e75a8;
     font-family: 'Open Sans', sans-serif;
@@ -676,6 +680,8 @@ p.profile_name {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin-bottom: 0;
+    color:#363095;
+    font-weight: 700;
 
   
 }
@@ -726,6 +732,7 @@ h4.bio_title {
     font-weight: 600;
     font-size: 16pt;
     margin: 10px 0px 15px 0px;
+    color: #363095;
 }
 
 h4.text_title {
@@ -782,14 +789,46 @@ div.skill_bubble {
     padding: 0px 10px 0px 10px;
     margin: 5px;
     display:flex;
+    font-size: 11pt;
    
 }
+
+
+div.skill_bubble:hover {
+    border-radius: 20px;
+    border: solid 1px #36F1CD;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+    margin: 5px;
+    display:flex;
+    background-color: #36F1CD;
+    text-decoration: none;  
+}
+
+a.skill_bubble {
+    color: #3a405a;
+}
+
+a.skill_bubble:hover {
+    text-decoration: none;
+}
+
+
 p.skill_bubble {
     padding: 0;
     margin: 0;
     font-size: 10pt;
-    color: #6e75a8;
+    color: #3a405a;
 }
+/*
+p.skill_bubble:hover {
+    padding: 0;
+    margin: 0;
+    font-size: 10pt;
+    color: #6e75a8;
+    text-decoration: none;
+}
+*/
 
 div.edit_profile {
 
