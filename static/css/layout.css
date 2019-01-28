@@ -11,6 +11,12 @@ p {
     color:#3a405a;
 }
 
+/*
+.btn-primary {
+    border-color: transparent;
+}
+*/
+
 p.website_text {
     color: #6e75a8;
     font-family: 'Open Sans', sans-serif;
@@ -64,19 +70,19 @@ button#call_to_action.btn.btn-primary {
     padding: 10px;
     margin-right: 10px;
     background-color: #36F1CD;
-   
+    border: 1px solid #36F1CD;
     color: #3a405a;
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
     width: 220px;
     text-align: center;
    
-
 }
 
 button#call_to_action.btn.btn-primary:hover {
  
     background-color: #363095;
+    border: 1px solid #363095;
     color: white;
 }
 
