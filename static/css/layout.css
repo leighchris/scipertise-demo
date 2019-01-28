@@ -56,7 +56,27 @@ input.form-control.mr-sm-2 {
 
 }
 
-button.btn.btn-primary {
+button#call_to_action.btn.btn-primary {
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #36F1CD;
+   
+    color: #3a405a;
+    border-radius: 20px;
+    font-family: 'Open Sans', sans-serif;
+    width: 220px;
+    text-align: center;
+   
+
+}
+
+button#call_to_action.btn.btn-primary:hover {
+ 
+    background-color: #363095;
+    color: white;
+}
+
+button#search.btn.btn-primary.my-2.my-sm-0 {
     padding: 6px 10px 6px 10px;
     margin-right: 10px;
     background-color: transparent;
@@ -64,13 +84,15 @@ button.btn.btn-primary {
     color: #363095;
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
+   
 
 }
 
-button.btn.btn-primary:hover {
+button#search.btn.btn-primary.my-2.my-sm-0:hover {
     border: 1px solid #36F1CD;
     color: #36F1CD;
 }
+
 
 
 button.btn.btn-primary.edit_profile {
@@ -253,6 +275,7 @@ div#call_to_action.container {
     justify-content: center;
   
 }
+/*
 
 button#call_to_action.btn.btn-primary {
     border-radius: 20px;
@@ -273,6 +296,7 @@ button#call_to_action.btn.btn-primary:hover {
     color: #36F1CD;
    
 }
+*/
 
 
 /** Home page: How it works styles **/
@@ -282,7 +306,7 @@ div#second_section_row.container-fluid {
     background-color: white;
     width:100%; 
     margin: 0 auto;
-    padding: 100px 0px 100px 0px;
+    padding: 100px 0px 150px 0px;
 
 }
 

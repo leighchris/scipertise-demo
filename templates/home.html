@@ -20,9 +20,10 @@
                 <div class = "container" id="call_to_action">
                     <form>
                         {% if user.is_authenticated %}
-                        <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
+                        <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find an Expert</button></a>
+                        <a href="{% url 'edit_profile' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Become an Expert</button></a>
                         {% else %}
-                        <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign Up for beta</button></a>
+                        <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign up for beta</button></a>
                         {% endif %}
                     </form>
                 </div>
@@ -73,7 +74,7 @@
         <div class="container-fluid" id ="third_section_row">
             <div class="container" id="section3_signup" > 
                 <h2 class="section3_text">Scipertise is a marketplace for on-demand scientific expertise. Join the movement and unlock your research potential.</h2>
-            <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign Up for beta access</button></a>
+            <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign up for beta access</button></a>
            
             </div>
 
