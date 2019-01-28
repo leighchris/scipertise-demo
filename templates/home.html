@@ -21,7 +21,9 @@
                     <form>
                         {% if user.is_authenticated %}
                         <a href="{% url 'search:search_users' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find an Expert</button></a>
+                        {% if user.is_expert %}
                         <a href="{% url 'edit_profile' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Become an Expert</button></a>
+                        {% endif %}
                         {% else %}
                         <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign up for beta</button></a>
                         {% endif %}
