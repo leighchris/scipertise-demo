@@ -1,0 +1,73 @@
+
+
+{% extends 'layout.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }} 
+{% load widget_tweaks %}
+
+{% block title %}
+Event
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid booking">
+   
+<div class="container" id="booking_form">
+    
+                    {% if messages %}
+                    <div class="messages" id="success">
+                     {% for message in messages %}
+                    <p>{{ message }}</p>
+                     {% endfor %}
+                    </div>
+            {%else%}
+    
+    <div class="container" id="booking_form_text"><h3 class="booking_form_text">What do you need help with?</h3>
+    <p class="request_text">Let us know what you're looking for and we'll find the right person to help. Requests may take up to one week to process.</p>
+    </div>
+    
+   
+    <form method="post">
+      {% csrf_token %}
+
+       
+    <div class="form-group booking_form">
+<!--    <h4 class="bio_title">*{{ expert.first_name }}'s availability is: {{ expert.availability }} </h4>-->
+     {% for field in form.visible_fields %}
+      
+      {{ field.label_tag }}
+      {% render_field field class="form-control" %}
+      {% if field.help_text %}
+    <small class="form-text text-muted">{{ field.help_text |safe }}</small>
+      {% endif %}
+    {% endfor %}
+    <button type="submit" class="availability_button">Submit</button><br><br>
+
+    
+  </div>
+</form>
+        
+        
+ {% endif %}
+        
+        
+<!--
+        
+    <form method="post" class="booking_form">
+      {% csrf_token %}
+
+        {{ form.as_p }}
+
+    <button type="submit" class="availability_button"> Request to Book </button>
+
+    </form>
+-->
+    </div>
+</div>
+
+
+{% endblock %}

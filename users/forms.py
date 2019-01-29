@@ -200,7 +200,9 @@ class EditProfileImage(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         position = cleaned_data.get('image')
-       
+        
+        
+
         
     
 

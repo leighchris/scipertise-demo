@@ -7,38 +7,40 @@
 
 <div class="container-fluid search">
     <div class="container" id="search_form">
-
-    <div class="row">
+         <div class="row">
         <div class="col-md-6">
             <form class="form-group"  action="{% url 'search:search_users' %}" method="GET" >
             <div class="input-group browse">
                
 <!--                    <div class="input-group-text bg-white border-right-0"><i class="fa fa-search"></i></div>-->
-               
-                <input class="form-control" type="search" name="q" value="{{request.GET.q}}" id="example-search-input" placeholder="Enter a technique, software or area of expertise">
               
+                <input class="form-control" type="search" name="q" value="{{request.GET.q}}" id="example-search-input" placeholder="Enter a skill, technique, software or area of expertise">
+               
                 <button class="btn btn-outline-secondary border-left-0 border" type="submit" name="submit" value="Search">
                     Search
                 </button>
-          
+           
             </div>
-                </form>
+                  </form>
+                </div>
+         <div class="request_expert">   
+              
+               <p class="request_expert">Can't find what you're looking for?</p>  
+                
+              <form class="form-group"  action="{% url 'booking:request_expert' %}" method="GET">  
+                 
+                <button class="booking_button" type="submit" name="submit" value="Search">
+                Request an Expert
+                </button></form>
         </div>
     </div>
-<!--
-            <form class="form-group" action="{% url 'search:search_users' %}" method="GET" value="{{request.GET.q}}">
-            <h3 id="search_call_to_action">Find a scientist</h3>
-                <input class="form-control form-control-lg" id="search" type="text" name="q" value="{{request.GET.q}}" placeholder="Enter a skill, technique, software or area of expertise"/>
-                <button class="search_button" type="submit" name="submit" value="Search">Search</button>
-            </form>
--->
         </div>
 
         {% if submitbutton == 'Search' and request.GET.q != '' %}
         {% if results %}
         
         <div class="container" id="search_results">
-        <h3>Scientists matching "<b>{{ request.GET.q }}</b>"</h3>
+        <h4 class="bio_title">Scientists matching "<b>{{ request.GET.q }}</b>"</h4>
         <br/>
 
         {% for result in results %}

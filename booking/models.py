@@ -35,3 +35,16 @@ class Booking(models.Model):
 #        return reverse('booking:booking_detail', kwargs={"pk": self.booking_id})
 #    
 
+class HelpRequest(models.Model):
+    user = models.ForeignKey(CustomUser, null=True, default='', on_delete=models.CASCADE)
+    help_needed = models.TextField(blank=True, null=True) 
+    
+    class Meta:
+        verbose_name = 'HelpRequest'
+        verbose_name_plural = 'HelpRequests'
+        
+    def get_absolute_url(self):
+        return reverse('booking:request_expert')
+        
+
+    

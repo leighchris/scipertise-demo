@@ -1,5 +1,5 @@
 from django.forms import ModelForm, DateInput
-from booking.models import Booking
+from booking.models import Booking, HelpRequest
 from django import forms
 from bootstrap_datepicker_plus import DatePickerInput, TimePickerInput, DateTimePickerInput, MonthPickerInput, YearPickerInput
 
@@ -63,6 +63,24 @@ class ConfirmForm(ModelForm):
         labels = {
           'is_confirmed': 'I confirm this video call',
         }
+        
+class RequestExpertForm(forms.ModelForm):
+   
+    
+    class Meta:
+        model = HelpRequest
+        fields =('help_needed',)
+        labels = {
+            'help_needed': 'Technique, skill or area of expertise you would like help with'
+        }
+        widgets = {
+            'help_needed': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['help_needed'].widget.attrs['class'] = 'form-control'
+  
+       
         
 
 

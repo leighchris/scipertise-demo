@@ -6,7 +6,7 @@
 {% block content %}
 
 <div class="container-fluid search">
-        <div class="container" id="search_form">
+               <div class="container" id="search_form">
          <div class="row">
         <div class="col-md-6">
             <form class="form-group"  action="{% url 'search:search_users' %}" method="GET" >
@@ -21,7 +21,17 @@
                 </button>
            
             </div>
-                </form>
+                  </form>
+                </div>
+         <div class="request_expert">   
+              
+               <p class="request_expert">Can't find what you're looking for?</p>  
+                
+              <form class="form-group"  action="{% url 'booking:request_expert' %}" method="GET">  
+                 
+                <button class="booking_button" type="submit" name="submit" value="Search">
+                Request an Expert
+                </button></form>
         </div>
     </div>
         </div>

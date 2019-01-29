@@ -14,11 +14,12 @@ from django.core.mail import send_mail
 from users.forms import CustomUserCreationForm, EditProfile
 from users.models import CustomUser
 #from booking.utils import Calendar
-from booking.models import Booking
-from booking.forms import BookingForm, ConfirmForm, GroupForm
+from booking.models import Booking, HelpRequest
+from booking.forms import BookingForm, ConfirmForm, GroupForm, RequestExpertForm
 
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class BookingView(CreateView):
@@ -152,10 +153,10 @@ class ConfirmView(UpdateView):
     model = Booking
     form_class = ConfirmForm
     template = 'templates/confirmation_form.html'
-#    def form_valid(self, form):
-#        booking = Booking.objects.get(id=self.kwargs.get('pk'))
-#        form.instance.user = booking.user
-#        form.instance.expert = booking.expert
+    def form_valid(self, form):
+        booking = Booking.objects.get(id=self.kwargs.get('pk'))
+        form.instance.user = booking.user
+        form.instance.expert = booking.expert
 #        user_email = form.instance.user.email
 #        expert_email = form.instance.expert.email
 #        html_message = render_to_string('confirm_booking_user.html', {'user': form.instance.user,
@@ -172,87 +173,20 @@ class ConfirmView(UpdateView):
 #        send_mail('Your Scipertise booking has been confirmed', plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
 #    #send email to the expert
 #        send_mail('Your Scipertise booking has been confirmed', plain_message_expert, 'founders@scipertise.com', [expert_email], fail_silently=False, html_message=html_message_expert)
-#        return super(ConfirmView, self).form_valid(form)
+        return super(ConfirmView, self).form_valid(form)
     
-#@login_required
-#def EditProfileView(request):
-#    form = EditProfile()
-#    if request.method == 'POST':
-#        form = EditProfile(request.POST, instance =request.user)
-#        if form.is_valid():
-#            form.save()
-#        return HttpResponseRedirect(reverse('profile'))
-#    else:
-#        form = EditProfile(instance = request.user)
-#        return render(request, 'edit_profile.html', {'form': form})
+class RequestExpertView(SuccessMessageMixin, CreateView):
+    model = HelpRequest
+    form_class = RequestExpertForm
+    template_name = 'booking/request_expert_form.html'
+    success_message = 'Thanks! Your request has been submitted.'
+    def form_valid(self, form):
+        help_request = form.save(commit=False)
+        form.instance.user = self.request.user
+        return super(RequestExpertView, self).form_valid(form)
 
-#class CalendarView(generic.ListView):
-#    model = Booking
-#    template_name = 'calendar.html'
-#    
-#    
 #    def get_context_data(self, **kwargs):
-#        context = super().get_context_data()
-#
-#
-#        # use today's date for the calendar
-#        d = get_date(self.request.GET.get('day', None))
-#      
-#        # Instantiate our calendar class with today's year and date
-#        cal = Calendar(d.year, d.month)
-#
-#        # Call the formatmonth method, which returns our calendar as a table
-#        html_cal = cal.formatmonth(withyear=True)
-#        context['calendar'] = mark_safe(html_cal)
-#        d = get_date(self.request.GET.get('month', None))
-#        context['prev_month'] = prev_month(d)
-#        context['next_month'] = next_month(d)
-#      
+#        context = super().get_context_data(**kwargs)
+#        context['expert'] = CustomUser.objects.get(id=self.kwargs.get('pk'))
 #        return context
-#    
-#
-#    
-#def get_date(req_day):
-#    if req_day:
-#        year, month = (int(x) for x in req_day.split('-'))
-#        return date(year, month, day=1)
-#    return datetime.today()
-#        
-#
-#def prev_month(d):
-#    first = d.replace(day=1)
-#    prev_month = first - timedelta(days=1)
-#    month = 'month=' + str(prev_month.year) + '-' + str(prev_month.month)
-#    return month
-#
-#def next_month(d):
-#    days_in_month = calendar.monthrange(d.year, d.month)[1]
-#    last = d.replace(day=days_in_month)
-#    next_month = last + timedelta(days=1)
-#    month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
-#    return month
-
-#
-#def booking_view(request, booking_pk=None, user_pk=None):
-#    instance = Booking()
-#    if booking_pk:
-#        instance = get_object_or_404(Booking, user_id = user_pk, pk=booking_pk)
-#    else:
-#        instance = Booking()
-#    
-#    form = BookingForm(request.POST or None)
-#    if request.POST and form.is_valid():
-#        form.save()
-#        return HttpResponseRedirect(reverse('booking:calendar'))
-#    return render(request, 'booking.html', {'form': form})
-
-
-#    def get_queryset(self, pk=None):
-#        if pk:
-#            user = CustomUser.objects.get(pk=pk)
-#        else:
-#            user = self.request.user
-#        bookings = Booking.objects.filter(expert=user)
-#        return bookings
-#
-##
+    
