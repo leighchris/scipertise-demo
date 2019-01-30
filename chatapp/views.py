@@ -1,6 +1,6 @@
-#from django.shortcuts import render
-#
-## Create your views here.
+from django.shortcuts import render
+
+# Create your views here.
 #
 #from faker import Factory
 #from django.http import JsonResponse
@@ -14,9 +14,9 @@
 #)
 #
 #
-#def app(request):
-#    return render(request, 'twilio/index.html')
-#
+def app(request):
+    return render(request, 'twilio/index.html')
+
 #def token(request):
 #    fake = Factory.create()
 #    return generateToken(fake.user_name())
