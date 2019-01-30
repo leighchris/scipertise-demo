@@ -67,17 +67,16 @@ def EditProfileView(request):
         if form_two.is_valid():
             form_two.save()
         return HttpResponseRedirect(reverse('profile'))
-
     else:
         form = EditProfile(instance = request.user)
         form_two = EditProfileDetail(instance = request.user)
-       
+        
         return render(request, 'edit_profile.html', {
             'form': form,
             'form_two': form_two,
-    
+
         })
-    
+
 
 #def EditProfileFormsView(MultiFormsView):
 #    template_name = "edit_profile.html"

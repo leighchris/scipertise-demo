@@ -28,7 +28,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('booking.urls', namespace='booking')),
-    path(r'', include('chatapp.urls')),
+    path('chat/', include('chatapp.urls')),
     
 
   

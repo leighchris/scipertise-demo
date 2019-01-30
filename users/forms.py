@@ -74,7 +74,7 @@ class EditProfile(forms.ModelForm):
         self.fields['position'].required = True
         self.fields['website'].required = False
         self.fields['bio'].required = False
-        self.fields['skills'].required =True
+        self.fields['skills'].required = False
         self.fields['software_hardware'].required  = False
         self.fields['software_hardware_intermediate'].required  = False
         self.fields['rate'].required = False
@@ -95,7 +95,6 @@ class EditProfile(forms.ModelForm):
         availability = cleaned_data.get('availability')
         
 class EditProfileDetail(forms.ModelForm):
-
     class Meta:
         model = CustomUser
         fields =('skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', 'profile_under_review', )
@@ -108,9 +107,7 @@ class EditProfileDetail(forms.ModelForm):
             'skill_area3_title': "Example: I'm experience with task-based fMRI experiment design and fMRI analysis using FSL software                   and psychophysics toolbox (MATLAB).",
             'skill_area3': "Example: I have designed several tasks for the fMRI environment to measure pain perception, and have                        published two papers in which I completed task-based and connectivity analyses.",
             'skill_area4_title': "Example: Studiyng sex differences and the brain",
-            'skill_area4': "I'm currently investigating sex differences in resting state brain activity in a human chronic pain                         population",
-       
-            
+            'skill_area4': "I'm currently investigating sex differences in resting state brain activity in a human chronic pain                         population", 
         }
         
         labels = {
@@ -127,7 +124,7 @@ class EditProfileDetail(forms.ModelForm):
              'skill_area5': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
              'gives_tutorials': "Check this box if you are interested in leading video chat tutorials or small group lessons in your                      area of expertise",
              'tutorial_area': "If you checked the box above to lead tutorials/group lessons, please give examples of topics/technical                    skills you would be willing to teach",
-             'profile_under_review': 'Check this box once your profile is complete. Once you submit your profile, we will review it. If                     you are approved as an expert/ mentor we will notify you within 48 hours of submission.'
+             'profile_under_review': 'Check this box once your profile is complete. Once you submit your profile, we will review it. If                     you are approved as an expert/ mentor we will notify you within 48 hours of submission.',
                 
          }
         widgets = {
@@ -153,7 +150,7 @@ class EditProfileDetail(forms.ModelForm):
         self.fields['skill_area5_title'].required =False
         self.fields['skill_area5'].required =False
         self.fields['gives_tutorials'].required = False
-        self.fields['tutorial_area'].required =False   
+        self.fields['tutorial_area'].required =False
         self.fields['profile_under_review'].required =False 
    
        
@@ -172,6 +169,27 @@ class EditProfileDetail(forms.ModelForm):
         gives_tutorials = cleaned_data.get('gives_tutorials')
         tutorial_area = cleaned_data.get('tutorial_area')
         profile_under_review = cleaned_data.get('profile_under_review')
+       
+        
+        
+#class SubmitProfile(forms.ModelForm):
+#    class Meta:
+#        model = CustomUser
+#        fields =('profile_under_review', )
+#        labels = {
+#
+#             'profile_under_review': 'Check this box once your profile is complete. Once you submit your profile, we will review it. If                     you are approved as an expert/ mentor we will notify you within 48 hours of submission.'
+#                
+#         }
+#        
+#    def __init__(self, *args, **kwargs):
+#        super().__init__(*args, **kwargs)
+#        self.fields['profile_under_review'].required =False 
+#       
+#    def clean(self):
+#        cleaned_data = super().clean()
+#        profile_under_review = cleaned_data.get('profile_under_review')
+        
 
         
 class LoginForm(AuthenticationForm):
