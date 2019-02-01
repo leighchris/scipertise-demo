@@ -54,40 +54,81 @@ def view_profile(request, pk=None):
            }
     return render(request, 'profile.html', args)
 
-@login_required
+
 def EditProfileView(request):
     form = EditProfile()
-    form_two =EditProfileDetail()
-    if request.method == 'POST':
-        form = EditProfile(request.POST, instance =request.user)
-        form_two = EditProfileDetail(request.POST, instance =request.user)
+    if request.method == 'POST' and 'save_continue' in request.POST:
+        form =EditProfile(request.POST, instance = request.user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('edit_profile'))
+        return HttpResponseRedirect(reverse('edit_profile'))
+    if request.method =='POST' and 'save_submit' in request.POST:
+        form =EditProfile(request.POST, instance = request.user)
+        if form.is_valid():
+            form.save()
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        form = EditProfile(instance = request.user)
+
+        return render(request, 'edit_profile.html', {
+            'form': form,
+        })
+
+
+@login_required
+def EditProfileRateView(request):
+    form_two =EditProfileDetail()
+    if request.method == 'POST':
+        form_two = EditProfileDetail(request.POST, instance =request.user)
         if form_two.is_valid():
             form_two.save()
         return HttpResponseRedirect(reverse('profile'))
     else:
-        form = EditProfile(instance = request.user)
         form_two = EditProfileDetail(instance = request.user)
         
-        return render(request, 'edit_profile.html', {
-            'form': form,
+        return render(request, 'edit_profile_rate.html', {
             'form_two': form_two,
 
         })
+@login_required
+def EditProfileTutorialView(request):
+    form_two =EditProfileDetail()
+    if request.method == 'POST':
+        form_two = EditProfileDetail(request.POST, instance =request.user)
+        if form_two.is_valid():
+            form_two.save()
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        form_two = EditProfileDetail(instance = request.user)
+        
+        return render(request, 'edit_profile_tutorials.html', {
+            'form_two': form_two,
 
+        })
+    
+@login_required
+def SubmitProfileView(request):
+    form_two =EditProfileDetail()
+    if request.method == 'POST':
+        form_two = EditProfileDetail(request.POST, instance =request.user)
+        if form_two.is_valid():
+            form_two.instance.profile_under_review = True
+            form_two.save()
+        return HttpResponseRedirect(reverse('profile'))
+    else:
+        form_two = EditProfileDetail(instance = request.user)
+        
+        return render(request, 'submit_profile.html', {
+            'form_two': form_two,
 
-#def EditProfileFormsView(MultiFormsView):
-#    template_name = "edit_profile.html"
-#    form_classes = {'form': EditProfile,
-#                    'second_form': EditProfileDetail,
-#                    }
-#
-#    success_urls = {
-#        'form': reverse_lazy('edit_profile'),
-#        'second_form': reverse_lazy('profile'),
-#    }
+        })
+#class SubmitProfileView(FormView):
+#    model = CustomUser
+#    form_two = EditProfileDetail
+#    template_name = 'submit_profile.html'
+#    def form_valid(self):
+#        self.instance.profile_under_review = True
+#        
     
 def EditProfileImageView(request):
     form = EditProfileImage()

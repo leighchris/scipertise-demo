@@ -7,34 +7,12 @@
 
 
 <div class="container-fluid booking">
-
-
-    
-<!--
-<form class ="signup_form" method="post">
-      {% csrf_token %}
-
-    <div class="form-group booking_form">
-     {% for field in form.visible_fields %}
-      {{ field.label_tag }}
-      {% render_field field class="form-control" %}
-      {% if field.help_text %}
-    <small class="form-text text-muted">{{ field.help_text |safe }}</small>
-      {% endif %}
-    {% endfor %}
-     <a href="{% url 'change_password' %}"><p>Change Password</p></a>
-     <button type="submit" class="btn btn-primary">Save Changes</button>
-    
-  </div>
-</form>
-    
--->
- 
     
 <form  class="form-group booking_form"  method="post">
       {% csrf_token %}
     <div class="container" id="booking_form">
-
+<!--
+Profile Intro section part 1     
     <h3 class="edit_profile_subheading">Complete Your Profile Information</h3>
           {{ form.username.label_tag }}
           {% render_field form.username class="form-control" %}
@@ -42,6 +20,15 @@
         <small class="form-text text-muted">{{ form.username.help_text |safe }}</small>
           {% endif %}
       <a href="{% url 'change_password' %}"><p>Change Password</p></a>
+    <div class="divider" id="edit_profile"></div>  
+-->
+<!--Profile Intro section part 2--> 
+        {% if user.profile_under_review == False and user.profile_approved == False %}
+<div class="container" id="booking_form_text"><h3 class="booking_form_text">Complete Your Profile</h3></div>
+        {% else %}
+<div class="container" id="booking_form_text"><h3 class="booking_form_text">Edit Your Profile</h3></div>
+        {% endif %}
+<h3 class="edit_profile_subheading">Profile Intro</h3>
           {{ form.position.label_tag }}
           {% render_field form.position class="form-control" %}
           {% if form.position.help_text %}
@@ -52,11 +39,7 @@
           {% if form.website.help_text %}
         <small class="form-text text-muted">{{ form.website.help_text |safe }}</small>
           {% endif %}
-         <button type="submit" class="btn btn-primary edit_profile">Save this Section</button>
-    </div>
-    
-    <div class="container" id="booking_form">
-    <h3 class="edit_profile_subheading">Skill Overview</h3>
+
           {{ form.bio.label_tag }}
           {% render_field form.bio class="form-control" %}
           {% if form.bio.help_text %}
@@ -67,6 +50,11 @@
           {% if form.skills.help_text %}
         <small class="form-text text-muted">{{ form.skills.help_text |safe }}</small>
           {% endif %}
+<!-- collapsible software/ harware section -->     
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse_software_hardware" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Add Software or Hardware
+  </a>
+        <div class="collapse" id="collapse_software_hardware">
           {{ form.software_hardware.label_tag }}
           {% render_field form.software_hardware class="form-control" %}
           {% if form.software_hardware.help_text %}
@@ -77,123 +65,143 @@
           {% if form.software_hardware_intermediate.help_text %}
         <small class="form-text text-muted">{{ form.software_hardware_intermediate.help_text |safe }}</small>
           {% endif %}
-         <button type="submit" class="btn btn-primary edit_profile">Save this Section</button>
     </div>
-    
-     <div class="container" id="booking_form">
-    <h3 class="edit_profile_subheading">Rates and Availability</h3>
-        {{ form.rate.label_tag }}
-          {% render_field form.rate class="form-control" %}
-          {% if form.rate.help_text %}
-        <small class="form-text text-muted">{{ form.rate.help_text |safe }}</small>
-          {% endif %}
-        {{ form.availability.label_tag }}
-          {% render_field form.availability class="form-control" %}
-          {% if form.availability.help_text %}
-        <small class="form-text text-muted">{{ form.availability.help_text |safe }}</small>
-          {% endif %}
-     <button type="submit" class="btn btn-primary edit_profile">Save this Section</button>
+        <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Profile Intro</button></div>
+         
     </div>
-     </form>
    
     
-    
 
-    
-<form  class="form-group booking_form"  method="post" >
-      {% csrf_token %}
     <div class="container" id="booking_form">  
     <h3 class="edit_profile_subheading">Your Skills in Detail</h3>
-        <p>In this section, describe up to 5 of your top skills/areas of expertise. For each skill, briefly describe how you can help or advise on the topic and the experience(s) that allowed you to gain or demonstrate the skill (see examples below)</p>
+        <p><strong>Add up to 5 of your top skills/areas of expertise.</strong> For each skill, briefly describe how you can help or advise on the topic and the experience(s) that allowed you to gain or demonstrate the skill (see examples below)</p>
         
-          {{ form_two.skill_area1_title.label_tag }}
-          {% render_field form_two.skill_area1_title class="form-control" %}
-          {% if form_two.skill_area1_title.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area1_title.help_text |safe }}</small>
+          {{ form.skill_area1_title.label_tag }}
+          {% render_field form.skill_area1_title class="form-control" %}
+          {% if form.skill_area1_title.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area1_title.help_text |safe }}</small>
           {% endif %}
-         {{ form_two.skill_area1.label_tag }}
-          {% render_field form_two.skill_area1 class="form-control" %}
-          {% if form_two.skill_area1.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area1.help_text |safe }}</small>
+         {{ form.skill_area1.label_tag }}
+          {% render_field form.skill_area1 class="form-control" %}
+          {% if form.skill_area1.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area1.help_text |safe }}</small>
           {% endif %}
-        
-        
-          {{ form_two.skill_area2_title.label_tag }}
-          {% render_field form_two.skill_area2_title class="form-control" %}
-          {% if form_two.skill_area2_title.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area2_title.help_text |safe }}</small>
+         <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Skill Area</button></div>
+        <p>Add or edit additional skill areas <strong>*Optional*</strong></p>
+{% if user.skill_area2_title == Blank and user.skill_area2 == Blank %}
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill2" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Add Skill Area 2
+  </a>
+{% else %}
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill2" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Edit Skill Area 2
+  </a>
+    {% endif %}
+        <div class="collapse" id="collapse_skill2">
+          {{ form.skill_area2_title.label_tag }}
+          {% render_field form.skill_area2_title class="form-control" %}
+          {% if form.skill_area2_title.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area2_title.help_text |safe }}</small>
           {% endif %}
-         {{ form_two.skill_area2.label_tag }}
-          {% render_field form_two.skill_area2 class="form-control" %}
-          {% if form_two.skill_area2.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area2.help_text |safe }}</small>
+         {{ form.skill_area2.label_tag }}
+          {% render_field form.skill_area2 class="form-control" %}
+          {% if form.skill_area2.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area2.help_text |safe }}</small>
           {% endif %}
-        
-        
-         {{ form_two.skill_area3_title.label_tag }}
-          {% render_field form_two.skill_area3_title class="form-control" %}
-          {% if form_two.skill_area3_title.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area3_title.help_text |safe }}</small>
-          {% endif %}
-        {{ form_two.skill_area3.label_tag }}
-          {% render_field form_two.skill_area3 class="form-control" %}
-          {% if form_two.skill_area3.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area3.help_text |safe }}</small>
-          {% endif %}
-        
-        
-        {{ form_two.skill_area4_title.label_tag }}
-          {% render_field form_two.skill_area4_title class="form-control" %}
-          {% if form_two.skill_area4_title.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area4_title.help_text |safe }}</small>
-          {% endif %}
-        {{ form_two.skill_area4.label_tag }}
-          {% render_field form_two.skill_area4 class="form-control" %}
-          {% if form_two.skill_area4.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area4.help_text |safe }}</small>
-          {% endif %}
-        
-        
-         {{ form_two.skill_area5_title.label_tag }}
-          {% render_field form_two.skill_area5_title class="form-control" %}
-          {% if form_two.skill_area5_title.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area5_title.help_text |safe }}</small>
-          {% endif %}
-         {{ form_two.skill_area5.label_tag }}
-          {% render_field form_two.skill_area5 class="form-control" %}
-          {% if form_two.skill_area5.help_text %}
-        <small class="form-text text-muted">{{ form_two.skill_area5.help_text |safe }}</small>
-          {% endif %}
-        
-        
-    <h3 class="edit_profile_subheading">Group Sessions and Tutorials</h3>
-        {{ form_two.gives_tutorials.label_tag }}
-          {% render_field form_two.gives_tutorials class="form-control" %}
-          {% if form_two.gives_tutorials.help_text %}
-        <small class="form-text text-muted">{{ form_two.gives_tutorials.help_text |safe }}</small>
-          {% endif %}
-        {{ form_two.tutorial_area.label_tag }}
-          {% render_field form_two.tutorial_area class="form-control" %}
-          {% if form_two.tutorial_area.help_text %}
-        <small class="form-text text-muted">{{ form_two.tutorial_area.help_text |safe }}</small>
-          {% endif %}
-   {% if user.profile_approved == False and user.profile_under_review == False %}
-         <h3 class="edit_profile_subheading">Submit Profile for Review</h3>
-          {{ form_two.profile_under_review.label_tag }}
-          {% render_field form_two.profile_under_review class="form-control" %}
-          {% if form_two.profile_under_review.help_text %}
-        <small class="form-text text-muted">{{ form_two.profile_under_review.help_text |safe }}</small>
-          {% endif %}
-        {% endif %}
+        <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Skill Area</button></div>
+        </div>
 
-     {% if user.profile_approved == False and user.profile_under_review == False %}
-         <button type="submit" class="btn btn-primary edit_profile">Save this Section and Submit Profile</button>
+{% if user.skill_area3_title == Blank and user.skill_area3 == Blank %}
+        
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill3" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Add Skill Area 3
+  </a> 
+    {% else %}
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill3" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Edit Skill Area 3
+  </a>
+    {% endif %}
+        <div class="collapse" id="collapse_skill3">
+         {{ form.skill_area3_title.label_tag }}
+          {% render_field form.skill_area3_title class="form-control" %}
+          {% if form.skill_area3_title.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area3_title.help_text |safe }}</small>
+          {% endif %}
+        {{ form.skill_area3.label_tag }}
+          {% render_field form.skill_area3 class="form-control" %}
+          {% if form.skill_area3.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area3.help_text |safe }}</small>
+          {% endif %}
+            <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Skill Area</button></div>
+        </div>
+
+{% if user.skill_area4_title == Blank and user.skill_area4 == Blank %}
+        
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill4" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Add Skill Area 4
+  </a> 
+    {% else %}
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill4" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Edit Skill Area 4
+  </a>
+    {% endif %}
+        <div class="collapse" id="collapse_skill4">
+         {{ form.skill_area4_title.label_tag }}
+          {% render_field form.skill_area4_title class="form-control" %}
+          {% if form.skill_area4_title.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area4_title.help_text |safe }}</small>
+          {% endif %}
+        {{ form.skill_area4.label_tag }}
+          {% render_field form.skill_area4 class="form-control" %}
+          {% if form.skill_area4.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area4.help_text |safe }}</small>
+          {% endif %}
+            <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Skill Area</button></div>
+        </div>
+
+{% if user.skill_area5_title == Blank and user.skill_area5 == Blank %}
+        
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill5" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Add Skill Area 5
+  </a> 
+    {% else %}
+<a class="btn btn-primary" data-toggle="collapse" href="#collapse_skill5" role="button" aria-expanded="false" aria-controls="collapseExample">
+    + Edit Skill Area 5
+  </a>
+    {% endif %}
+        <div class="collapse" id="collapse_skill5">
+         {{ form.skill_area5_title.label_tag }}
+          {% render_field form.skill_area5_title class="form-control" %}
+          {% if form.skill_area5_title.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area5_title.help_text |safe }}</small>
+          {% endif %}
+        {{ form.skill_area5.label_tag }}
+          {% render_field form.skill_area5 class="form-control" %}
+          {% if form.skill_area5.help_text %}
+        <small class="form-text text-muted">{{ form.skill_area5.help_text |safe }}</small>
+          {% endif %}
+            
+        
+            <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Skill Area</button></div>
+        </div>
+        {% if user.profile_approved == False and user.profile_under_review == False %}
+        <div><button type="submit" name="save_continue" class="btn booking_button">Save Profile</button></div>
         {% else %}
-        <button type="submit" class="btn btn-primary edit_profile">Save this Section and Submit</button>
+         <div><button type="submit" name="save_submit" class="btn booking_button">Save Profile</button></div>
         {% endif %}
-    
+       
     </div>
-</form>
+    </form>
+    
+    {% if user.profile_approved == False and user.profile_under_review == False %}
+    <div class="container" id="booking_form">  
+    <h3 class="edit_profile_subheading">Submit Your Profile for Review</h3>
+        <p>Once the information above is saved and complete, submit your expert profile for review.</p>
+   
+         <div><a href="{% url 'submit_profile' %}"><button type="submit" class="btn booking_button">Submit Profile for Review</button></a></div> 
+       {% endif %}
+    </div>
+        
         
     </div>     
                

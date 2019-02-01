@@ -33,6 +33,9 @@
                     <a class="skill_bubble" href="{% url 'skills' skill.name %}"><div class="skill_bubble"><p class="skill_bubble">{{ skill.name }}</p></div></a>
                 {% endfor %}
                 </div>
+                {% if user.is_authenticated and user == request.user %}
+                <a href="{% url 'edit_profile' %}"><div class="edit_profile"><p class="skill_bubble">Edit Profile&nbsp&nbsp<img class="iconic" src="/static/css/pencil.svg"></p></div></a>
+                {% endif %}
             </div>
 
         </div>
@@ -54,7 +57,7 @@
                 <p>or <a class="join_group" href="#tutorial">Join a group session</a></p>
             {% endif %} 
             {% elif user.is_authenticated and user == request.user %}
-                <div class="edit_profile"><p class="skill_bubble">Edit Profile&nbsp&nbsp<a href="{% url 'edit_profile' %}"><img class="iconic" src="/static/css/pencil.svg"></a></p></div>
+                <a href="{% url 'edit_profile_rate' %}"><div class="edit_profile"><p class="skill_bubble">Edit Rate and Availability&nbsp&nbsp<img class="iconic" src="/static/css/pencil.svg"></p></div></a>
             {% endif %}
                         
         
@@ -116,7 +119,9 @@
 
            
         {% if user.gives_tutorials and user.tutorial_area %}
-        <h4 class="bio_title">Tutorials</h4>
+        <h4 class="bio_title">Tutorials</h4> {% if user.is_authenticated and user == request.user %}
+                <a href="{% url 'edit_profile_tutorials' %}"><div class="edit_profile_tutorials"><p class="skill_bubble">Edit Tutorials&nbsp&nbsp<img class="iconic" src="/static/css/pencil.svg"></p></div></a>
+                {% endif %}
          <p class="profile_text">{{ user.tutorial_area }}</p>
         {% endif %}
              <br>
@@ -137,6 +142,7 @@
  
         <h4 class="bio_title">Group Sessions</h4>
          <p class="profile_text">{{ user.first_name }} can lead group sessions on the topics listed under 'Tutorials' above</p>
+               
        <br>
 {% if tutorials %}
 

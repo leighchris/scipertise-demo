@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Edit Tutorials{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid booking">
+
+
+    
+<form  class="form-group booking_form"  method="post">
+      {% csrf_token %}
+    <div class="container" id="booking_form"> 
+    <h3 class="edit_profile_subheading">Group Sessions and Tutorials</h3>
+
+        {{ form_two.gives_tutorials.label_tag }}
+          {% render_field form_two.gives_tutorials class="form-control" %}
+          {% if form_two.gives_tutorials.help_text %}
+        <small class="form-text text-muted">{{ form_two.gives_tutorials.help_text |safe }}</small>
+          {% endif %}
+        {{ form_two.tutorial_area.label_tag }}
+          {% render_field form_two.tutorial_area class="form-control" %}
+          {% if form_two.tutorial_area.help_text %}
+        <small class="form-text text-muted">{{ form_two.tutorial_area.help_text |safe }}</small>
+          {% endif %}
+     <button type="submit" class="btn btn-primary edit_profile">Save</button>
+    </div>
+     </form>
+   
+    
+    
+
+    
+
+        
+    </div>     
+               
+
+
+
+
+{% endblock %}

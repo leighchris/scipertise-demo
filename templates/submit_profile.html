@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+{% block title %}Edit Tutorials{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid booking">
+
+
+    
+<form  class="form-group booking_form"  method="post">
+      {% csrf_token %}
+    <div class="container" id="booking_form">    
+
+   {% if user.profile_approved == False and user.profile_under_review == False %}
+         <h3 class="edit_profile_subheading">Confirm Profile Submission</h3>
+        <p>Please ensure that all of the profile information entered is true and accurate. Once you are ready, submit your profile for review. Our team will review your profile and get back to you with an intial response within 48 hours. Thanks!</p>
+
+      <div>  <p><strong>Check this box to confirm</strong>&nbsp&nbsp{% render_field form_two.profile_under_review %}</p></div>
+
+          
+        
+
+
+         <button type="submit" class="btn btn-primary edit_profile">Submit Profile for Review</button>
+        {% else %}
+        <p>Your profile has already been submitted for review.</p>
+{% endif %}
+    
+    </div>
+</form>
+   
+    
+    
+
+    
+
+        
+    </div>     
+               
+
+
+
+
+{% endblock %}
