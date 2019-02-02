@@ -11,17 +11,7 @@
 <form  class="form-group booking_form"  method="post">
       {% csrf_token %}
     <div class="container" id="booking_form">
-<!--
-Profile Intro section part 1     
-    <h3 class="edit_profile_subheading">Complete Your Profile Information</h3>
-          {{ form.username.label_tag }}
-          {% render_field form.username class="form-control" %}
-          {% if form.username.help_text %}
-        <small class="form-text text-muted">{{ form.username.help_text |safe }}</small>
-          {% endif %}
-      <a href="{% url 'change_password' %}"><p>Change Password</p></a>
-    <div class="divider" id="edit_profile"></div>  
--->
+
 <!--Profile Intro section part 2--> 
         {% if user.profile_under_review == False and user.profile_approved == False %}
 <div class="container" id="booking_form_text"><h3 class="booking_form_text">Complete Your Profile</h3></div>
@@ -29,6 +19,18 @@ Profile Intro section part 1
 <div class="container" id="booking_form_text"><h3 class="booking_form_text">Edit Your Profile</h3></div>
         {% endif %}
 <h3 class="edit_profile_subheading">Profile Intro</h3>
+        
+       
+          {{ form.username.label_tag }}
+          {% render_field form.username class="form-control" %}
+          {% if form.username.help_text %}
+        <small class="form-text text-muted">{{ form.username.help_text |safe }}</small>
+          {% endif %}
+      <a href="{% url 'change_password' %}"><p>Change Password</p></a>
+    <div class="divider" id="edit_profile"></div>   
+        
+        
+        
           {{ form.position.label_tag }}
           {% render_field form.position class="form-control" %}
           {% if form.position.help_text %}

@@ -12,8 +12,8 @@ from django.shortcuts import render
 #    SyncGrant,
 #    ChatGrant
 #)
-#
-#
+
+
 def app(request):
     return render(request, 'twilio/index.html')
 
