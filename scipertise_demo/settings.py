@@ -21,7 +21,7 @@ import logging
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ADMINS = (('Leigh', 'leigh.christopher2@gmail.com'),)
+ADMINS = (('Leigh and Kasey', 'founders@scipertise.com'),)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -215,11 +215,11 @@ LOGOUT_REDIRECT_URL = 'home'
 TAGGIT_CASE_INSENSITIVE = True
 
 #EMAIL_HOST = 'smtp.sendgrid.net'
-#EMAIL_HOST_USER = 'EMAIL_HOST_USER'
-#EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
+#EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 #EMAIL_PORT = 587
 #EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = 'founders@scipertise.com'
+DEFAULT_FROM_EMAIL = 'founders@scipertise.com'
 #
 #SENDGRID_API_KEY='SENDGRID_API_KEY'
 #SENDGRID_PASSWORD='SENDGRID_PASSWORD'
@@ -230,12 +230,12 @@ TAGGIT_CASE_INSENSITIVE = True
 #TWILIO_SYNC_SID= os.environ.get('TWILIO_SYNC_SID')
 #TWILIO_API_SID= os.environ.get('TWILIO_API_SID')
 #TWILIO_API_SECRET= os.environ.get('TWILIO_API_SECRET')
-
-TWILIO_ACCT_SID= 'ACf478542dcd32f9b796252f2a57e54b34'
-TWILIO_CHAT_SID= 'IS4961f5c2c2f14316adcdc2231b67a17e'
-TWILIO_SYNC_SID= 'ISa8daa8acd298e6b0e83b619f5956ace5'
-TWILIO_API_SID= 'SK886a3ad35b5a57943c35f720ece38c48'
-TWILIO_API_SECRET= 'BRPezwqvPJkiLykvMy6sU8JWaqNZDM1X'
+#
+#TWILIO_ACCT_SID= 'ACf478542dcd32f9b796252f2a57e54b34'
+#TWILIO_CHAT_SID= 'IS4961f5c2c2f14316adcdc2231b67a17e'
+#TWILIO_SYNC_SID= 'ISa8daa8acd298e6b0e83b619f5956ace5'
+#TWILIO_API_SID= 'SK886a3ad35b5a57943c35f720ece38c48'
+#TWILIO_API_SECRET= 'BRPezwqvPJkiLykvMy6sU8JWaqNZDM1X'
 
 
 

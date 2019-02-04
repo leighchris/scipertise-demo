@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, EditProfile, EditProfileDetail, EditProfileImage
 from django.contrib.auth.forms import PasswordChangeForm
 from .models import CustomUser
+from django.core.mail import send_mail, mail_admins  
 
 
 class SkillView(ListView):
@@ -109,11 +110,13 @@ def EditProfileTutorialView(request):
 @login_required
 def SubmitProfileView(request):
     form_two =EditProfileDetail()
+#    form_two.instance.user = self.request.user
     if request.method == 'POST':
         form_two = EditProfileDetail(request.POST, instance =request.user)
         if form_two.is_valid():
-            form_two.instance.profile_under_review = True
             form_two.save()
+    #send email to scipertise admin
+            mail_admins('New profile submission', 'An expert profile has been submitted by ' + form_two.instance.first_name, fail_silently=False, )
         return HttpResponseRedirect(reverse('profile'))
     else:
         form_two = EditProfileDetail(instance = request.user)

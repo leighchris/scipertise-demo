@@ -1100,6 +1100,13 @@ div.container.delete_booking {
     text-align: center;
 }
 
+h3.confirm_delete_title {
+    text-align: center;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding: 20px;
+}
+
 .cancel_link {
     color: white;
 }

@@ -6,7 +6,7 @@
 {% block content %}
 <div class="container-fluid booking">
 <div class="container">
-   <div class="container" id="booking_form_text"><h3>Delete {{ booking.title }}?</h3></div>
+<h3 class='confirm_delete_title'>Delete {{ booking.title }}?</h3>
 <div class="container delete_booking">
     <form  method ="POST">
     {% csrf_token %}
