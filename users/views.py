@@ -37,6 +37,12 @@ class SignUp(generic.CreateView):
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
     
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        mail_admins('New user sign up', instance.first_name + ' has signed up for a Scipertise account', fail_silently=False, )
+        return super(SignUp, self).form_valid(form)
+        
+    
 #    
 #class LoginView(FormView):
 #    form_class = LoginForm
