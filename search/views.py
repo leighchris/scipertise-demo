@@ -13,7 +13,7 @@ def search_users(request):
         query= request.GET.get('q')
         submitbutton= request.GET.get('submit')
         if query is not None:
-            lookups = Q(skills__name__icontains=query) | Q(software_hardware__icontains=query)
+            lookups = Q(skills__name__icontains=query) | Q(software_hardware__icontains=query) |  Q(software_hardware_intermediate__icontains=query)
             results = CustomUser.objects.filter(lookups).distinct()
             context={'results': results, 'submitbutton': submitbutton}
             return render(request, 'search.html', context)

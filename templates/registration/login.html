@@ -2,6 +2,8 @@
 {% load static %}
 {% load widget_tweaks %}
 
+{% load socialaccount %}
+
 {% block title %}Login{% endblock %}
 
 {% block content %}
@@ -27,13 +29,14 @@
     
     
 <div class="form-group">
-    <form method="post" action="{% url 'login' %}" >
+<!--    <form method="post" action="{% url 'account_login' %}" >-->
+        <form method="post" action="{% url 'login' %}" >
 {% csrf_token %}
 Username:
 {{ form.username | add_class:"form-control" }} <br>
 Password:
 {{ form.password | add_class:"form-control"}}
-
+<!--<p><a href="{% provider_login_url 'google' %}">Log In with Gmail</a></p>-->
 <button type="submit" class="btn btn-primary">Login</button>
 <input type="hidden" name="next" value="{{ next }}">
 </form>
