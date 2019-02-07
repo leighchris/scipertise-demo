@@ -10,6 +10,9 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .models import CustomUser
 from django.core.mail import send_mail, mail_admins  
 
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 
 class SkillView(ListView):
     model = CustomUser
@@ -39,6 +42,13 @@ class SignUp(generic.CreateView):
     
     def form_valid(self, form):
         instance = form.save(commit=False)
+        user_email = instance.email
+        html_message = render_to_string('signup_success_user.html', {'user': instance,
+                                                                            })
+     
+        plain_message = strip_tags(html_message)
+    #send email to the user
+        send_mail('Thanks for creating a Scipertise account ' + instance.first_name, plain_message, 'founders@scipertise.com', [user_email], fail_silently=False, html_message=html_message)
         mail_admins('New user sign up', instance.first_name + ' has signed up for a Scipertise account', fail_silently=False, )
         return super(SignUp, self).form_valid(form)
         
