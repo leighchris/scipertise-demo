@@ -49,6 +49,21 @@ input#search.form-control {
    
 }
 
+/**password reset**/
+
+.password_text {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+div.container.password_reset_text {
+    color: white;
+    padding-top: 20px;
+}
+
+form.password_text {
+    color: white;
+}
 
 /** Navbar **/
 
