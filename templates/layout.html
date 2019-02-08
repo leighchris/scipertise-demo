@@ -53,13 +53,14 @@
                   <button class="btn btn-primary my-2 my-sm-0" id = "search" name="submit" type="submit" value ="Search">Search</button>
                 </form>
                 <a class="nav-item nav-link" href="{% url 'browse' %}">FIND EXPERTISE</a>
+                <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
                   <a class="nav-item nav-link" href="{% url 'profile' %}">MY PROFILE</a>
                   <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}"> MY SCHEDULE</a>
                   <a class ="nav-item nav-link" href="{% url 'logout' %}">LOGOUT</a>
                 
                 {% else %}
                  <a class="nav-item nav-link" href="{% url 'browse' %}">FIND EXPERTISE</a>
-                
+                  <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
                   <a class ="nav-item nav-link" id="login" href="{% url 'login' %}">LOGIN</a>
 <!--
                 <form class="form-inline my-2 my-lg-0">

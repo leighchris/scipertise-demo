@@ -11,6 +11,9 @@ from django.views.generic import TemplateView, ListView
 class HomePageView(TemplateView):
     template_name = 'home.html'
     
+class FAQView(TemplateView):
+    template_name = 'faq.html'
+    
     
 def error_404_view(request, exception):
     data = {"name": "scipertise.com"}

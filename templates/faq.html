@@ -1,0 +1,83 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid" id="profile_container">
+   
+<div class="container profile">
+  
+     <div class="container" id="profile_content">
+         <div class="profile_content_text">
+         <h3 class="booking_form_text">FAQ</h3><br>
+             <i><strong>What is Scipertise?</strong></i>
+<p class="profile_text">Scipertise is a platform for finding live research help or advice via video chat. Scipertise helps you connect with a researcher who has the right expertise you need to solve your problems and do better research.  Sign up to request a video session with an expert, submit a request for expertise or apply to become an expert by submitting a profile.</p>
+        <div class="divider"></div>
+             <i><strong>How do I book a video chat?</strong></i>
+                 
+
+             <p class="profile_text">When viewing an expert’s profile, click ‘Request to Book’ to create a request with a suggested time to video chat and the topic or questions you’d like to discuss. If the expert lists any topics they can give a tutorial on in their ‘Tutorials’ section, you can also request a specific tutorial -make this clear in the notes. The expert’s hourly rate tells you how much the video chat will cost. You will only be charged for the length of the call. </p>
+                 
+    <div class="divider"></div>
+<i><strong>How do group sessions work?</strong></i>
+             <p class="profile_text">In group sessions, experts lead a tutorial for 2-5 people. If the expert you’d like to chat with offers group sessions, you can click ‘Join a group session’ to join an existing group tutorial session or ‘Request a new group session’ to create a new video session that others can join. At least 2 participants must join for the session to be confirmed.</p>
+                 
+    <div class="divider"></div>
+<i><strong>How do I become an expert?</strong></i>
+<p class="profile_text">Principal investigators, post-doctoral fellows, PhD students, and other researchers who have expertise in the life sciences or related fields can apply to be an expert by filling out and submitting an expert profile for review. Ensure that you add your title, a short bio, skill tags and at least one skill area to your profile prior to submission. Submitted profiles will be reviewed for accuracy, completeness, and an initial decision will be made within 48 hours.</p>
+                 
+    <div class="divider"></div>
+<i><strong>What commitment is required as an expert?</strong></i> 
+             <p class="profile_text">Experts are asked to respond to requests to video chats in a timely manner. If you do not feel comfortable addressing the questions asked or topics the video chat requestor would like to discuss, you can decline the call. You can accept as many or as few video chats as you would like at your discretion. The information on your profile can be edited or updated at any time to highlight your current skills.</p>
+               <div class="divider"></div>
+<i><strong>What if I can't find a researcher who has the skills I need?</strong></i>
+             <p class="profile_text">We are continuously adding new experts/mentors to the site. If you can’t find someone who has the expertise or skills you need, you can submit a help request by clicking the ‘Request an expert’ button on the ‘Find expertise’ page. Our team will follow-up with you and match you with the right person to help.</p>
+
+        
+    <div class="divider"></div>
+      
+       
+
+     
+       </div>
+    </div>
+ 
+    </div>
+
+    
+
+
+</div>
+
+
+
+    		<footer class="footer-distributed">
+
+			<div class="footer-right">
+
+				<a href="#"><i class="fab fa-facebook-f"></i></a>
+				<a href="https://twitter.com/scipertise"><i class="fab fa-twitter"></i></a>
+				<a href="#"><i class="fab fa-linkedin-in"></i></a>
+				
+
+			</div>
+
+			<div class="footer-left">
+
+                
+                <p class="footer-links">
+                    Scipertise &copy; 2018
+					<a id="first_link" href="{% url 'home' %}">Home</a>
+					·
+					<a href="#howitworks">About</a>
+					·
+					<a href="mailto:founders@scipertise.com">Contact</a>
+				</p>
+			</div>
+
+		</footer>
+   
+
+{% endblock %}
