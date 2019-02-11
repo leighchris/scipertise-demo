@@ -696,6 +696,7 @@ div.container.card {
     padding: 20px;
     border-radius: 5px;
     margin: 20px auto;
+
  
 }
 
@@ -1147,6 +1148,29 @@ button.booking_button {
 button.booking_button:hover {
  filter: brightness(95%);
 
+}
+
+button.booking_button.eventbrite {
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px 20px 10px 20px;
+    margin-top: 10px;
+    background-color: #36F1CD;
+    border: 1px solid;
+    border-color: #36F1CD;
+    color: white;
+    font-size: 12pt;
+    font-family: 'Montserrat', sans-serif;
+
+
+}
+
+button.booking_button.eventbrite:hover {
+ filter: brightness(95%);
+
+}
+
+div.container.eventbrite_button {
 }
 
 div.container-fluid.booking {

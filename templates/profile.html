@@ -142,17 +142,48 @@
  
         <h4 class="bio_title">Group Sessions</h4>
          <p class="profile_text">{{ user.first_name }} can lead group sessions on the topics listed under 'Tutorials' above</p>
-               
-       <br>
+            {% if user != request.user %}
+                <a href="{% url 'booking:user_group_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a Group Session</button></a>
+            {% endif %}       
+       <br><br>
 {% if tutorials %}
 
-<h4 class="bio_title">Available Group Sessions</h4>
+<h4 class="bio_title">Upcoming Group Video Sessions</h4>
 {% for booking in tutorials %}
         {% if booking.is_confirmed %}
 
     <div class="container card">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
         <p class="card-text">{{ booking.start_time }}</p>
+  <!-- ADD SPECIFIC DEETS FOR MAC TUTORIAL -->        
+                {% if booking.title == 'Imaging the Dynamic Core of the Human Brain' %}
+                <div class="container eventbrite_button">
+                    <!-- Noscript content for added SEO -->
+        <noscript><a href="https://www.eventbrite.ca/e/imaging-the-dynamic-core-of-the-brain-tutorial-by-mac-shine-tickets-56310316673" rel="noopener noreferrer" target="_blank"></noscript>
+        <!-- You can customize this button any way you like -->
+        <button class="booking_button eventbrite" id="eventbrite-widget-modal-trigger-56310316673" type="button">Book a Spot on Eventbrite</button>
+        <noscript></a>Buy Tickets on Eventbrite</noscript>
+
+        <script src="https://www.eventbrite.ca/static/widgets/eb_widgets.js"></script>
+
+        <script type="text/javascript">
+            var exampleCallback = function() {
+                console.log('Order complete!');
+            };
+
+            window.EBWidgets.createWidget({
+                widgetType: 'checkout',
+                eventId: '56310316673',
+                modal: true,
+                modalTriggerElementId: 'eventbrite-widget-modal-trigger-56310316673',
+                onOrderComplete: exampleCallback
+            });
+        </script>
+                </div>
+                {% endif %}
+  <!-- ADD SPECIFIC DEETS FOR MAC TUTORIAL -->   
+        
+        
     </div>
         {% endif %}
         {% endfor %}
@@ -166,9 +197,7 @@
   
     </div>
        {% endif %}
-    {% if user != request.user %}
-                <a href="{% url 'booking:user_group_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request a New Group Session</button></a>
-            {% endif %}   
+   
 
 </div>
     
@@ -177,6 +206,9 @@
 </div>
 
  {% endif %}
+    
+
 </div>
+
 
 {% endblock %}

@@ -6,33 +6,83 @@
 {% block content %}
 
 <div class="container-fluid booking">
-    <div class="container" id="booking_detail_text"><h3>Booking details</h3></div>
+    
+  
     <div class="container" id="booking_content">
         <div class="container card">
-        
+        {% if booking.is_tutorial %}
+<h3 class="booking_form_text">Group Video Tutorial Details</h3>
+        {% else %}
+   <h3 class="booking_form_text">Booking details</h3>
+            {% endif %}
+            
         <h3 class="card-title">{{ booking.title }}&nbsp&nbsp</h3>
-            <div class="container confirmed">
+     {% if booking.is_tutorial %}
+          <div class="container confirmed">
+        {% if booking.is_confirmed %}
+      <p class="confirmed">This tutorial is confirmed.&nbsp&nbsp</p><img class="check" src="/static/css/check.svg">
+        {% else %}
+        <p class="confirmed">This tutorial has not yet been confirmed by the requested expert. You will receive an email upon confirmation.&nbsp&nbsp<img class="x" src="/static/css/warning.svg"></p>
+        {% endif %}
+            
+            </div>
+            {% else %}
+            
+    <div class="container confirmed">
         {% if booking.is_confirmed %}
       <p class="confirmed">This booking is confirmed.&nbsp&nbsp</p><img class="check" src="/static/css/check.svg">
         {% else %}
         <p class="confirmed">This booking has not yet been confirmed by the requested expert. You will receive an email upon confirmation.&nbsp&nbsp<img class="x" src="/static/css/warning.svg"></p>
         {% endif %}
             
-            </div>    
+            </div>  
+            {% endif %}
+            
+            
         <div class="container">
         <p>{{ booking.start_time }}</p>
         <p>Booking made by: {{ booking.user }}</p>
         <p>Scipertise Researcher: {{ booking.expert }}</p>
         {% if booking.is_tutorial %}
-            <p>This booking is a group session limited to 5 people</p>
+            <p>This tutorial is a group session limited to 5 people</p>
             <p><strong>Description: </strong>{{ booking.description }}</p>
             <p>Please contact founders@scipertise.com to see if there are any spaces remaining.</p>
         {% endif %}  
             {% if not booking.is_confirmed and user.expert and booking.expert == request.user %}
             <div><a href="{% url 'booking:confirm_booking' pk=booking.pk %}"><button type='submit' class='booking_button'>Confirm Booking Request</button></a></div> 
             {% endif %}
+            {% if booking.user == request.user or booking.expert == request.user %}
             <div><a href="{% url 'booking:booking_update' pk=booking.pk %}"><button type='submit' class='booking_button'>Edit Booking</button></a></div> 
-            <div><a href="{% url 'booking:booking_delete' pk=booking.pk %}"><button type='submit' class='booking_button'>Delete Booking</button></a></div>    
+            <div><a href="{% url 'booking:booking_delete' pk=booking.pk %}"><button type='submit' class='booking_button'>Delete Booking</button></a></div>   
+            {% endif %}
+<!-- ADD SPECIFIC DEETS FOR MAC TUTORIAL -->   
+                {% if booking.title == 'Imaging the Dynamic Core of the Human Brain' %}
+                     <div class="container eventbrite_button">
+                    <!-- Noscript content for added SEO -->
+        <noscript><a href="https://www.eventbrite.ca/e/imaging-the-dynamic-core-of-the-brain-tutorial-by-mac-shine-tickets-56310316673" rel="noopener noreferrer" target="_blank"></noscript>
+        <!-- You can customize this button any way you like -->
+        <button class="booking_button eventbrite" id="eventbrite-widget-modal-trigger-56310316673" type="button">Book a Spot on Eventbrite</button>
+        <noscript></a>Buy Tickets on Eventbrite</noscript>
+
+        <script src="https://www.eventbrite.ca/static/widgets/eb_widgets.js"></script>
+
+        <script type="text/javascript">
+            var exampleCallback = function() {
+                console.log('Order complete!');
+            };
+
+            window.EBWidgets.createWidget({
+                widgetType: 'checkout',
+                eventId: '56310316673',
+                modal: true,
+                modalTriggerElementId: 'eventbrite-widget-modal-trigger-56310316673',
+                onOrderComplete: exampleCallback
+            });
+        </script>
+                </div>
+
+                    {% endif %}
+<!-- END ADD SPECIFIC DEETS FOR MAC TUTORIAL -->  
     </div>
 
     </div>
