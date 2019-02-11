@@ -16,7 +16,7 @@
    <h3 class="booking_form_text">Booking details</h3>
             {% endif %}
             
-        <h3 class="card-title">{{ booking.title }}&nbsp&nbsp</h3>
+        <div class="container"><h4 class="bio_title">{{ booking.title }}&nbsp&nbsp</h4></div>
      {% if booking.is_tutorial %}
           <div class="container confirmed">
         {% if booking.is_confirmed %}
@@ -40,13 +40,29 @@
             
             
         <div class="container">
-        <p>{{ booking.start_time }}</p>
-        <p>Booking made by: {{ booking.user }}</p>
-        <p>Scipertise Researcher: {{ booking.expert }}</p>
+        <p><strong>Date:</strong> {{ booking.start_time }}</p>
+<!--        <p>Booking made by: {{ booking.user }}</p>-->
         {% if booking.is_tutorial %}
-            <p>This tutorial is a group session limited to 5 people</p>
-            <p><strong>Description: </strong>{{ booking.description }}</p>
-            <p>Please contact founders@scipertise.com to see if there are any spaces remaining.</p>
+        <p><strong>Tutorial hosted by:</strong> {{ booking.expert }}</p>
+            {% else %}
+        <p>Scipertise expert/mentor: {{ booking.expert }}</p>
+            {% endif %}
+        {% if booking.is_tutorial %}
+            <p><strong>Turorial Description: </strong>{{ booking.description }}</p>
+ <!-- ADD SPECIFIC DEETS FOR MAC TUTORIAL -->   
+                {% if booking.title == 'Imaging the Dynamic Core of the Human Brain' %}
+            <h4 class="bio_title"></h4>
+           <p><strong>Goal:</strong> The goal of this Scipertise tutorial is to provide participants with a better understanding of the methodologies used in the Shine, Breakspear et al. Nature Neuroscience paper by providing a walk through of how the methods were applied. Participants will feel more comfortable applying these analytical techniques to their own fMRI or other neuroimaging data. Attendance is limited in order to allow for an interactive experience for participants.</p> 
+
+            <p><strong>About the Tutorial:</strong> This tutorial will include an introduction and background on the paper, the spatiotemporal principal components analysis (PCA) methodology used to identify neural signatures associated with cognitive tasks, manifold/embedding space, use of NeuroSynth, time-varying connectivity, graph theory/topology, and use of the Allen Brain Atlas. There will be some time for questions throughout the tutorial.</p>
+
+            <p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s41593-018-0312-0">Shine, Breakspear et al.</a> Human cognition involves the dynamic integration of neural activity and neuromodulatory systems. Nature Neuroscience (2019).</p>
+
+<p>Attendees are invited to see Dr. Shine's <a href="https://github.com/macshine/state_space/">GitHub repository </a>for this paper in advance of the tutorial.</p>
+            {% endif %}
+ <!-- END ADD SPECIFIC DEETS FOR MAC TUTORIAL -->   
+            
+            
         {% endif %}  
             {% if not booking.is_confirmed and user.expert and booking.expert == request.user %}
             <div><a href="{% url 'booking:confirm_booking' pk=booking.pk %}"><button type='submit' class='booking_button'>Confirm Booking Request</button></a></div> 
@@ -61,7 +77,7 @@
                     <!-- Noscript content for added SEO -->
         <noscript><a href="https://www.eventbrite.ca/e/imaging-the-dynamic-core-of-the-brain-tutorial-by-mac-shine-tickets-56310316673" rel="noopener noreferrer" target="_blank"></noscript>
         <!-- You can customize this button any way you like -->
-        <button class="booking_button eventbrite" id="eventbrite-widget-modal-trigger-56310316673" type="button">Book a Spot on Eventbrite</button>
+        <button class="booking_button eventbrite" id="eventbrite-widget-modal-trigger-56310316673" type="button">Reserve a Spot</button>
         <noscript></a>Buy Tickets on Eventbrite</noscript>
 
         <script src="https://www.eventbrite.ca/static/widgets/eb_widgets.js"></script>
