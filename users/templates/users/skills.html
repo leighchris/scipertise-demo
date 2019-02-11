@@ -78,7 +78,8 @@
         {% endfor %}
 
  </div>
-        {% if is_paginated %}
+   {% if is_paginated %}
+
     <div class="text-xs-center">
   <ul class="pagination pagination-lg justify-content-center">
     {% if page_obj.has_previous %}
@@ -99,7 +100,7 @@
       <li class="disabled page"><span>&raquo;</span></li>
     {% endif %}
   </ul>
-{% endif %}
+        {% endif %}
         </div>
 </div>
         {% endblock %}

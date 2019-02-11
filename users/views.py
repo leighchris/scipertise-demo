@@ -18,7 +18,6 @@ class SkillView(ListView):
     model = CustomUser
     template_name = 'users/skills.html'
     queryset = CustomUser.objects.all()
-    paginate_by = 10
     
     def get_queryset(self):
         queryset = CustomUser.objects.filter(skills__name = self.kwargs['slug'])
@@ -28,7 +27,6 @@ class SkillView(ListView):
 class BrowseView(ListView):
     model = CustomUser
     queryset = CustomUser.objects.filter(expert = True)
-    paginate_by = 10
 
     
 #    def get_queryset(self):
