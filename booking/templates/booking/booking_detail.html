@@ -41,7 +41,7 @@
             
             
         <div class="container">
-        <p><strong>Date:</strong> {{ booking.start_time }}</p>
+        <p><strong>Date:</strong> {{ booking.start_time }} EST</p>
 <!--        <p>Booking made by: {{ booking.user }}</p>-->
         {% if booking.is_tutorial %}
         <p><strong>Tutorial hosted by:</strong> {{ booking.expert.first_name }}&nbsp{{ booking.expert.last_name }}</p>

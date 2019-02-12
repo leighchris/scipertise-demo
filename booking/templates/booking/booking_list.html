@@ -15,7 +15,7 @@
     
     <div class="container card booking_list">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
-        <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
+        <p class="card-text">Date: {{booking.start_time}}</p>
     </div>
     
 {% endfor %}
@@ -23,7 +23,7 @@
     
        <div class="container card booking_list">
         <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
-        <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
+        <p class="card-text">Date: {{booking.start_time}}</p>
     </div>
 {% endfor %}
     
