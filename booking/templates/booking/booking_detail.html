@@ -10,13 +10,14 @@
   
     <div class="container" id="booking_content">
         <div class="container card">
+            <div class="container text_container_card">
         {% if booking.is_tutorial %}
-<h3 class="booking_form_text">Group Video Tutorial Details</h3>
+<h3 class="booking_form_text">Group Video Tutorial Details</h3><br>
         {% else %}
    <h3 class="booking_form_text">Booking details</h3>
             {% endif %}
             
-        <div class="container"><h4 class="bio_title">{{ booking.title }}&nbsp&nbsp</h4></div>
+        <div class="container"><h4 class="tutorial_title">{{ booking.title }}&nbsp&nbsp</h4></div>
      {% if booking.is_tutorial %}
           <div class="container confirmed">
         {% if booking.is_confirmed %}
@@ -43,20 +44,21 @@
         <p><strong>Date:</strong> {{ booking.start_time }}</p>
 <!--        <p>Booking made by: {{ booking.user }}</p>-->
         {% if booking.is_tutorial %}
-        <p><strong>Tutorial hosted by:</strong> {{ booking.expert }}</p>
+        <p><strong>Tutorial hosted by:</strong> {{ booking.expert.first_name }}&nbsp{{ booking.expert.last_name }}</p>
             {% else %}
-        <p>Scipertise expert/mentor: {{ booking.expert }}</p>
+        <p>Scipertise expert/mentor: {{ booking.expert.first_name }}&nbsp{{ booking.expert.last_name }}</p>
             {% endif %}
         {% if booking.is_tutorial %}
-            <p><strong>Turorial Description: </strong>{{ booking.description }}</p>
+            <h4 class="text_title">{{ booking.description }}</h4><br>
  <!-- ADD SPECIFIC DEETS FOR MAC TUTORIAL -->   
                 {% if booking.title == 'Imaging the Dynamic Core of the Human Brain' %}
-            <h4 class="bio_title"></h4>
-           <p><strong>Goal:</strong> The goal of this Scipertise tutorial is to provide participants with a better understanding of the methodologies used in the Shine, Breakspear et al. Nature Neuroscience paper by providing a walk through of how the methods were applied. Participants will feel more comfortable applying these analytical techniques to their own fMRI or other neuroimaging data. Attendance is limited in order to allow for an interactive experience for participants.</p> 
+            <h4 class="bio_title"><strong>About the Tutorial</strong></h4>
+           <p class="profile_text">The goal of this Scipertise tutorial is to provide participants with a better understanding of the methodologies used in the Shine, Breakspear et al. Nature Neuroscience paper by providing a walk through of the methods applied. Participants will feel more comfortable applying these analytical techniques to their own fMRI or other neuroimaging data. Attendance is limited in order to allow for an interactive experience for participants. There will be some time for questions throughout the tutorial.</p> <br>
 
-            <p><strong>About the Tutorial:</strong> This tutorial will include an introduction and background on the paper, the spatiotemporal principal components analysis (PCA) methodology used to identify neural signatures associated with cognitive tasks, manifold/embedding space, use of NeuroSynth, time-varying connectivity, graph theory/topology, and use of the Allen Brain Atlas. There will be some time for questions throughout the tutorial.</p>
+                 <h4 class="bio_title"><strong>Topics Covered</strong></h4> 
+            <p>Introduction to paper, spatiotemporal principal components analysis (PCA) methodology, manifold/embedding space, use of NeuroSynth, time-varying connectivity, graph theory/topology, Allen Brain Atlas. </p>
 
-            <p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s41593-018-0312-0">Shine, Breakspear et al.</a> Human cognition involves the dynamic integration of neural activity and neuromodulatory systems. Nature Neuroscience (2019).</p>
+            <p class="profile_text"><a href="https://www.nature.com/articles/s41593-018-0312-0">Shine, Breakspear et al.</a> Human cognition involves the dynamic integration of neural activity and neuromodulatory systems. Nature Neuroscience (2019).</p><br>
 
 <p>Attendees are invited to see Dr. Shine's <a href="https://github.com/macshine/state_space/">GitHub repository </a>for this paper in advance of the tutorial.</p>
             {% endif %}
@@ -73,7 +75,7 @@
             {% endif %}
 <!-- ADD SPECIFIC DEETS FOR MAC TUTORIAL -->   
                 {% if booking.title == 'Imaging the Dynamic Core of the Human Brain' %}
-                     <div class="container eventbrite_button">
+                     <div class="eventbrite_button">
                     <!-- Noscript content for added SEO -->
         <noscript><a href="https://www.eventbrite.ca/e/imaging-the-dynamic-core-of-the-brain-tutorial-by-mac-shine-tickets-56310316673" rel="noopener noreferrer" target="_blank"></noscript>
         <!-- You can customize this button any way you like -->
@@ -101,6 +103,7 @@
 <!-- END ADD SPECIFIC DEETS FOR MAC TUTORIAL -->  
     </div>
 
+    </div>
     </div>
 
 

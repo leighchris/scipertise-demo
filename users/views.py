@@ -34,6 +34,13 @@ class BrowseView(ListView):
 #        return experts
 
 
+    
+#    def get_queryset(self):
+#        experts = CustomUser.objects.filter(expert = True)
+#        return experts
+
+
+
 
 class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm

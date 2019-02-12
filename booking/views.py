@@ -147,11 +147,20 @@ class BookingDeleteView(DeleteView):
 class BookingListView(ListView):
     model = Booking
     context_object_name = 'booking_list'
-    template = 'templates/booking_list.html'
+  
     
     def get_queryset(self):
         bookings = Booking.objects.filter(user=self.request.user)
         return bookings
+    
+class TutorialListView(ListView):
+    model = Booking
+    context_object_name = 'tutorial_list'
+    template_name = 'booking/tutorial_list.html'
+    
+    def get_queryset(self):
+        tutorials = Booking.objects.filter(is_tutorial=True)
+        return tutorials
 
     
 class BookingDetailView(DetailView):

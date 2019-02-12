@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="container-fluid booking">
+
+
+
+<div class='container booking_list'>
+{% if tutorial_list %}
+<div class="container" id="booking_form_text"><h3 class="video_sessions">Upcoming Group Tutorials:</h3></div>
+   
+{% for booking in tutorial_list %}
+    
+    <div class="container card booking_list">
+        <h5 class="card-title"><a href="{% url 'booking:booking_detail' pk=booking.pk %}">{{ booking.title }}</a></h5>
+        <p class="card-text">Session with {{ booking.user }} on {{booking.start_time}}</p>
+    </div>
+    
+{% endfor %}
+
+    
+</div>
+
+
+{% else %} 
+
+<div class="container" id="booking_form_text"><h3 class="video_sessions">There are no upcoming group tutorials.</h3></div>
+   
+
+{% endif %}
+    </div>
+
+
+
+
+{% endblock %}

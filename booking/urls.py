@@ -24,6 +24,7 @@ urlpatterns = [
     path('users/profile/<int:pk>/booking/', views.BookingView.as_view(), name='user_booking_new'),
     path('users/profile/<int:pk>/booking/group/', views.GroupView.as_view(), name='user_group_booking_new'),
     path('booking/', views.BookingListView.as_view(), name="booking_list"),
+    path('tutorials/', views.TutorialListView.as_view(), name="tutorial_list"),
     path('booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),
     path('booking/edit/<int:pk>/', views.BookingUpdateView.as_view(), name="booking_update"),
     path('booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),
