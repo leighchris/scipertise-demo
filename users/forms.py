@@ -18,8 +18,8 @@ class CustomUserCreationForm(UserCreationForm):
         }
         labels = {
             'expert': 'Would you like to provide expertise?',
-            'wants_expert': 'Would you like to find expertise or get help with your research?',
-            'needs_help_with': 'What are some topics, techniques or skills you currently would like help with (be specific)?',
+            'wants_expert': 'Would you like to get help with your research or learn a new technique?',
+            'needs_help_with': 'If you answered yes, what are some skills or topics you would like to get help with or learn better (be specific)?',
         }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
