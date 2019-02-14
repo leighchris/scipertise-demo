@@ -38,7 +38,7 @@ class EditProfile(forms.ModelForm):
 
     class Meta:
         model = CustomUser
-        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'software_hardware_intermediate', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5',  )
+        fields =('username','position', 'website', 'bio', 'skills', 'software_hardware', 'software_hardware_intermediate', 'skill_area1_title', 'skill_area1', 'skill_area2_title', 'skill_area2', 'skill_area3_title', 'skill_area3', 'skill_area4_title', 'skill_area4', 'skill_area5_title', 'skill_area5', 'gives_tutorials', 'tutorial_area', )
         help_texts = {
             'username': "If you'd like to change your username, enter a new username above",
             'position': "Example: Postdoctoral Fellow in Neuroscience at McGill University",
@@ -77,6 +77,8 @@ class EditProfile(forms.ModelForm):
              'skill_area4': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
              'skill_area5_title': 'Describe your fifth skill in 1-2 sentences (optional)',
              'skill_area5': "Give examples of experience(s) that allowed you to gain or demonstrate this skill",
+             'gives_tutorials': "Check this box if you are interested in leading video chat tutorials or small group lessons in your                      area of expertise",
+             'tutorial_area': "If you checked the box above to lead tutorials/group lessons, please give examples of topics/technical                    skills you would be willing to teach",
                 
          }
         widgets = {
@@ -86,6 +88,7 @@ class EditProfile(forms.ModelForm):
                 'skill_area3': forms.Textarea(),
                 'skill_area4': forms.Textarea(),
                 'skill_area5': forms.Textarea(),
+                'tutorial_area': forms.Textarea(),
 
             }
         
@@ -108,6 +111,8 @@ class EditProfile(forms.ModelForm):
         self.fields['skill_area4'].required =False
         self.fields['skill_area5_title'].required =False
         self.fields['skill_area5'].required =False
+        self.fields['gives_tutorials'].required = False
+        self.fields['tutorial_area'].required =False
         
         
         
@@ -131,6 +136,8 @@ class EditProfile(forms.ModelForm):
         skill_area4 = cleaned_data.get('skill_area4')
         skill_area5_title = cleaned_data.get('skill_area5_title')
         skill_area5 = cleaned_data.get('skill_area5')
+        gives_tutorials = cleaned_data.get('gives_tutorials')
+        tutorial_area = cleaned_data.get('tutorial_area')
         
         
 class EditProfileDetail(forms.ModelForm):

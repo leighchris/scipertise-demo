@@ -187,6 +187,20 @@
         
             <div><button type="submit" name="save_continue" class="btn btn-primary edit_profile">Save Skill Area</button></div>
         </div>
+        
+        
+    <h3 class="edit_profile_subheading">Leading Tutorials</h3>
+         {{ form.gives_tutorials.label_tag }}
+          {% render_field form.gives_tutorials class="form-control" %}
+          {% if form.gives_tutorials.help_text %}
+        <small class="form-text text-muted">{{ form.gives_tutorials.help_text |safe }}</small>
+          {% endif %}
+        {{ form.tutorial_area.label_tag }}
+          {% render_field form.tutorial_area class="form-control" %}
+          {% if form.tutorial_area.help_text %}
+        <small class="form-text text-muted">{{ form.tutorial_area.help_text |safe }}</small>
+          {% endif %}
+        
         {% if user.profile_approved == False and user.profile_under_review == False %}
         <div><button type="submit" name="save_continue" class="btn booking_button">Save Profile</button></div>
         {% else %}
