@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+
+
+<div class="container-fluid" id="signup">
+    <div class="signup_bgrd">
+        
+
+
+ <h3 class="booking_form_text">What do you need help with?</h3>
+ {% if form.errors %}
+        <br>
+<p>There was an error. Please try again.</p>
+{% endif %}               
+<form method="post">
+      {% csrf_token %}
+
+    <div class="form-group">
+     {% for field in form.visible_fields %}
+     {{ field.errors }}
+      {{ field.label_tag }}
+      {% render_field field class="form-control" %}
+      {% if field.help_text %}
+    <small class="form-text text-muted">{{ field.help_text |safe }}</small>
+      {% endif %}
+    {% endfor %}
+    </div>
+  <button type="submit" class="availability_button">Submit</button>
+</form>
+        
+        
+        
+        
+        
+<!--
+        
+            <h4>Sign up for a free account</h4>
+         <form class="signup_form" action="" method="POST">
+             {% csrf_token %}
+             {{ form.as_p }}
+                <p class="form_text" label="First Name">First Name:</p>
+                 {{ form.first_name }}
+                <p class="form_text" label="Last Name">Last Name:</p>
+                 {{ form.last_name }}
+                <p class="form_text" label="Email">Email:</p>
+                 {{ form.email  }}
+                <p class="form_text" label="Password">Password:</p>
+                 {{ form.password1 }}
+                 <br>     
+      <button type="submit" class="btn btn-primary">Sign up</button>
+               </form>
+-->
+    </div>
+
+
+</div>
+
+
+
+{% endblock %}

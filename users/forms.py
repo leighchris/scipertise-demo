@@ -9,29 +9,30 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = ('username', 'first_name', 'last_name', 'email', 'expert', 'wants_expert', 'needs_help_with', )
+        fields = ('username', 'first_name', 'last_name', 'email', 'expert', 'wants_expert', )
         help_texts = {
             'expert': 'Check the box if you would like to be an expert or mentor. This is required to create an expert profile.',
             'wants_expert': 'Check the box if you are interested in finding expertise. Otherwise leave blank.',
-            'needs_help_with': 'This information is confidential and will not be published anywhere.',
+#            'needs_help_with': 'This information is confidential and will not be published anywhere.',
            
         }
         labels = {
             'expert': 'Would you like to provide expertise?',
             'wants_expert': 'Would you like to get help with your research or learn a new technique?',
-            'needs_help_with': 'If you answered yes, what are some skills or topics you would like to get help with or learn better (be specific)?',
+#            'needs_help_with': 'If you answered yes, what are some skills or topics you would like to get help with or learn better (be specific)?',
         }
         widgets = {
             'username': forms.TextInput(attrs={'class': 'form-control'}),
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.TextInput(attrs={'class': 'form-control'}),
-            'needs_help_with': forms.Textarea(attrs={'class': 'form-control'}),
+#            'needs_help_with': forms.Textarea(attrs={'class': 'form-control'}),
             
         }
         def __init__(self, *args, **kwargs):
             super().__init__(*args, **kwargs)
             self.fields['email'].required = True
+            
         
         
 class EditProfile(forms.ModelForm):

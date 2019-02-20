@@ -1,4 +1,6 @@
-
+form.form-group {
+    margin-bottom: 0px;
+}
 a {
     color: #6e75a8;
     text-decoration: none;
@@ -906,6 +908,10 @@ div.edit_profile {
    
 }
 /** Browse Page Styles **/
+
+div.browse_title {
+    padding-left: 8px;
+}
 li.page {
         padding: 5px;
 }

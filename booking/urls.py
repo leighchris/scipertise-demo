@@ -30,6 +30,7 @@ urlpatterns = [
     path('booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),
     path('booking/confirm/<int:pk>/', views.ConfirmView.as_view(), name='confirm_booking'),
     path('booking/request_expert/', views.RequestExpertView.as_view(), name='request_expert'),
+    path('help_needed/', views.RequestExpertView.as_view(), name='help_form'),
 #    path('users/profile/<int:pk>/booking/<int:pk>/', views.BookingDetailView.as_view(), name="booking_detail"),
 #    path('users/profile/<int:pk>/booking/edit/<int:pk>/', views.BookingUpdateView.as_view(), name="booking_update"),
 #    path('booking/edit/<int:pk>/booking/delete/<int:pk>/', views.BookingDeleteView.as_view(), name="booking_delete"),

@@ -1,7 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy, reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect
 from django.views import generic
-from django.views.generic import TemplateView, DetailView, FormView, ListView
+from django.views.generic import TemplateView, DetailView, ListView
+from django.views.generic.edit import FormView
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 
@@ -29,16 +32,29 @@ class BrowseView(ListView):
     queryset = CustomUser.objects.filter(expert = True)
 
     
-#    def get_queryset(self):
-#        experts = CustomUser.objects.filter(expert = True)
-#        return experts
 
 
+def login_success(request):
+    """
+    Redirects users based on whether they are in an expert
+    """
+#    queryset = CustomUser.objects.filter(wants_expert = True)
+
+    if request.user.wants_expert == True:
+        # user needs help
+        return HttpResponseRedirect(reverse('booking:help_form'))
+    else:
+        return  HttpResponseRedirect(reverse('home'))
     
-#    def get_queryset(self):
-#        experts = CustomUser.objects.filter(expert = True)
-#        return experts
-
+#class HelpView(FormView):
+#    form_class = HelpForm
+#    success_url = reverse_lazy('home')
+#    template_name = 'help_form.html'
+#    
+#    def form_valid(self, form):
+#        # This method is called when valid form data has been POSTed.
+#        # It should return an HttpResponse.
+#        return super().form_valid(form)
 
 
 
@@ -46,6 +62,7 @@ class SignUp(generic.CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
+    
     
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -167,25 +184,3 @@ def EditProfileImageView(request):
         form = EditProfileImage(instance = request.user)
         return render(request, 'edit_profile_image.html', {'form': form})
     
-#def EditProfileImageView(FormView):
-#    template_name='edit_profile_image.html'
-#    form_class= EditProfileImage
-#    success_url = reverse_lazy('profile')
-#    
-#    def form_valid(self, form):
-#        return HttpResponse('form valid')
-    
-#def change_password(request):
-#    
-#    if request.method == "POST":
-#        form = PasswordChangeForm(request.POST, user=request.user)
-#      
-#        if form.is_valid():
-#            form.save()
-#        return HttpResponseRedirect(reverse('profile'))
-#    else:
-#        form = PasswordChangeForm(user = request.user)
-#        return render(request, 'change_password.html', {'form': form})
-#    
-
-

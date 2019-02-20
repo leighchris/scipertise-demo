@@ -223,7 +223,7 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'login_success'
 LOGOUT_REDIRECT_URL = 'home'
 
 TAGGIT_CASE_INSENSITIVE = True
@@ -264,6 +264,10 @@ EMAIL_PORT = 587
 SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
 #SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
+
+#GOOGLE_ANALYTICS = {
+#    'google_analytics_id': 'UA-134567670-1',
+#}
 
 #LOGGING = {
 #

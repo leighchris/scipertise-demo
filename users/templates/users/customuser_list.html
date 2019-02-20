@@ -19,6 +19,7 @@
                 <button class="btn btn-outline-secondary border-left-0 border" type="submit" name="submit" value="Search">
                     Search
                 </button>
+                
            
             </div>
                   </form>
@@ -39,6 +40,7 @@
             {% endif %}
         </div>
     </div>
+            <div class="browse_title"> <h4 class="bio_title">Browse our Featured Researchers</h4></div> 
         </div>
         
         <div class="container" id="search_results">
@@ -85,9 +87,44 @@
         {% endif %}
 
         {% endfor %}
-
- 
-
+<!--- adding a search form -->
+         <div class="container" id="search_form">
+         <div class="row">
+        <div class="col-md-6">
+            
+            <div class="browse_title"> <h4 class="bio_title">Search for more experts by skill</h4></div>
+            <form class="form-group"  action="{% url 'search:search_users' %}" method="GET" >
+            <div class="input-group browse">
+               
+<!--                    <div class="input-group-text bg-white border-right-0"><i class="fa fa-search"></i></div>-->
+              
+                <input class="form-control" type="search" name="q" value="{{request.GET.q}}" id="example-search-input" placeholder="Enter a skill, technique, software or area of expertise">
+               
+                <button class="btn btn-outline-secondary border-left-0 border" type="submit" name="submit" value="Search">
+                    Search
+                </button>
+           
+            </div>
+                  </form>
+                </div>
+         <div class="request_expert">   
+              
+               <p class="request_expert">Can't find what you're looking for?</p>  
+            {% if user.is_authenticated %}
+              <form class="form-group"  action="{% url 'booking:request_expert' %}" method="GET">  
+                <button class="booking_button" type="submit" name="submit" value="Search">
+                Request an Expert
+                </button></form>
+             {% else %}
+              <form class="form-group"  action="{% url 'signup' %}" method="GET">  
+                <button class="booking_button" type="submit" name="submit" value="Search">
+                Request an Expert
+                </button></form>
+            {% endif %}
+        </div>
+    </div>
+        </div>
+<!--- adding a search form -->
        
     </div>
 <!--
