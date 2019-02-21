@@ -3,7 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    re_path(r'^$', views.app, name='twilio'),
-#    re_path(r'^token', views.token, name='token'),
+    path('<int:pk>', views.app, name='twilio'),
+    path('create/<int:to_user_id>', views.create_channel, name='twilio-create-channel'),
+    path('token', views.token, name='token'),
 ]
     

@@ -38,7 +38,7 @@ class CustomUser(AbstractUser):
     needs_help_with = models.CharField(max_length =10000, null=True, default='', blank=True)
     profile_under_review = models.BooleanField(blank=True, default=False)
     profile_approved = models.BooleanField(blank=True, default=False)
-    
+    twilio_user_id = models.CharField(max_length=50, null=True)
 
 #class TaggedSkill(TaggedItemBase):
 #    content_object = models.ForeignKey('Skill', on_delete=models.DO_NOTHING)  

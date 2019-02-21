@@ -7,6 +7,10 @@
     <link rel="shortcut icon" href="//www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.ico">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'twilio/index.css' %}">
+    <script>
+        var channelSid = '{{channel.twilio_chat_id}}';
+        var channelName = '{{channel.channel_name}}';
+    </script>
 </head>
 <body>
   <header>

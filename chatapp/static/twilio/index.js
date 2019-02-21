@@ -43,7 +43,7 @@ $(function() {
   // Get an access token for the current user, passing a username (identity)
   // and a device ID - for browser-based apps, we'll always just use the
   // value "browser"
-  $.getJSON('/token', {
+  $.getJSON('/chat/token', {
     device: 'browser'
   }, function(data) {
     // Alert the user they have been assigned a random username
@@ -61,8 +61,9 @@ $(function() {
   function createOrJoinGeneralChannel() {
     // Get the general chat channel, which is where all the messages are
     // sent in this simple application
-    print('Attempting to join "general" chat channel...');
-    chatClient.getChannelByUniqueName('general')
+    print('Attempting to join '+channelName+' chat channel...');
+      debugger
+    chatClient.getChannelBySid(channelSid)
     .then(function(channel) {
       generalChannel = channel;
       console.log('Found general channel:');
@@ -89,10 +90,8 @@ $(function() {
   // Set up channel after it has been found
   function setupChannel() {
     // Join the general channel
-    generalChannel.join().then(function(channel) {
-      print('Joined channel as '
+    print('Joined channel as '
       + '<span class="me">' + username + '</span>.', true);
-    });
 
     // Listen for new messages sent to the channel
     generalChannel.on('messageAdded', function(message) {
