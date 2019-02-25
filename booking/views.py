@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from calendar import HTMLCalendar
 import calendar
 from django.core.mail import send_mail, mail_admins
+from django.contrib.auth.decorators import login_required
 
 from users.forms import CustomUserCreationForm, EditProfile
 from users.models import CustomUser
@@ -194,21 +195,28 @@ class ConfirmView(UpdateView):
 #    #send email to scipertise admin
         mail_admins('Booking request confirmed', 'A booking request has been confirmed by' + form.instance.expert.first_name, fail_silently=False, )
         return super(ConfirmView, self).form_valid(form)
-    
+
+
 class RequestExpertView(SuccessMessageMixin, CreateView):
     model = HelpRequest
     form_class = RequestExpertForm
     template_name = 'booking/request_expert_form.html'
     success_message = 'Thanks! Your request has been submitted.'
     def form_valid(self, form):
-        help_request = form.save(commit=False)
-        form.instance.user = self.request.user
-    #send email to scipertise admin
-        mail_admins('New help request', 'A help request has been made by' + form.instance.user.first_name, fail_silently=False, )
-        return super(RequestExpertView, self).form_valid(form)
+        if not self.request.user.is_authenticated:
+            return HttpResponseRedirect(reverse('login'))
+        else:
+            help_request = form.save(commit=False)
+            form.instance.user = self.request.user
+        #send email to scipertise admin
+            mail_admins('New help request', 'A help request has been made by' + form.instance.user.first_name, fail_silently=False, )
+            return super(RequestExpertView, self).form_valid(form)
 
-#    def get_context_data(self, **kwargs):
-#        context = super().get_context_data(**kwargs)
-#        context['expert'] = CustomUser.objects.get(id=self.kwargs.get('pk'))
-#        return context
-    
+
+#def get_success_url(self):
+#    if self.request.POST.get('submit_request'):
+#        return reverse('booking:request_expert')
+#    elif self.request.POST.get('redirect_to_signup'):
+#        return reverse('signup', kwargs={'pk':self.object.pk})
+#    else:
+#        return reverse('booking:request_expert')

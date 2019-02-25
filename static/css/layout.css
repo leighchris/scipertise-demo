@@ -1628,7 +1628,14 @@ img.logo {
 }
     }
 
-
+        
+@media screen and (max-width: 800px) {   
+    div#booking_form.container {
+        width: 100%;
+        margin: 0px auto;
+        padding: 5px;
+    }
+    }
     
 
 
