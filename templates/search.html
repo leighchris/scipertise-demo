@@ -25,7 +25,7 @@
                 </div>
          <div class="request_expert">   
               
-               <p class="request_expert">Can't find what you're looking for? Click here</p>  
+               <p class="request_expert">Can't find what you're looking for?</p>  
                 
               <form class="form-group"  action="{% url 'booking:request_expert' %}" method="GET">  
                  
@@ -60,7 +60,7 @@
             <p class="profile_name results"><a class="profile_name" href="{% url 'profile_with_pk' pk=result.pk %}">{{ result.first_name }}&nbsp{{ result.last_name }}</a></p>
             {% else %}
                 
-                 <p class="profile_name results"><a class="profile_name" href="{% url 'signup' %}">{{ expert.first_name }}&nbsp{{ expert.last_name }}</a></p>  
+                 <p class="profile_name results"><a class="profile_name" href="{% url 'signup' %}">{{ result.first_name }}&nbsp{{ result.last_name }}</a></p>  
              {% endif %}
             <p class="profile_text results">{{result.position}}</p>
 <!--            <p class="profile_text">Skills:&nbsp{{user.skills.all|join:", "}}</p>-->
