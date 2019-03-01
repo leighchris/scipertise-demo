@@ -18,8 +18,7 @@ from twilio.jwt.access_token.grants import (
     ChatGrant
 )
 
-def get_client():
-    return Client(settings.TWILIO_ACCT_SID, settings.TWILIO_AUTH_TOKEN)
+from chatapp.utils import get_client
 
 @login_required
 def create_channel(request, to_user_id):
@@ -32,12 +31,14 @@ def create_channel(request, to_user_id):
         )
         channel.users.add(request.user)
         channel.users.add(to_user)
+        client = get_client()
+        service = client.chat.services(settings.TWILIO_CHAT_SID)
+        twilio_channel = service.channels.create(channel.channel_name)
         
-        twilio_channel = get_client().chat.services(settings.TWILIO_CHAT_SID).channels.create(channel.channel_name)
-        import pdb; pdb.set_trace()
         channel.twilio_chat_id = twilio_channel.sid
-        #add request.user to channel
-        #add to_user_id to channel via twilio api
+        
+        twilio_channel.members.create(identity=request.user.get_twilio_user_id())
+        twilio_channel.members.create(identity=to_user.get_twilio_user_id())
         channel.save()
         
     return HttpResponseRedirect(reverse('twilio', kwargs={'pk': channel.pk}))
@@ -50,14 +51,9 @@ def app(request, pk):
 
 @login_required
 def token(request):
-    if not request.user.twilio_user_id:
-        user = get_client().chat.services(settings.TWILIO_CHAT_SID) \
-                  .users \
-                  .create(identity=request.user.username)
-        # import pdb; pdb.set_trace() <-- learn me
-        request.user.twilio_user_id = user.sid
-        request.user.save()
-    return generateToken(request.user.username)
+    identity = request.user.get_twilio_user_id() #called to verify they have a twilio user account, they should on channel create already
+        
+    return generateToken(identity)
 
 def generateToken(identity):
     # Get credentials from environment variables

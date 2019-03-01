@@ -251,19 +251,18 @@ TWILIO_AUTH_TOKEN = '3d12ae7e0d53d5478c8b120f902150a8'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.sendgrid.com'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+#EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+#EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 
-<<<<<<< Updated upstream
+
+EMAIL_HOST_USER = 'scipertise'
+EMAIL_HOST_PASSWORD = 'speedupscience2017'
+
 #
 #
-#SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
-=======
+SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
 
-
-# SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
->>>>>>> Stashed changes
 #SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
 

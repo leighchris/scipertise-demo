@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, UserManager
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
-
+from django.conf import settings
+from chatapp.utils import get_client
 
 # Create your models here.
 
@@ -39,7 +40,24 @@ class CustomUser(AbstractUser):
     profile_under_review = models.BooleanField(blank=True, default=False)
     profile_approved = models.BooleanField(blank=True, default=False)
     twilio_user_id = models.CharField(max_length=50, null=True)
+    
+    def get_chat_url(self):
+        # {% for user in users %}
+        # <a href='{% url "twilio-create-channel" to_user_id=user.id}'
+        # <a href='{{user.get_chat_url}}'>Chat with {{user.username}}</a>
+        # {$ endfor %}
+        return reverse('twilio-create-channel', kwargs={'to_user_id': self.pk})
 
+    def get_twilio_user_id(self):
+        if not self.twilio_user_id:
+            user = get_client().chat.services(settings.TWILIO_CHAT_SID) \
+                      .users \
+                      .create(identity=self.username)
+            
+            # import pdb; pdb.set_trace() <-- learn me
+            self.twilio_user_id = user.sid
+            self.save()
+        return self.username
 #class TaggedSkill(TaggedItemBase):
 #    content_object = models.ForeignKey('Skill', on_delete=models.DO_NOTHING)  
 #    

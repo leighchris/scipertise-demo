@@ -48,8 +48,8 @@ $(function() {
   }, function(data) {
     // Alert the user they have been assigned a random username
     username = data.identity;
-    print('You have been assigned a random username of: '
-    + '<span class="me">' + username + '</span>', true);
+//    print('You have been assigned a random username of: '
+//    + '<span class="me">' + username + '</span>', true);
 
     // Initialize the Chat client
     Twilio.Chat.Client.create(data.token).then(client => {
@@ -62,12 +62,21 @@ $(function() {
     // Get the general chat channel, which is where all the messages are
     // sent in this simple application
     print('Attempting to join '+channelName+' chat channel...');
-      debugger
+      
     chatClient.getChannelBySid(channelSid)
     .then(function(channel) {
       generalChannel = channel;
       console.log('Found general channel:');
       console.log(generalChannel);
+      channel.getMessages().then(function(messages) {
+          debugger
+          const totalMessages = messages.items.length;
+          for (i = 0; i < totalMessages; i++) {
+            const message = messages.items[i];
+            printMessage(message.author, message.body)
+          }
+          console.log('Total Messages:' + totalMessages);
+        });
       setupChannel();
     }).catch(function() {
       // If it doesn't exist, let's create it
