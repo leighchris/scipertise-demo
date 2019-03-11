@@ -25,9 +25,11 @@
      {{ field.errors }}
       {{ field.label_tag }}
       {% render_field field class="form-control" %}
+<!--
       {% if field.help_text %}
     <small class="form-text text-muted">{{ field.help_text |safe }}</small>
       {% endif %}
+-->
     {% endfor %}
     </div>
   <button type="submit" class="availability_button">Sign Up</button>
