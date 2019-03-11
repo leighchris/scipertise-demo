@@ -71,7 +71,7 @@ class RequestExpertForm(forms.ModelForm):
         model = HelpRequest
         fields =('help_needed',)
         labels = {
-            'help_needed': 'Technique, skill or area of expertise you would like help with'
+            'help_needed': 'Please provide a brief description of what you need help with or would like to learn below.'
         }
         widgets = {
             'help_needed': forms.Textarea(attrs={'class': 'form-control'}),

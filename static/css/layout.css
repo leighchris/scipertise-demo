@@ -70,16 +70,16 @@ form.password_text {
 /** Navbar **/
 
 a.nav-item.nav-link {
-    font-size: 10pt;
+    font-size: 11pt;
     font-family: 'Lato', sans-serif;
     padding-top: 8px;
-    margin:8px;
+    margin:5px;
 }
 
 input.form-control.mr-sm-2 {
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
-    font-size: 11pt;
+    font-size: 10pt;
 
 }
 
@@ -104,13 +104,14 @@ button#call_to_action.btn.btn-primary:hover {
 }
 
 button#search.btn.btn-primary.my-2.my-sm-0 {
-    padding: 6px 10px 6px 10px;
+    padding: 8px 10px 8px 10px;
     margin-right: 10px;
     background-color: transparent;
     border: 1px solid #363095;
     color: #363095;
     border-radius: 20px;
     font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
    
 
 }
@@ -203,6 +204,7 @@ img.logo {
 
 h1.value_prop {
     padding-top: 30px;
+    padding-bottom: 10px;
     color: white;
     font-size: 30pt;
     font-family: 'Montserrat', sans-serif;
@@ -211,15 +213,15 @@ h1.value_prop {
 }
 
 p.vision_blurb {
-    padding: 20px 0px 20px 0px;
+    padding: 20px;
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 12pt;
+    font-size: 14pt;
 }
 
 p.advice_blurb {
     color:white;
-    font-size: 12pt;
+    font-size: 14pt;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -299,7 +301,9 @@ div#form.container {
 
 div#call_to_action.container {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    
   
 }
 /*
@@ -1234,7 +1238,7 @@ div.container.booking_list {
 div#booking_form_text.container {
    
     
-    text-align: center;
+    text-align: left;
     padding: 30px 10px 0px 10px; 
 }
 
@@ -1275,7 +1279,7 @@ div#booking_form.container {
 
 div.form-group.booking_form {
   
-    padding: 20px 50px 20px 50px;
+    padding: 20px 40px 20px 40px;
     font-size: 12pt;
     font-family: 'Open Sans', sans-serif;
   
@@ -1637,8 +1641,162 @@ img.logo {
     }
     }
     
+    
 
+    
+@media screen and (max-width: 800px) {  
+    button#call_to_action.btn.btn-primary {
+        width: 100%;
+    }
+    
+@media screen and (max-width: 800px) {  
+    div#search_hit.container {
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+        
+/*
+    white-space: nowrap;
+    overflow: hidden;
+   
+    border-left:1em solid transparent;
+    border-right:1em solid transparent;
+    text-overflow: ellipsis;
+*/
+        
+        word-wrap:break-word;
+    
+    
+}
+    
+ @media screen and (max-width: 800px) {     
+.request_expert {
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    
+}
+     
+@media screen and (max-width: 800px) {     
+h4.bio_title {
+    text-align: center;
+    }
+    
+@media screen and (max-width: 800px) {   
+    div#profile_content.container {
 
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    word-wrap:break-word;
+  
+   
+}
+@media screen and (max-width: 800px) {   
+    div#expert.container {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    word-wrap:break-word;
+    padding: 10px;
+        text-align: center;
+
+}
+    
+@media screen and (max-width: 800px) {   
+    div#availability.container {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    word-wrap:break-word;
+    padding: 10px;
+           text-align: center;
+
+}
+@media screen and (max-width: 800px) {        
+ div#profile_container.container-fluid {
+
+   
+    padding:0px;
+    background-color:white;
+  
+/*    background-image: linear-gradient(to bottom, #363095, #a0def8);*/
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    min-height: 100%;
+        text-align: center;
+     border-top: solid 1px #e9e9ed;
+ 
+}
+  @media screen and (max-width: 800px) {    
+    div.form-group.booking_form {
+  
+    padding: 10px;
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;
+  
+   
+}
+      
+   @media screen and (max-width: 800px) {      
+   div#booking_form.container {
+    border-top: solid 1px #e9e9ed;
+/*
+    background-color: white;
+    width: 60%;
+    padding:10px 40px;
+    overflow-y: scroll;
+    margin: 40px auto;
+    border-radius: 5px;
+*/
+
+   
+  
+}   
+      
+      
+      
+   @media screen and (max-width: 800px) {        
+      div#booking_form_text.container {
+   
+    
+    text-align: left;
+    padding: 10px 5px 0px 5px; 
+}
+       
+       
+  @media screen and (max-width: 800px) {       
+p.vision_blurb {
+    padding: 10px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14pt;
+}
+ @media screen and (max-width: 800px) { 
+p.advice_blurb {
+    color:white;
+    font-size: 14pt;
+    font-family: 'Open Sans', sans-serif;
+}
+       
+       
 
     
     

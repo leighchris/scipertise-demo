@@ -11,7 +11,7 @@
                 <div class="container" id="vision">
                 <div class ="container" id="vision_text">
                     <h1 class="value_prop">Find a scientist for live research help</h1>
-                    <p class="vision_blurb">Find a scientist who has the right expertise and get live research advice tailored to you.<br>Sign up for Scipertise and do better research, faster.</p>
+                    <p class="vision_blurb">Find a scientist who has the right expertise and get live research advice tailored to you.</p>
                     <p class="advice_blurb">Get insights on: <br> experimental models  |  software  |  lab techniques  |  equipment  |   data analysis</p>
                 </div>
 
@@ -20,11 +20,15 @@
                 <div class = "container" id="call_to_action">
                     <form>
                         {% if user.is_authenticated %}
+                        <div class="container">
                         <a href="{% url 'browse' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
                         <a href="{% url 'edit_profile' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Become an Expert</button></a>
+                            </div>
                         {% else %}
+                         <div class="container">
                         <a href="{% url 'browse' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Find Expertise</button></a>
                         <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Become an Expert</button></a>
+                               </div>
                         {% endif %}
                      
                     </form>
@@ -75,7 +79,7 @@
                
         <div class="container-fluid" id ="third_section_row">
             <div class="container" id="section3_signup" > 
-                <h2 class="section3_text">Scipertise is a marketplace for on-demand scientific expertise. Join the movement and unlock your research potential.</h2>
+                <h2 class="section3_text">Scipertise is a marketplace for on-demand scientific expertise. Join the movement and do better research, faster.</h2>
             <a href="{% url 'signup' %}"><button type="button" class="btn btn-primary" id ="call_to_action">Sign up for beta access</button></a>
            
             </div>

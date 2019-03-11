@@ -55,10 +55,11 @@
 <div class ="site-container">
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <a class="navbar-left logo" href="{% url 'home' %}"><img class="logo" src="/static/css/brand.jpg"></a>
-       <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-        </button> -->
+        </button> 
           <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+               
             <div class="navbar-nav">
                  <!-- <a class="nav-item nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a> -->
               
@@ -69,13 +70,14 @@
                   <button class="btn btn-primary my-2 my-sm-0" id = "search" name="submit" type="submit" value ="Search">Search</button>
                 </form>
                 
-                <a class="nav-item nav-link" href="{% url 'browse' %}">FIND EXPERTISE</a>
+                <a class="nav-item nav-link" href="{% url 'browse' %}">Browse</a>
+                <a class="nav-item nav-link" href="{% url 'booking:request_expert' %}">Request Help</a>
 <!--
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    FIND EXPERTISE
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    BROWSE EXPERTS
+  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{% url 'browse' %}">Browse Researchers</a>
                     <a class="dropdown-item" href="{% url 'booking:request_expert' %}">Request Expertise</a>
                     <a class="dropdown-item" href="{% url 'booking:tutorial_list' %}">Find a Tutorial</a>
@@ -84,14 +86,15 @@
 -->
                 
                 
-                <a class="nav-item nav-link" href="{% url 'booking:tutorial_list' %}">TUTORIALS</a>
+                <a class="nav-item nav-link" href="{% url 'booking:tutorial_list' %}">Tutorials</a>
                 <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
-                  <a class="nav-item nav-link" href="{% url 'profile' %}">MY PROFILE</a>
-                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}"> MY SCHEDULE</a>
-                  <a class ="nav-item nav-link" href="{% url 'logout' %}">LOGOUT</a>
+                  <a class="nav-item nav-link" href="{% url 'profile' %}">My Profile</a>
+                  <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}"> My Schedule</a>
+                  <a class ="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                 
             {% else %}
-                 <a class="nav-item nav-link" href="{% url 'browse' %}">FIND EXPERTISE</a>
+                 <a class="nav-item nav-link" href="{% url 'browse' %}">Browse</a>
+                 <a class="nav-item nav-link" href="{% url 'booking:request_expert' %}">Request Help</a>
                 
 <!--
                         <div class="dropdown">
@@ -108,13 +111,13 @@
             
                 
                   <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
-                  <a class ="nav-item nav-link" id="login" href="{% url 'login' %}">LOGIN</a>
+                  <a class ="nav-item nav-link" id="login" href="{% url 'login' %}">Login</a>
 <!--
                 <form class="form-inline my-2 my-lg-0">
                     <a  href="{% url 'signup' %}"><button class="btn btn-primary" type="button">Sign Up</button></a>
                   </form>
 -->
-                <a class ="nav-item nav-link" href="{% url 'signup' %}">SIGN UP</a>
+                <a class ="nav-item nav-link" href="{% url 'signup' %}">Sign Up</a>
                 {% endif %}
                 
             </div>
