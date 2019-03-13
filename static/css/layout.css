@@ -1503,7 +1503,7 @@ a#first_link {
      }
 @media screen and (max-width: 1000px) {
    .profile_image {
-    display: none;
+/*    display: none;*/
     
         
     }
@@ -1699,9 +1699,18 @@ h4.bio_title {
     width: 100%;
     margin: 0 auto;
     word-wrap:break-word;
+    text-align: left;
   
    
 }
+    
+@media screen and (max-width: 800px) {   
+    h4.bio_title {
+        text-align: left;
+        
+    }
+    
+    
 @media screen and (max-width: 800px) {   
     div#expert.container {
     background-color: white;
@@ -1712,7 +1721,7 @@ h4.bio_title {
     margin: 0 auto;
     word-wrap:break-word;
     padding: 10px;
-        text-align: center;
+    text-align: center;
 
 }
     
@@ -1726,7 +1735,7 @@ h4.bio_title {
     margin: 0 auto;
     word-wrap:break-word;
     padding: 10px;
-           text-align: center;
+    text-align: center;
 
 }
 @media screen and (max-width: 800px) {        
@@ -1741,7 +1750,7 @@ h4.bio_title {
     flex-direction: column;
     overflow-y: scroll;
     min-height: 100%;
-        text-align: center;
+       
      border-top: solid 1px #e9e9ed;
  
 }
