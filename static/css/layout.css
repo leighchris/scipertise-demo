@@ -1732,6 +1732,8 @@ h4.bio_title {
     font-family: 'Open Sans', sans-serif;
     padding: 0px;
     justify-content: center;
+    align-content: center;
+    align-items: center;
 
   
 }
