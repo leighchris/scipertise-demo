@@ -1724,6 +1724,17 @@ h4.bio_title {
     text-align: center;
 
 }
+ @media screen and (max-width: 800px) {     
+    div.container.skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: 'Open Sans', sans-serif;
+    padding: 0px;
+    justify-content: center;
+
+  
+}
     
 @media screen and (max-width: 800px) {   
     div#availability.container {
@@ -1778,7 +1789,13 @@ h4.bio_title {
 
    
   
-}   
+} 
+
+@media screen and (max-width: 800px) {         
+div.browse_bio {
+    padding-top: 20px;
+    margin: 0 auto;
+}
       
       
       
