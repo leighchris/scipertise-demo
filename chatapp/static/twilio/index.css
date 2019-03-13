@@ -8,7 +8,7 @@ html, body {
   height:100%;
   width:100%;
   color:#dedede;
-  background-color: #849091;
+  background-color: #13acee;
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
@@ -30,8 +30,8 @@ header a:hover {
 }
 
 section {
-  height:70%;
-  background-color:#2B2B2A;
+  height:100%;
+  background-color:#13acee;
 }
 
 section input {
@@ -40,7 +40,7 @@ section input {
   width:800px;
   margin:10px auto;
   outline:none;
-  background-color:transparent;
+  background-color:#13acee;
   border:none;
   border-bottom:1px solid #2B2B2A;
   padding:0;
@@ -49,9 +49,9 @@ section input {
 }
 
 #messages {
-  background-color:#232323;
+  background-color:#363095;
   padding:10px;
-  height:100%;
+  height:70%;
   width:800px;
   margin:0 auto;
   overflow-y:auto;
@@ -88,3 +88,7 @@ section input {
   display:inline-block;
   margin-right:5px;
 }
+
+
+
+

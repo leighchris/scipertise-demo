@@ -51,7 +51,8 @@
           
                
             {% if user != request.user and user.is_authenticated %}
-                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>      
+                <a href="{% url 'booking:user_booking_new' pk=user.pk %}"><button type="submit" class="booking_button">Request to Book</button></a>  
+            <a href="{% url 'chatapp:twilio-create-channel' to_user_id=user.pk %}"><button type="submit" class="booking_button">Message {{user.first_name}}</button></a> 
      
             {% if user.gives_tutorials %}
                 <p>or <a class="join_group" href="#tutorial">Join a group session</a></p>

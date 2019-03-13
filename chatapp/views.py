@@ -41,7 +41,7 @@ def create_channel(request, to_user_id):
         twilio_channel.members.create(identity=to_user.get_twilio_user_id())
         channel.save()
         
-    return HttpResponseRedirect(reverse('twilio', kwargs={'pk': channel.pk}))
+    return HttpResponseRedirect(reverse('chatapp:twilio', kwargs={'pk': channel.pk}))
         
     
 @login_required

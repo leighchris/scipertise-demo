@@ -1,6 +1,7 @@
 from django.urls import path, re_path
 from . import views
 
+app_name = 'chatapp'
 
 urlpatterns = [
     path('<int:pk>', views.app, name='twilio'),

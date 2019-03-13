@@ -261,7 +261,7 @@ EMAIL_HOST_PASSWORD = 'speedupscience2017'
 
 #
 #
-SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
+#SECURE_SSL_REDIRECT = bool(int(os.environ.get('DJANGO_ENABLE_SSL', '1')))
 
 #SESSION_COOKIE_SECURE = True
 #CSRF_COOKIE_SECURE = True
