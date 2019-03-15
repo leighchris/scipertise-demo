@@ -94,22 +94,16 @@
                   <a class ="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                 
             {% else %}
-                 <a class="nav-item nav-link" href="{% url 'browse' %}">Browse</a>
-                 <a class="nav-item nav-link" href="{% url 'booking:request_expert' %}">Request Help</a>
-                
-<!--
-                        <div class="dropdown">
-                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    FIND EXPERTISE
-                  </button>
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="{% url 'browse' %}">Browse Researchers</a>
-                    <a class="dropdown-item" href="{% url 'booking:request_expert' %}">Request Expertise</a>
-                    <a class="dropdown-item" href="{% url 'booking:tutorial_list' %}">Find a Tutorial</a>
-                  </div>
+    <div class="dropdown show">
+        <a class="btn btn-primary dropdown-toggle" href="{% url 'browse' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Find Expertise
+      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'browse' %}">Browse Researchers</a>
+                        <a class="dropdown-item" href="{% url 'booking:request_expert' %}">Request Help</a>
+        </div>
                 </div>
--->
-            
+
                 
                   <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
                   <a class ="nav-item nav-link" id="login" href="{% url 'login' %}">Login</a>
