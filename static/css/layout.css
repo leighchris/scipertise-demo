@@ -1126,6 +1126,14 @@ h3.video_sessions {
     font-size: 14pt;
 }
 
+h2.video_sessions {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 18pt;
+    
+}
+
 h3.card-title {
     padding-left: 7px;
     font-size: 14pt;
