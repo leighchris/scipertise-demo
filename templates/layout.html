@@ -1,8 +1,10 @@
 {% load static %}
 {% load bootstrap4 %}       {# imports bootstrap3 #}
 {% bootstrap_css %}         {# Embeds Bootstrap CSS #}
+<!--
 {% bootstrap_javascript %}
 {% bootstrap_javascript jquery='full' %} {# Embeds Bootstrap JS #}
+-->
 {% block extrahead %} 
  {{ form.media }}          {# Embeds Extra Resources #}
 {% endblock %}              {# Ends Extra Resources #}
@@ -75,23 +77,19 @@
                   <button class="btn btn-primary my-2 my-sm-0" id = "search" name="submit" type="submit" value ="Search">Search</button>
                 </form>
                 
-                <a class="nav-item nav-link" href="{% url 'browse' %}">Browse</a>
-                <a class="nav-item nav-link" href="{% url 'booking:request_expert' %}">Request Help</a>
-<!--
     <div class="dropdown show">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    BROWSE EXPERTS
+    <a class="btn btn-primary dropdown-toggle" href="{% url 'browse' %}" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Find Expertise
   </a>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="{% url 'browse' %}">Browse Researchers</a>
-                    <a class="dropdown-item" href="{% url 'booking:request_expert' %}">Request Expertise</a>
+                    <a class="dropdown-item" href="{% url 'booking:request_expert' %}">Request Help</a>
                     <a class="dropdown-item" href="{% url 'booking:tutorial_list' %}">Find a Tutorial</a>
                   </div>
                 </div>
--->
                 
                 
-                <a class="nav-item nav-link" href="{% url 'booking:tutorial_list' %}">Tutorials</a>
+<!--                <a class="nav-item nav-link" href="{% url 'booking:tutorial_list' %}">Tutorials</a>-->
                 <a class="nav-item nav-link" href="{% url 'faq' %}">FAQ</a>
                   <a class="nav-item nav-link" href="{% url 'profile' %}">My Profile</a>
                   <a class="nav-item nav-link" href="{% url 'booking:booking_list' %}"> My Schedule</a>

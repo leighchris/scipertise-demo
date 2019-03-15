@@ -14,8 +14,17 @@ p {
     color:#3a405a;
 }
 
-.btn-primary {
-    margin: 10px 0px;
+a#dropdownMenuLink.btn.btn-primary.dropdown-toggle {
+    margin: 10px 0px 10px 10px;
+    background-color: #36F1CD;
+    border: none;
+     font-size: 11pt;
+    font-family: 'Lato', sans-serif;
+}
+
+.dropdown-item {
+     font-size: 11pt;
+    font-family: 'Lato', sans-serif;
 }
 
 
@@ -73,7 +82,7 @@ a.nav-item.nav-link {
     font-size: 11pt;
     font-family: 'Lato', sans-serif;
     padding-top: 8px;
-    margin:5px;
+    margin:8px;
 }
 
 input.form-control.mr-sm-2 {
